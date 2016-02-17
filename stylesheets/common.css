@@ -1,42 +1,30 @@
 
-@charset "utf-8";
+body { color: #666; background: #fff; font: 400 14px/1.5 "Helvetica Neue",Helvetica,Arial,"WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif; -webkit-user-select: inherit; }
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { margin:0; padding:0; }
 
-html{ height:100%; background: #fff; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing:antialiased; }
-body{ background-color:#fff; min-height:100%; height:auto !important; height:100%; font:12px/1.5 \5fae\8f6f\96c5\9ed1,tahoma,Hiragino Sans GB,arial,\5b8b\4f53,sans-serif; color:#333; min-width: 1000px; }
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; }
 
-:focus{ outline:0; }
-body, h1, h2, h3, h4, h5, h6, hr, p,  dl, dt, dd, ul, ol, li, pre,
-form, fieldset, legend,input,label,figure{ margin:0; padding:0; }
-article, aside, dialog, figure, footer, header, hgroup, nav, section{ display: block; }
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight:500; }
-em,i,s{ font-style:normal; }
-li{ list-style: none; }
-a { color:#0F3F94; text-decoration:none; }
-a:hover { text-decoration:none; }
-img{ border:0; vertical-align:middle; }  
-fieldset{ border: 0; }
-button,input,select,textarea{ font:12px/1.5 Microsoft YaHei,tahoma,arial,\5b8b\4f53; }
-input,select,textarea{ font-size:100%; }
-table{ border-collapse:collapse; border-spacing:0; }
-.l { float:left; }
-.r { float:right; }
-.ft-left{ text-align:left; }
-.ft-right{ text-align:right; }
-.ft-center{ text-align:center; }
-.clearfix { zoom:1; }
-.clearfix:after { content:''; clear:both; display:block; height:0; visibility:hidden; }
-.inline-block{ display:inline-block; *display:inline; zoom:1; }
-.fn-pr{ position:relative; }
-.fn-pa{ position:absolute; }
-/**/
-.header-area { padding-top: 20px; background: #fff; }
-.title-area { margin: 0 auto; padding-top: 15px; width: 250px; height: 120px; position: relative; }
-.title-area h1 { font-size: 54px; margin: 0; line-height: 60px; }
-.title-area h1 a { color: #7CAE23; }
-.title-area .description { margin: 0; color: #999; font-size: 12px; }
-.title-area img { height: 120px; position: absolute; right: 28px; top: -4px; }
-.nav-area { position: fixed;z-index: 999;width: 100%;left: 0;top: 0;font-size: 16px; height: 60px; color: #888; margin-bottom: 15px; background: #FBFFD7; border-top: 4px solid #9ACD4B; text-align: center; border-bottom: 1px solid #FFF0B5; }
-.main-nav { list-style-position: inside; line-height: 40px; margin: 12px auto 0; padding: 0; }
+/* 要注意表单元素并不继承父级 font 的问题 */
+input,select,textarea { font-size:100%; }
+/* 去掉列表前的标识, li 会继承 */
+ol,ul ,li{ list-style:none; }
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:500; }
+
+/* 正常链接 未访问 */
+a{ text-decoration: none}
+a,a:link { color: #00a5e0; }
+
+/* 鼠标悬停 */
+a:hover { color:#3073ab; text-decoration: underline; }
+
+a:hover { text-decoration: underline; }
+input, button, textarea, select { font-family: inherit; font-size: inherit; font-weight: inherit; border: none; background: none; -webkit-appearance: none; outline: none; }
 @media (min-width: 1200px){
 	.container {width: 1100px;margin: auto;}
 }
@@ -44,40 +32,32 @@ table{ border-collapse:collapse; border-spacing:0; }
 	.container {width: 1400px;margin: auto;}
 }
 
+.head-area { overflow: hidden;  }
+.head-area-on{position: fixed;top: 0;background-color: #000;width: 100%;z-index: 999;}
+.head-content {  line-height: 50px; }
+.head-area a{color:#fff}
+.bg-head{background-color: #111111;}
+.title-area { position: absolute; }
+.title-area h1 a { font-weight: 300; font-size: 30px; }
+.nav-area { font-size: 16px; height: 50px; color: #888; text-align: center; overflow: hidden; }
+.main-nav { list-style-position: inside; margin: auto 0; padding: 0; float: right; font-size: 16px; }
+.main-nav li { margin: 0 18px; display: inline-block; }
+.main-nav li a { display: block; }
+.main-nav li.active a{color: red;}
+.main-area { /*max-width: 1140px; margin: auto; position: relative; */}
+.side-area { position: fixed;top: 50px;float: left;width: 150px;max-height: 500px;padding-bottom: 50px;overflow: auto;font-size: 16px;font-weight: bold;line-height: 1.5; }
 
-.main-nav li { margin: 0 18px; display: inline-block; *display: inline; *zoom: 1; font-weight: bold; }
-
-.main-nav a { color: #668430; }
-
-.main-nav a:hover { opacity: 0.8; }
-
-/*.main-area { width: 1140px; margin: 30px auto 0;position: relative; }*/
-
-
-.side-area { position: fixed;top: 80px;float: left;width: 300px;max-height: 500px;padding-bottom: 50px;overflow: auto;font-size: 16px;font-weight: bold;line-height: 1.5; }
-/*.side-area-on{position: fixed;top: 10px;}*/
-.side-area a { font-size: 14px; display: block; padding: 8px 15px; border: 1px solid #ddd; border-bottom: none; position: relative; text-shadow: 0 1px 2px #eee; color: #7CAE23; }
-.side-area .side-highlight a { background: #FBFFD7; text-shadow: none; font-weight: bold; transition: background-color 0.8s ease-out; }
-.side-area a .iconfont { color: #aaa; position: absolute; right: 12px; top: 11px; font-size: 12px; line-height: 14px; }
+.content-area { padding: 0 15px 20px;  margin: 20px 0 20px 260px; }
 .side-area a:hover { background: #f8f8f8; text-decoration: none; }
-.content-area { margin-top: 80px;background: #fff; border: 1px solid #ddd; padding: 0 29px 20px; margin-left: 350px;  }
+.side-area a { font-size: 14px; display: block; padding: 8px 15px; position: relative; text-shadow: 0 1px 2px #eee; color: #00a5e0; }
+.frozen-module { border-bottom: 1px solid #eee; padding: 10; margin-top: 20px; margin-bottom: 50px; }
+.content-area h2 { font-size: 20px; line-height: 30px; color: #00a5e0; margin: 20px 0; }
+.frozen-module-title { margin: 0; font-size: 28px; font-family: Trebuchet MS; display: inline; }
+.frozen-module-title a { color: #00a5e0; cursor: pointer; }
+.frozen-module-demo { position: relative; }
+h3.frozen-module-subtitle { margin: 0; color: #333; display: block; padding: 10px 0; }
+.frozen-module-dom { margin-bottom: 8px; font-size: 14px; }
+.frozen-module-code{ position: relative;background-color: #F8F8F9; border: 1px solid #eee; border-radius: 2px; font-size: 13px; line-height: 19px; margin: 7px 0; overflow: auto; padding: 6px 10px; white-space: pre; -webkit-box-shadow: -5px 0 0 #e2e2e2; box-shadow: -5px 0 0 #e2e2e2; }
 
-.alice-module { border-bottom: 1px solid #eee; padding: 0; margin-top: 20px; margin-bottom: 50px; font: 12px/1.5 tahoma,arial,Hiragino Sans GB,"Microsoft Yahei",\5b8b\4f53; }
-.alice-module-head { overflow: hidden; }
-.alice-module-title { margin: 0; font-size: 28px; font-family: Trebuchet MS; display: inline; }
-.content-area h2 { font-size: 22px; color: #7CAE23; margin-top: 40px; }
-.alice-module-title a { color: #7CAE23; cursor: pointer; }
-.alice-module-version { font-size: 12px; font-weight: normal; margin-left: 0.5em; color: #888; font-family: Menlo,Monaco,"Courier New",monospace; }
-p.alice-module-description { font-size: 14px; color: #888; margin: 10px 0 20px; }
-.alice-module-demo { border: 1px solid #eee; border-bottom: none; padding: 20px 10px 20px 20px;background-color: #F0F0F0  }
-.animate{width: 1140px;margin-left: auto;margin-right: auto;margin-top: 30px}
-.animate .content-area{float: none;width: 100%;}
-.content-area h1 {font-size: 28px;text-align: center;margin: 30px 0;}
-.content-area h1:before, .content-area h1:after {content: '—';color: #eee;margin: 1.5em;}
-.content-area h1:before, .content-area h1:after {content: '—';color: #eee;margin: 1.5em;}
-.content-area h2 {font-size: 22px;color: #7CAE23;margin-top: 40px;}
-.content > p {margin: 20px 0;}
-.content > p > img {max-width: 100%;border-radius: 8px;}
-
-
-
+.frozen-module-code  code { background-color: transparent; color: #5D6A6A; margin: auto; padding: 0; }
+.frozen-module-code a{font-size: 16px;margin-top:10px;margin-right: 160px}
