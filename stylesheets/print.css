@@ -1,228 +1,83 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  border: 0;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-}
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #000;
-}
 
-a {
-  font-weight: bold;
-  color: #d5000d;
-}
+@charset "utf-8";
 
-header {
-  padding-top: 35px;
-  padding-bottom: 10px;
-}
+html{ height:100%; background: #fff; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing:antialiased; }
+body{ background-color:#fff; min-height:100%; height:auto !important; height:100%; font:12px/1.5 \5fae\8f6f\96c5\9ed1,tahoma,Hiragino Sans GB,arial,\5b8b\4f53,sans-serif; color:#333; min-width: 1000px; }
 
-header h1 {
-  font-size: 48px;
-  font-weight: bold;
-  line-height: 1.2;
-  color: #303030;
-  letter-spacing: -1px;
+:focus{ outline:0; }
+body, h1, h2, h3, h4, h5, h6, hr, p,  dl, dt, dd, ul, ol, li, pre,
+form, fieldset, legend,input,label,figure{ margin:0; padding:0; }
+article, aside, dialog, figure, footer, header, hgroup, nav, section{ display: block; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight:500; }
+em,i,s{ font-style:normal; }
+li{ list-style: none; }
+a { color:#0F3F94; text-decoration:none; }
+a:hover { text-decoration:none; }
+img{ border:0; vertical-align:middle; }  
+fieldset{ border: 0; }
+button,input,select,textarea{ font:12px/1.5 Microsoft YaHei,tahoma,arial,\5b8b\4f53; }
+input,select,textarea{ font-size:100%; }
+table{ border-collapse:collapse; border-spacing:0; }
+.l { float:left; }
+.r { float:right; }
+.ft-left{ text-align:left; }
+.ft-right{ text-align:right; }
+.ft-center{ text-align:center; }
+.clearfix { zoom:1; }
+.clearfix:after { content:''; clear:both; display:block; height:0; visibility:hidden; }
+.inline-block{ display:inline-block; *display:inline; zoom:1; }
+.fn-pr{ position:relative; }
+.fn-pa{ position:absolute; }
+/**/
+.header-area { padding-top: 20px; background: #fff; }
+.title-area { margin: 0 auto; padding-top: 15px; width: 250px; height: 120px; position: relative; }
+.title-area h1 { font-size: 54px; margin: 0; line-height: 60px; }
+.title-area h1 a { color: #7CAE23; }
+.title-area .description { margin: 0; color: #999; font-size: 12px; }
+.title-area img { height: 120px; position: absolute; right: 28px; top: -4px; }
+.nav-area { position: fixed;z-index: 999;width: 100%;left: 0;top: 0;font-size: 16px; height: 60px; color: #888; margin-bottom: 15px; background: #FBFFD7; border-top: 4px solid #9ACD4B; text-align: center; border-bottom: 1px solid #FFF0B5; }
+.main-nav { list-style-position: inside; line-height: 40px; margin: 12px auto 0; padding: 0; }
+@media (min-width: 1200px){
+	.container {width: 1100px;margin: auto;}
 }
-
-header h2 {
-  font-size: 24px;
-  font-weight: normal;
-  line-height: 1.3;
-  color: #aaa;
-  letter-spacing: -1px;
-}
-#downloads {
-  display: none;
-}
-#main_content {
-  padding-top: 20px;
-}
-
-code, pre {
-  margin-bottom: 30px;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
-  font-size: 12px;
-  color: #222;
-}
-
-code {
-  padding: 0 3px;
-}
-
-pre {
-  padding: 20px;
-  overflow: auto;
-  border: solid 1px #ddd;
-}
-pre code {
-  padding: 0;
-}
-
-ul, ol, dl {
-  margin-bottom: 20px;
+@media (min-width: 1400px){
+	.container {width: 1400px;margin: auto;}
 }
 
 
-/* COMMON STYLES */
+.main-nav li { margin: 0 18px; display: inline-block; *display: inline; *zoom: 1; font-weight: bold; }
 
-table {
-  width: 100%;
-  border: 1px solid #ebebeb;
-}
+.main-nav a { color: #668430; }
 
-th {
-  font-weight: 500;
-}
+.main-nav a:hover { opacity: 0.8; }
 
-td {
-  font-weight: 300;
-  text-align: center;
-  border: 1px solid #ebebeb;
-}
-
-form {
-  padding: 20px;
-  background: #f2f2f2;
-
-}
+/*.main-area { width: 1140px; margin: 30px auto 0;position: relative; }*/
 
 
-/* GENERAL ELEMENT TYPE STYLES */
+.side-area { position: fixed;top: 80px;float: left;width: 300px;max-height: 500px;padding-bottom: 50px;overflow: auto;font-size: 16px;font-weight: bold;line-height: 1.5; }
+/*.side-area-on{position: fixed;top: 10px;}*/
+.side-area a { font-size: 14px; display: block; padding: 8px 15px; border: 1px solid #ddd; border-bottom: none; position: relative; text-shadow: 0 1px 2px #eee; color: #7CAE23; }
+.side-area .side-highlight a { background: #FBFFD7; text-shadow: none; font-weight: bold; transition: background-color 0.8s ease-out; }
+.side-area a .iconfont { color: #aaa; position: absolute; right: 12px; top: 11px; font-size: 12px; line-height: 14px; }
+.side-area a:hover { background: #f8f8f8; text-decoration: none; }
+.content-area { margin-top: 80px;background: #fff; border: 1px solid #ddd; padding: 0 29px 20px; margin-left: 350px;  }
 
-h1 {
-  font-size: 2.8em;
-}
+.alice-module { border-bottom: 1px solid #eee; padding: 0; margin-top: 20px; margin-bottom: 50px; font: 12px/1.5 tahoma,arial,Hiragino Sans GB,"Microsoft Yahei",\5b8b\4f53; }
+.alice-module-head { overflow: hidden; }
+.alice-module-title { margin: 0; font-size: 28px; font-family: Trebuchet MS; display: inline; }
+.content-area h2 { font-size: 22px; color: #7CAE23; margin-top: 40px; }
+.alice-module-title a { color: #7CAE23; cursor: pointer; }
+.alice-module-version { font-size: 12px; font-weight: normal; margin-left: 0.5em; color: #888; font-family: Menlo,Monaco,"Courier New",monospace; }
+p.alice-module-description { font-size: 14px; color: #888; margin: 10px 0 20px; }
+.alice-module-demo { border: 1px solid #eee; border-bottom: none; padding: 20px 10px 20px 20px;background-color: #F0F0F0  }
+.animate{width: 1140px;margin-left: auto;margin-right: auto;margin-top: 30px}
+.animate .content-area{float: none;width: 100%;}
+.content-area h1 {font-size: 28px;text-align: center;margin: 30px 0;}
+.content-area h1:before, .content-area h1:after {content: '—';color: #eee;margin: 1.5em;}
+.content-area h1:before, .content-area h1:after {content: '—';color: #eee;margin: 1.5em;}
+.content-area h2 {font-size: 22px;color: #7CAE23;margin-top: 40px;}
+.content > p {margin: 20px 0;}
+.content > p > img {max-width: 100%;border-radius: 8px;}
 
-h2 {
-  margin-bottom: 8px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #303030;
-}
 
-h3 {
-  margin-bottom: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #d5000d;
-}
 
-h4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #303030;
-}
-
-h5 {
-  font-size: 1em;
-  color: #303030;
-}
-
-h6 {
-  font-size: .8em;
-  color: #303030;
-}
-
-p {
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-
-a {
-  text-decoration: none;
-}
-
-p a {
-  font-weight: 400;
-}
-
-blockquote {
-  padding: 0 0 0 30px;
-  margin-bottom: 20px;
-  font-size: 1.6em;
-  border-left: 10px solid #e9e9e9;
-}
-
-ul li {
-  padding-left: 20px;
-  list-style-position: inside;
-  list-style: disc;
-}
-
-ol li {
-  padding-left: 3px;
-  list-style-position: inside;
-  list-style: decimal;
-}
-
-dl dd {
-  font-style: italic;
-  font-weight: 100;
-}
-
-footer {
-  padding-top: 20px;
-  padding-bottom: 30px;
-  margin-top: 40px;
-  font-size: 13px;
-  color: #aaa;
-}
-
-footer a {
-  color: #666;
-}
-
-/* MISC */
-.clearfix:after {
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-  content: '.';
-}
-
-.clearfix {display: inline-block;}
-* html .clearfix {height: 1%;}
-.clearfix {display: block;}
