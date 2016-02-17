@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="zmm"></div>
+<script type="text/javascript">
+  
+
+
+	 //小于10的数字前加0
+    function preZero(num){
+	   num = parseInt(num);
+		if(num<10){
+			return '0'+num;
+		}
+		else{
+			return num;
+		}
+    };
+    var time = new Date();
+       dyear = time.getFullYear(),
+       dmonth = preZero(time.getMonth()+1),
+       ddate = time.getDate();
+
+
+   var  zmm = document.getElementById("zmm");
+       zmm.innerHTML = dyear+"-"+dmonth+"-"+ddate;
+       console.log(typeof dmonth);
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>整屏翻页</title>
+<link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/reset.css" />
+<link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/head/head.css" />
+<style type="text/css">
+.loading{position: absolute; width: 100%; height: 100%; background-color: #ff3131; left: 0; top: 0; z-index:1;}
+.loading .manshadow{position: absolute; width: 100px; height: 127px; left: 50%; top: 50%; margin: -110px 0 0 -50px;}
+.loading .manshadow .man{position: absolute; width: 100px; height: 114px; background: url(tx/images/loadicon.png) 0 0 no-repeat; background-size: 100px auto; left: 0; top: 0;}
+.loading .manshadow .shadow{position: absolute; width: 24px; height: 7px; background: url(tx/images/loadicon.png) -55px -120px no-repeat; background-size: 100px auto; left: 55px; top: 110px; opacity: .5}
+.loading .loadBar{position: relative; width: 240px; height: 4px; border:1px solid #fff; left: 50%; top: 50%; margin: 15px 0 0 -120px;}
+.loading .loadBar .curLoad{position: absolute; width: 0; height: 4px; background-color: #fff;}
+.loading .loadPer{position: absolute; width: 200px; font-size: 14px; text-align: center; left: 50%; top: 50%; margin: 40px 0 0 -100px;}
+
+</style>
+</head>
+<body>
+<div class="loading" id="loading">
+	<div class="loadBar">
+		<div class="curLoad" id="curLoad"></div>
+	</div>
+	<div class="loadPer" id="loadPer">0%</div>
+</div>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript" src="halo.14.05.js"></script>
+<script type="text/javascript">
+halo.use('loader',function(m){
+	var curLoad=document.getElementById('curLoad'),
+		loadPer=document.getElementById('loadPer'),
+		loading=document.getElementById('loading');
+	    m.loader(["tx/images/1-car.png","tx/images/1-man.png","tx/images/1-rmb.png"])
+		.loadend(function(){
+			loadPer.innerHTML=curLoad.style.width=this.percent;
+		})
+		.complete(function(){
+			console.log(this.percent);
+			alert("加载完成，可以愉快的开始浏览网页了")
+		});
+})
+</script>
+</body>
+</html>

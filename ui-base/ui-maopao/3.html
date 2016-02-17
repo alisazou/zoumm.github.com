@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>彩票节数字彩-倍投</title>
+	<style type="text/css">
+
+.jxlist { position:relative; width:270px; left:50%; margin-left:-150px; height:310px; top:0;}
+.jxlist li { position:absolute;height:40px;width: 90px;background-color: red;transform: scale(.6,.6);}
+.jxlist #jx1 {top:0; left:50%; margin:46px 0 0 -84px;}
+.jxlist #jx2 {top:50%; left:100%; margin:-74px 0 0 -128px;}
+.jxlist #jx3 {top:100%; left:50%; margin:-140px 0 0 -90px;}
+.jxlist #jx4 {top:50%; left:0; margin:-57px 0 0 -49px;}
+	</style>
+</head>
+<body>
+	<ul class="jxlist">
+		<li id="jx1"></li>
+		<li id="jx2"></li>
+
+		<li id="jx3"></li>
+		<li id="jx4"></li>
+	</ul>
+<button class="left">左</button>
+<button class="right">右</button>
+</body>
+<script type="text/javascript"src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript">
+	
+	//样式切换向左演示
+			
+				// function anmiLeft(){
+				// 	n++;
+				// 	if(n>4)n=1;
+				// 	$(".jxlist li").attr("class","go"+n);
+				// }
+		     $(function(){
+		     		n = 0
+			     	$(".right").on("tap",function(){
+							if($("button").hasClass("right")){
+								 n++;
+								 if(n>4)n=1;
+								 $(".jxlist li").attr("class","go"+n);
+							}else{
+								n--;
+								if(n<-4)n=-1;
+								 $(".jxlist li").attr("class","go"+n);
+							} 
+					})
+		     })
+			
+			// $(".right").on("tap",function(){
+   //                anmiLeft();
+			// })
+
+</script>
+</html>

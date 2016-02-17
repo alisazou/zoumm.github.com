@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>hello world</title>
+
+
+		<style>
+			#test2 {
+				color: #333;
+			}
+			body {
+				background-color: #fafafa;
+				font: 14px/1.5 "Microsoft YaHei", Helvetica, sans-serif;
+				color: #808080;
+				-webkit-text-size-adjust: 100%!important;
+			}
+			.cpm-mask {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 96;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+			.cpm-dialog {
+				position: relative;
+				z-index: 100;
+				width: auto;
+				min-width: 170px;
+				margin: 2px 20px;
+				background: #fff;
+				text-align: center;
+				border-radius: 5px;
+				color: #fff;
+			}
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-align: center;
+			}
+			.cpm-dialog-info .hd-t {
+				padding: 8px 0;
+				font-size: 18px;
+				color: #333;
+			}
+			.calendar .bd {
+				position: relative;
+				background: #fafafa;
+				border-top: 1px solid #ddd;
+				border-bottom: 1px solid #ddd;
+				color: #e0e0e0;
+				overflow: hidden;
+			}
+			.calendar .bd:before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 0;
+				bottom: 0;
+				z-index: 2;
+				width: 1px;
+				background: #ddd;
+				/* -webkit-transform: scaleX(0.5); */
+				
+				-webkit-transform-origin: 0 0;
+			}
+			.calendar .d-list-mod {
+				position: relative;
+				z-index: 3;
+				float: left;
+				width: 50%;
+				height: 200px;
+				font-size: 18px;
+				line-height: 40px;
+			}
+			#J-scroll-mod-M{
+				-webkit-transform:translate(0px,-1400px);
+				}
+			#J-scroll-mod-D{
+				-webkit-transform:translate(0px,-2760px);
+				}
+			.calendar .mask-label {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				left: 0;
+				right: 0;
+				height: 40px;
+				background: #fff;
+				margin-top: -20px;
+			}
+			.cpm-dialog .dialog-ft {
+				clear: both;
+				overflow: hidden;
+			}
+			.cpm-dialog .dialog-ft .btn-group {
+				padding: 10px 5px;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: box;
+			}
+			.cpm-dialog .dialog-ft .btn {
+				display: block;
+				width: 50%;
+				margin: 0 5px;
+				-webkit-box-sizing: border-box;
+				-ms-box-sizing: border-box;
+				box-sizing: border-box;
+				-webkit-box-flex: 1;
+				-ms-flex: 1;
+				box-flex: 1;
+			}
+			.cpm-dialog .btn {
+				text-decoration: none;
+				height: 40px;
+				padding: 8px 0;
+				border-width: 1px;
+				border-style: solid;
+				border-radius: 3px;
+				font-size: 16px;
+				line-height: 22px;
+				text-align: center;
+			}
+			.cpm-dialog .btn-cancel {
+				background: #fff;
+				border-color: #ddd;
+				color: #333;
+			}
+			.cpm-dialog .btn-confirm {
+				border-color: #bd2625;
+				color: #fff;
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e04241), color-stop(1, #e04241));
+			}
+			.calendar .d-list .active {
+				color: #dc5039;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="cpm-mask"></div>
+
+		<div class="cpm-dialog cpm-dialog-info">
+			<div class="dialog-bd">
+				<div class="">
+					<div class="calendar">
+						<h3 class="hd-t">选择生日</h3>
+						<div class="bd">
+							<div class="d-list-mod">
+								<ul class="d-list" id="J-scroll-mod-M">
+								</ul>
+							</div>
+							<div class="d-list-mod" >
+								<ul class="d-list" id="J-scroll-mod-D">
+								</ul>
+							</div>
+							<!-- 为当前选中的日期添加一层遮罩 -->
+							<b class="mask-label"></b>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="dialog-ft">
+				<!-- 这里是模块底部，默认是放按钮的 -->
+				<div class="btn-group">
+					<a href="javascript:void(0);" class="btn btn-cancel cpm-cancel">取消</a>
+					<a href="javascript:void(0);" class="btn btn-confirm">确定</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>-->
+	<script>
+		$(function() {
+
+			// =========== 变量声明 ============
+
+			/**
+			 * 变量声明
+			 * 获取month对象，和day对象
+			 */
+			var month = $("#J-scroll-mod-M"),
+				day = $("#J-scroll-mod-D"),
+				mCount = 36,
+				mIndex = 38,
+				dCount = 70,
+				dIndex = 72,
+				offset,
+				
+				arr31 = new Array(),
+				arr30 = new Array(),
+				arr29 = new Array(),
+                startY,moveY,endY;
+            //==========================滑动事件声明==============================//
+        	//月份事件监听
+    		document.getElementById("J-scroll-mod-M").addEventListener("touchstart", touchStart, false);
+    		document.getElementById("J-scroll-mod-M").addEventListener("touchmove", touchMove, false);
+    		document.getElementById("J-scroll-mod-M").addEventListener("touchend", touchEnd, false);
+    		//日期事件监听
+    		document.getElementById("J-scroll-mod-D").addEventListener("touchstart", touchStart1, false);
+    		document.getElementById("J-scroll-mod-D").addEventListener("touchmove", touchMove1, false);
+    		document.getElementById("J-scroll-mod-D").addEventListener("touchend", touchEnd1, false);
+            //触摸开始
+
+        	function touchStart(event){
+        		 event.preventDefault();
+        		 if (event.touches.length>1) return;
+		         var touch = event.touches[0];
+		         startY = touch.pageY;
+        	}
+        	 //触摸移动
+
+        	function touchMove(event) {
+         		event.preventDefault();
+         		if (event.touches.length>1) return;
+         		var touch = event.touches[0];
+         		    moveY = (touch.pageY - startY);	
+			}
+			 //触摸结束
+
+			function touchEnd(event) {
+				event.preventDefault();
+		        if (event.touches.length>1) return;
+		        boxTouchMoveFunc(moveY); 
+		        //boxTouchMoveFuncD(moveY);     
+			}
+			 //触摸开始1
+
+        	function touchStart1(event){
+        		 event.preventDefault();
+        		 if (event.touches.length>1) return;
+		         var touch = event.touches[0];
+		         startY = touch.pageY;
+        	}
+        	 //触摸移动1
+
+        	function touchMove1(event) {
+         		event.preventDefault();
+         		if (event.touches.length>1) return;
+         		var touch = event.touches[0];
+         		    moveY = (touch.pageY - startY);	
+			}
+			 //触摸结束1
+
+			function touchEnd1(event) {
+				event.preventDefault();
+		        if (event.touches.length>1) return;
+		        //boxTouchMoveFunc(moveY); 
+		        boxTouchMoveFuncD(moveY);     
+			}
+			/**
+			 * 动画效果select
+			 * 获取month对象，和day对象
+			 */
+			//=========================动画效果select============================//
+			// 给Array增加contains用法
+			Array.prototype.in_array = function(e) {
+				for (i = 0; i < this.length && this[i] != e; i++);
+				return !(i == this.length);
+			}
+
+			// 生成31天的数据集合
+			arr31.push(1);
+			arr31.push(3);
+			arr31.push(5);
+			arr31.push(7);
+			arr31.push(8);
+			arr31.push(10);
+			arr31.push(12);
+
+			// 生成30天的数据集合
+			arr30.push(4);
+			arr30.push(6);
+			arr30.push(9);
+			arr30.push(11);
+			//　生成29天的数据集合
+			arr29.push(2);
+
+			// 生产ul日期
+			var createMonthAndDay = function createMonthAndDay() {
+				// 生产月份
+                for(var j=0;j<5;j++){
+					for (var i = 1; i <= 12; i++) {
+						$("#J-scroll-mod-M").eq(0).append("<li v=" + i + ">" + i + "月</li>");
+					}
+				}
+				// 生产天数
+				// 31天
+				for(var j=0;j<5;j++){
+					for (var i = 1; i <= 31; i++) {
+						$("#J-scroll-mod-D").eq(0).append("<li tag=" + 31 + " v=" + i + ">" + i + "月</li>");
+					}
+				}
+				// 30天
+				for(var j=0;j<5;j++){
+				
+					for (var i = 1; i <= 30; i++) {
+						$("#J-scroll-mod-D").eq(0).append("<li tag=" + 30 + " v=" + i + ">" + i + "月</li>");
+					}
+				}
+				// 29天
+ 				for(var j=0;j<5;j++){
+					for (var i = 1; i <= 29; i++) {
+						$("#J-scroll-mod-D").eq(0).append("<li tag=" + 29 + " v=" + i + ">" + i + "月</li>");
+					}
+				}
+				
+			}
+
+			createMonthAndDay(); // 创建li
+			removeDate();
+
+			// 默认加载active
+			month.find("li").eq(37).addClass("active").siblings().removeClass("active");
+			day.find("li").eq(71).addClass("active").siblings().removeClass("active");
+
+             //月份的滑动方向函数
+			function boxTouchMoveFunc(moveY){
+				 if(moveY>0){//下拉
+				 	
+				 	downMonth();
+
+				 }else{//上拉
+                  
+                   upMonth();
+                   	
+				 }
+				 
+
+			function upMonth() {
+				if (mCount == (month.find("li").length - 4)) { // 下限判断倒数第二个
+					mCount = 55;
+					mIndex = 57;
+					//console.log( console.log("count=" + mCount + ",length=" + m.find("li").length));
+					return;
+				} else {
+					var offset = (-40 * mCount);
+					month.find("li").eq(mIndex).addClass("active").siblings().removeClass("active");
+					 //console.log("count=" + mCount + ",length=" + m.find("li").length);
+					 //console.log("li v -> " + m.find("li").eq(mIndex).attr("v"));
+					 //console.log( console.log("count=" + mCount + ",length=" + m.find("li").length));
+					month.animate({
+						"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)",
+						"transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+						
+					}, 500, 'ease-out');
+				}
+				mCount++;
+				mIndex++;
+			}
+
+			function downMonth() {
+				//console.log("mIndex=" + mIndex);
+
+					if (mIndex == 3) { // 上限判断第二个
+						return;
+					} else if (mIndex > 1) {
+						mCount--;
+						mIndex--;
+						var offset = (-40 * (mCount - 1));
+						month.find("li").eq((mIndex - 1)).addClass("active").siblings().removeClass("active");
+					 //console.log("count=" + mCount + ",length=" + m.find("li").length);
+
+					 //console.log("li v -> " + m.find("li").eq(mIndex).attr("v"));
+						month.animate({
+							"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)",
+							"transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+						}, 500, 'ease-out');
+					}
+				}
+			}
+
+			/*日期的函数
+
+			**一下是日期的选择，分1-31,1-29,1-30
+			**
+			*/
+				function boxTouchMoveFuncD(moveY){
+					 if(moveY>0){//下拉
+					 	
+					 	downDay();
+					 	console.log("下拉");
+
+					 }else{//上拉
+	                  
+	                   upDay();
+	                   //console.log("上拉");
+	                   //console.log("dcount=" + dCount + ",length=" + day.find("li").length);
+	                   	
+					 }
+				}
+			//日期的滑动方向函数
+			 function removeDate(){
+			 		$("li[tag='31']").remove();
+			 		$("li[tag='30']").remove();
+			 }
+			 //判断所选的1-31,1-29,1-30的显示与隐藏
+			 function judgmentDate(){
+	                   	if (arr31.in_array(month.find("li").eq(mIndex - 1).attr("v"))) {
+							$("li[tag='30']").remove();
+							$("li[tag='29']").remove();
+							$("li[tag='31']").remove();
+							//day.append($("li[tag='31']"));
+
+
+					} else if (arr30.in_array(month.find("li").eq(mIndex - 1).attr("v"))) {
+						
+							$("li[tag='31']").remove();
+							$("li[tag='29']").remove();
+					} else if (arr29.in_array(month.find("li").eq(mIndex - 1).attr("v"))) {
+
+						if (day.find("li").attr("tag") != 29) {
+							$("li[tag='31']").remove();
+							$("li[tag='30']").remove();
+								
+						}
+					} 
+			 }
+			function upDay(){
+				judgmentDate();
+               	if (dCount == (day.find("li").length - 4)) { // 下限判断倒数第二个
+               			dCount = 141;
+						dIndex = 143;
+						return;
+               	}else{
+               		 var offset = (-40 * dCount);
+					day.find("li").eq(dIndex).addClass("active").siblings().removeClass("active");
+					//vv.eq(dIndex).addClass("active");
+					//console.log(" dIndex -> " + dIndex);
+				
+					day.find("li").eq(dIndex).addClass("active").siblings().removeClass("active");
+
+ 				//console.log("dIndex=" + dIndex + ",length=" + day.find("li").length);
+			 		day.animate({
+			 			
+			 			"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)",
+			 			"transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+			 		}, 500, 'ease-out');
+			 	dCount++;
+			 	dIndex++;
+				
+					}
+
+             }
+             //下拉日期
+            function downDay() {
+				console.log("dIndex=" + dIndex);
+
+					if (dIndex == 3) { // 上限判断第二个
+						return;
+					} else if (dIndex > 1) {
+						dCount--;
+						dIndex--;
+						var offset = (-40 * (dCount - 1));
+						day.find("li").eq((dIndex - 1)).addClass("active").siblings().removeClass("active");
+					 //console.log("count=" + mCount + ",length=" + m.find("li").length);
+
+					 //console.log("li v -> " + m.find("li").eq(mIndex).attr("v"));
+						day.animate({
+							"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)",
+							"transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+						}, 500, 'ease-out');
+					}
+				}
+			
+				
+			
+
+
+	})
+				
+	</script>
+
+</html>

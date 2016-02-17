@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端点透问题</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+     
+.text-box{position: relative;width: 300px;height: 100px;border:1px solid #333;margin-top: 100px;margin-left: 10px;}
+.text-box span:nth-child(1){position: absolute;left: 20px;top: -14px;width: 0;height: 0;border-width:7px 9px ;border-style: solid;border-color:transparent #333 #333 transparent;z-index: 2; }
+.text-box span:nth-child(2){position: absolute;z-index: 4;left: 34px;top: -15px;width: 0;height: 0;border-width:7px 3px ;border-style: solid;border-color:transparent #fff #fff transparent;-webkit-transform: rotateY(70deg);}
+.text-box span:nth-child(3){position: absolute;z-index: 2;left: 18px;top: -10px;width: 0;height: 0;border-width:7px 9px ;border-style: solid;border-color:transparent #fff #fff transparent;}
+.text-box span:nth-child(4){position: absolute;z-index: 3;left: 32px;top: -10px;width: 0;height: 0;border-width:5px 2px ;border-style: solid;border-color:transparent #000 #000 transparent;}
+    </style>
+</head>
+<body>
+ <div class="text-box">
+ 	<span></span>
+ 	<span></span>
+ 	<span></span>
+ 	<span></span>
+ </div>
+</body>
+<script>
+	
+</script>
+</html>

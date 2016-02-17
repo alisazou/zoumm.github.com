@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端点透问题</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        body{background-color: #44105c;}
+.text-box{position: relative;width: 300px;height: 100px;background-color: #390c4e;margin-top: 100px;margin-left: 10px;}
+.text-box span:nth-child(1){position: absolute;left: 20px;top: -13px;width: 0;height: 0;border-width:7px 13px ;border-style: solid;border-color:transparent red red transparent;z-index: 2; }
+.text-box span:nth-child(2){position: absolute;z-index: 3;left: 40px;top: -13px;width: 0;height: 0;border-width:7px 3px ;border-style: solid;border-color:transparent #44105c #44105c transparent;}
+    </style>
+</head>
+<body>
+ <div class="text-box">
+ 	<span></span>
+ 	<span></span>
+ </div>
+</body>
+<script>
+	
+</script>
+</html>

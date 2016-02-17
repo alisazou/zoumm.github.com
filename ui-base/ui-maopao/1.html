@@ -1,0 +1,198 @@
+
+<!DOCTYPE HTML>
+<html>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>数字彩倍投</title>
+	
+</head>
+<title>CSS3圆环倒计时效果 by liumiao.me</title>
+<style>
+
+.pie {
+	 width:183px; height:183px; background-color:blue;
+	 border-radius:182px 183px 183px 182px/183px;
+	 position:absolute; 
+	}
+.pie1 {
+	 clip:rect(0px,183px,183px,90px);display: none;
+	}
+.pie2 {
+	 clip:rect(0px,90px,183px,0px);display: none;
+}
+.hold {
+	 width:183px; height:188px; background: url(images/d.png) no-repeat;background-size:183px auto; }
+.hold1{ position:absolute; clip:rect(0px,188px,183px,90px);}
+.hold2{ position:absolute; clip:rect(0px,90px,183px,0px);}
+.time { width:110px; height:104px; margin:40px 0 0 35px; background-color:#fff; border-radius: 55px/54px; position:absolute; z-index:1; }
+.btn{width: 100px;height: 100px;background-color: blue;top: 200px;position: relative;}
+.btn1{width: 100px;height: 100px;background-color: blue;top: 300px;position: relative;}
+.btn2{width: 100px;height: 100px;background-color: blue;top: 100px;left: 200px;position: relative;}
+.qipao{
+background: blue;
+width: 50px;
+height: 50px;
+position: absolute;
+display: block;
+left: 140px;
+bottom: 110px;
+-webkit-animation: bubbleFloat3 7s infinite;
+animation: bubbleFloat3 7s infinite;
+
+}
+@keyframes bubbleFloat3 {
+		0% {
+		bottom:110px;
+		transform:scale(1);
+		opacity:0;
+		
+		1% {
+		bottom:110px;
+		transform:scale(.3);
+		opacity:0;
+		
+		}
+		30% {
+		bottom:110px;
+		transform:scale(.9);
+		opacity:1;
+		
+		}
+		95% {
+		bottom:495px;
+		transform:scale(.3);
+		opacity:1;
+		
+		}
+		99% {
+		bottom:500px;
+		transform:scale(3);
+		opacity:0;
+		
+		}
+		100% {
+			bottom: 110px;
+			transform: scale(1);
+			opacity: 0;
+			
+		}
+}
+
+</style>
+</head>
+
+<body>
+<div class="hold hold1">
+  <div class="pie pie1"></div>
+</div>
+<div class="hold hold2">
+  <div class="pie pie2"></div>
+</div>
+
+<div class="time"></div>
+<div class="btn">全年</div>
+<div class="btn1">半年</div>
+<div class="btn2">一季</div>
+<div class="qipao">
+	
+</div>
+		<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script>
+
+i = 180;
+j=179;
+i1=180;
+i4=180;
+d=180;
+var t1;
+var t2;
+var t3;
+var t4;
+function start(){
+	i = i + 0.6;
+	$(".pie1").css("-webkit-transform","rotate(" + i + "deg)");
+		$(".pie1").css("display","block")
+		setTimeout("j=180",10);
+		$(".pie2").css("display","none")
+			 if(i>=360){
+			 	i=179;
+			 	t2=setInterval("start2();",10);
+			 	
+			 	$(".pie2").css("display","block")
+			 	clearInterval(t1);
+			 	
+			 }
+			 function startRight(){
+			 	alert(1);
+			 }
+	
+};
+//对于右边的环处理
+
+
+function start2(){
+     j = j + 0.6;
+     //alert(j)
+     if(j>=360){
+     	clearInterval(t2);
+     	$(".pie1").css("display","block")
+     }
+	$(".pie2").css("-webkit-transform","rotate(" + j + "deg)");
+}
+function start3(){//半年
+	i1 = i1 + 0.6;
+	$(".pie1").css("-webkit-transform","rotate(" + i1 + "deg)");
+		$(".pie1").css("display","block")
+  $(".pie2").css("display","none")
+	 if(i1>=360){
+         i1=180;
+	 	clearInterval(t3);
+	 	
+	 }
+	
+};
+function start4(){//一季
+	i4 = i4 + 0.6;
+	$(".pie1").css("-webkit-transform","rotate(" + i4 + "deg)");
+		$(".pie1").css("display","block")
+	 if(i4>=270){
+	 	i4=180;
+
+	 	clearInterval(t4);
+	 	
+	 }
+	
+};
+
+
+$(function(){
+	$(".btn").on("tap",function(){
+		
+		
+			t1 = setInterval("start()",10);
+		
+	})
+	$(".btn1").on("tap",function(){
+         t3 = setInterval("start3()",10);
+    
+
+	})
+	$(".btn2").on("tap",function(){
+         t4 = setInterval("start4()",10);
+    
+
+	})
+})
+
+</script> 
+
+
+
+<!--查看源码-->
+<input onclick="window.open('view-source:' + window.location.href)" type="button" value="查看源代码" style="position:absolute; right:0; top:0; width:80px; height:30px;">
+</body>
+</html>

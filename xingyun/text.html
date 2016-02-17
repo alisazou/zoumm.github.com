@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>彩票节数字彩-倍投</title>
+
+
+	<style>
+	body{height: 100%;margin:0;padding:0;}
+	ul,li{margin:0;padding:0;}
+	body {
+background-color: #fafafa;
+font: 14px/1.5 "Microsoft YaHei", Helvetica, sans-serif;
+color: #808080;
+-webkit-text-size-adjust: 100%!important;
+}
+ .box{width: 300px;height: 200px;background-color: red;color: #fff;overflow: hidden;background: #fafafa;position: relative;
+border-top: 1px solid #ddd;
+border-bottom: 1px solid #ddd;color: #e0e0e0;font-size: 18px}
+    
+.m{line-height: 40px;list-style: none;float: left;width: 50%;text-align: center;-webkit-transform:translate(0px,-1400px)}
+.m li{color:#e0e0e0}
+.d li{color:#e0e0e0}
+.d{line-height: 40px;list-style: none;float: left;width: 50%;text-align: center;-webkit-transform:translate(0px,-1400px)}
+
+.mask-label {
+position: absolute;
+z-index: 1;
+top: 50%;
+left: 0;
+right: 0;
+height: 40px;
+background: #fff;
+margin-top: -20px;
+}
+.box .d-list .active {
+color: #dc5039;
+}
+.m-box,.d-box{position: relative;z-index: 3;}
+	</style>
+</head>
+
+<body>
+	<div class="box" id="box">
+       <div class="m-box">
+	   <ul class="m d-list" id="m">
+	   
+	   </ul>
+	   </div>
+	   <div class="d-box">
+	    <ul class="d d-list" id="d">
+	   	
+	   </ul>
+	   </div>
+	   <div class="mask-label"></div>
+	</div>
+<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+	<script type="text/javascript">
+	 
+    $(function(){
+
+              var   startY,moveY,endY;
+              var m =$(".m");
+        	    //绑定监听事件
+    		document.getElementById("m").addEventListener("touchstart", touchStart, false);
+    		document.getElementById("m").addEventListener("touchmove", touchMove, false);
+    		document.getElementById("m").addEventListener("touchend", touchEnd, false);
+            //触摸开始
+
+        	function touchStart(event){
+        		 event.preventDefault();
+        		 if (event.touches.length>1) return;
+		         var touch = event.touches[0];
+		         startY = touch.pageY;
+        	}
+        	 //触摸移动
+
+        	function touchMove(event) {
+         		event.preventDefault();
+         		if (event.touches.length>1) return;
+         		var touch = event.touches[0];
+         		    moveY = (touch.pageY - startY);	
+			}
+			 //触摸结束
+
+			function touchEnd(event) {
+				event.preventDefault();
+		        if (event.touches.length>1) return;
+		        boxTouchMoveFunc(moveY);      
+			}
+			//动态创建li
+			
+			var createMonthAndDay = function createMonthAndDay() {
+				// 生产月份
+                for(var j=0;j<5;j++){
+					for (var i = 1; i <= 12; i++) {
+						$(".m").eq(0).append("<li v=" + i + ">" + i + "月</li>");
+						}
+						// 生产天数
+				// 31天
+                for(var j=0;j<5;j++){
+					for (var i = 1; i <= 31; i++) {
+						$(".d").eq(0).append("<li tag=" + 31 + " v=" + i + ">" + i + "月</li>");
+					}
+				}
+
+
+				// 30天
+        		for(var j=0;j<5;j++){
+					for (var i = 1; i <= 30; i++) {
+						$(".d").eq(0).append("<li tag=" + 30 + " v=" + i + ">" + i + "月</li>");
+					}
+				}
+
+
+				// 28天
+				for(var j=0;j<5;j++){
+					for (var i = 1; i <= 29; i++) {
+						$(".d").eq(0).append("<li tag=" + 29 + " v=" + i + ">" + i + "月</li>");
+						}
+				}
+
+				}
+			}
+			
+			createMonthAndDay(); // 创建li
+			// 默认加载active
+			m.find("li").eq(37).addClass("active").siblings().removeClass("active");
+			
+			//判断上移与下移
+			var mCount =36,
+				mIndex = 38;
+			
+			function boxTouchMoveFunc(moveY){
+				
+				 if(moveY>0){//下拉
+				 	//upMonth();
+				 	downMonth();
+
+				 }else{
+                   //downMonth();
+                   upMonth();
+                   	
+				 }
+
+
+			function upMonth() {
+				//console.log("up_month");
+
+
+				if (mCount == (m.find("li").length - 4)) { // 下限判断倒数第二个
+					mCount = 55;
+					mIndex = 57;
+					console.log( console.log("count=" + mCount + ",length=" + m.find("li").length));
+					return;
+				} else {
+					var offset = (-40 * mCount);
+					m.find("li").eq(mIndex).addClass("active").siblings().removeClass("active");
+					 console.log("count=" + mCount + ",length=" + m.find("li").length);
+					 //console.log("li v -> " + m.find("li").eq(mIndex).attr("v"));
+					 //console.log( console.log("count=" + mCount + ",length=" + m.find("li").length));
+					m.animate({
+						"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+						
+					}, 500, 'ease-out');
+				}
+				mCount++;
+				mIndex++;
+			}
+
+			function downMonth() {
+				//console.log("mIndex=" + mIndex);
+
+				if (mIndex == 3) { // 上限判断第二个
+					return;
+				} else if (mIndex > 1) {
+					mCount--;
+					mIndex--;
+					var offset = (-40 * (mCount - 1));
+					m.find("li").eq((mIndex - 1)).addClass("active").siblings().removeClass("active");
+					 console.log("count=" + mCount + ",length=" + m.find("li").length);
+
+					 //console.log("li v -> " + m.find("li").eq(mIndex).attr("v"));
+					m.animate({
+						"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+					}, 500, 'ease-out');
+				}
+			}
+			// function upMonth(){
+					
+			// 		 	var offset = ((num-1)*-40);
+			// 		 	   if(mIndex==0){
+			// 		 	   	 //console.log(mIndex);
+			// 		 	   	  return;
+			// 		 	   }else if(mIndex>=1){
+			// 		 	   	  num--;
+			// 		 		  mIndex--;
+			// 		 		  console.log("mIndex->"+mIndex);
+			// 		 		  console.log("num->"+num);
+			// 		 		  //console.log("num->"+num);
+			// 		 		  console.log("li v -> " + m.find("li").eq(mIndex).attr("v"));
+			// 		 	   	  //红色active
+			// 		 	   	  m.find("li").eq(mIndex).addClass("active").siblings().removeClass("active");
+			// 		 	   	  m.animate({
+			// 					"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+			// 				}, 500, 'ease-out');
+			// 				 //console.log(num);
+			// 		 	   }
+					 	 
+			// 		}
+			// 		function downMonth(){
+			// 		 	var offset = (num*-40);
+			// 		 	if(num>=$(".m").find("li").length-4){
+			// 		 		 num=56;
+			// 		 		 return;
+			// 		 	}else{
+			// 		 		m.find("li").eq((mIndex+1)).addClass("active").siblings().removeClass("active");
+			// 		 		m.animate({
+			// 				"transform":"translate(0px,"+(offset)+"px)",
+			// 				"-webkit-transform":"translate(0px,"+(offset)+"px) scale(1) translateZ(0px)"
+			// 				}, 500, 'ease-out');
+	                      
+	  //                    num++;
+	  //                    mIndex++;
+	  //                    console.log(num);
+	  //                    //console.log($(".m").find("li").length);
+
+			// 		 	}
+					 	
+	                    
+			// 		 }
+					
+			}
+ 
+
+       })  
+    </script>
+
+</body>
+</html>

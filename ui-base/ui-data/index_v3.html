@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端点透问题</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <style>
+        ul,li,body,h1{ margin: 0; padding: 0; }
+ul{list-style: none;}
+body{ min-width:320px; font-size:14px; font-family:'microsoft yahei',Verdana,Arial,Helvetica,sans-serif; color:#333; -webkit-text-size-adjust:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent; }
+body{ -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-user-select: none; }
+.layer{width: 100%;height: 100%;position: absolute;background-color: rgba(0,0,0,.7);}
+
+.mask-content{position: absolute;top: 50%;margin-top: -150px;left: 50%;margin-left: -140px;width: 280px;height: 300px;background-color: #fff;border-radius: 4px;}
+.title{height: 44px;line-height: 44px;font-size: 18px;text-align: center;color: #333;}
+.mask-area{position: relative;background: #fafafa;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;color: #e0e0e0;overflow: hidden;}
+.month,.data{position: relative;z-index: 3;float: left;width: 50%;height: 199px;font-size: 18px;line-height: 40px;text-align: center;}
+
+.mask-label {position: absolute;z-index: 1;top: 50%;left: 0;right: 0;height: 40px;background: blue;margin-top: -20px;}
+.on{color: #fff;}
+.mask-ft{padding: 10px 5px;display: -webkit-box;display: box;}
+.mask-ft a:nth-child(1),.mask-ft a:nth-child(2) {display: block;width: 50%;text-decoration: none;height: 40px;padding: 8px 0;border-width: 1px;
+border-style: solid;border-radius: 3px;font-size: 16px;line-height: 22px;text-align: center;margin: 0 5px;-webkit-box-sizing: border-box;box-sizing: border-box;-webkit-box-flex: 1;box-flex: 1;}
+.mask-ft a:nth-child(1){background: #fff;border-color: #ddd;color: #333;}
+.mask-ft a:nth-child(2){border-color: #bd2625;color: #fff;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e04241), color-stop(1, #e04241));}
+       
+    </style>
+</head>
+<body>
+  <div class="layer"></div>
+  <div class="mask-content">
+  	 <h1 class="title">测试选择</h1>
+  	 <div class="mask-area">
+  	 	 <div class="month" id="month">
+  	 	 	<ul id="J-scroll-mod-M">
+  	 	 		<li>1</li>
+  	 	 
+  	 	 	</ul>
+  	 	 </div>
+  	 	 <div class="data" id="data">
+  	 	 	<ul>
+  	 	 		<li>1</li>
+  	 	 	
+  	 	 	</ul>
+  	 	 </div>
+  	 	 <b class="mask-label"></b>
+  	 </div>
+  	 <div class="mask-ft">
+  	 	<a href="">取消</a>
+  	 	<a href="">确认</a>
+  	 </div>
+  </div> 
+
+
+<!--<div id="liandong">
+  <select id="selectProv" onchange="prov_onChange()">
+        <option>请选择月份</option>
+    </select>
+    <select id="selectCity" onchange="city_onChange()">
+        <option>请选择日期</option>
+    </select>
+    
+</div>-->
+
+
+
+
+<!--<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script> -->
+<script src="http://cache.500boss.com/public/js/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //初始化省份菜单
+            var prov = new Array();
+            prov[1] = "1";
+            prov[2] = "2";
+            prov[3] = "3";
+            prov[4] = "4";
+            prov[5] = "5";
+            prov[6] = "6";
+            prov[7] = "7";
+            prov[8] = "8";
+            prov[9] = "9";
+            prov[10] = "10";
+            prov[11] = "11";
+            prov[12] = "12";
+//          prov[13] = "安徽省";
+//          prov[14] = "福建省";
+//          prov[15] = "江西省";
+//          prov[16] = "山东省";
+//          prov[17] = "河南省";
+//          prov[18] = "湖北省";
+//          prov[19] = "湖南省";
+//          prov[20] = "广东省";
+//          prov[21] = "甘肃省";
+//          prov[22] = "四川省";
+//          prov[23] = "贵州省";
+//          prov[24] = "海南省";
+//          prov[25] = "云南省";
+//          prov[26] = "青海省";
+//          prov[27] = "陕西省";
+//          prov[28] = "广西壮族自治区";
+//          prov[29] = "西藏自治区";
+//          prov[30] = "宁夏回族自治区";
+//          prov[31] = "新疆维吾尔自治区";
+//          prov[32] = "内蒙古自治区";
+//          prov[33] = "澳门特别行政区";
+//          prov[34] = "香港特别行政区";
+            for (var i = 1; i < prov.length; i++) {
+                $("#selectProv").append("<option>"+prov[i]+"</option>");
+            }
+        });
+          var city = new Array();
+ city[1] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+ city[2] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29");
+ city[3] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+city[4] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30");
+city[5] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+city[6] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30");
+city[7] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+city[8] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+city[9] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+city[10] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+city[11] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30");
+city[12] = new Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","24","26","27","28","29","30","31");
+
+        //选择省份下拉菜单的onChange()事件
+        function prov_onChange() {
+            $("#selectCity").children("data").detach().append();
+            $("#selectCity").append("<li>请选择日期</li>");
+            var Mli = $("#data").find("li").index();
+            console.log(Mli);
+               
+            var indexProv = $("#selectProv>option[selected]=true").index();  //取得月份数组下标0
+            var indexCity = $("#selectCity>option[selected]=true").index();  //取得日期数组下标0
+
+//          if (indexProv > 0) {
+//              for (var i = 0; i < city[indexProv].length; i++) {
+//                  $("#selectCity").append("<option>" + city[indexProv][i] + "</option>");
+//                   console.log(city[indexProv][i]);
+//              }
+//              $("p").text($("#selectProv>option[selected]=true").val() + $("#selectCity>option:first").val());
+//          }
+//          else {
+//              $("p").text("请选择月份");
+//          }
+//      }
+//
+//      //选择市区下拉菜单的onChange()事件
+//      function city_onChange() {
+//          $("p").text($("#selectProv>option[selected]=true").val() + $("#selectCity>option[selected]=true").val());
+      }
+        prov_onChange()
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <meta name="hotcss" content="initial-dpr=1"> -->
+	<script type="text/javascript" src="hotcss.js"></script>
+	
+	<link rel="stylesheet" href="dest/text.min.css">
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	
+	<div class="border">测试1px的线</div>
+	<ul>
+		<li>保证不同设备下的统一视觉体验。</li>
+		<li>不需要你再手动设置viewport，根据当前环境计算出最适合的viewport。</li>
+		<li>支持任意尺寸的设计图，不再局限于[640,750,1125]。</li>
+		<li>支持单一项目，多种设计图尺寸，专为解决大型，长周期项目</li>
+		<li>提供px2rem转换方法，CSS布局，零成本转换，原始值不丢失。</li>
+		<li>有效解决移动端真实1像素问题。</li>
+	</ul>
+	<script type="text/javascript">
+        console.log(hotcss.px2rem(750,750));
+       // parseInt(px,10)*320/designWidth/20;
+       //hotcss.px2rem(100px , 750);
+	</script>
+</html>

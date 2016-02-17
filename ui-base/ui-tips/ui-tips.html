@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>触屏版首页</title>
+  <style type="text/css">
+ul,li,body{ margin: 0; padding: 0; }
+body{ -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-user-select: none; }
+h5,h1{ margin: 0}
+a{ text-decoration: none}
+
+.box{ margin: 20px;border: 1px solid red}
+.ui-tips{ position: relative; margin: 0; }
+.ui-tips { padding: 20px 15px; text-align: center; font-size: 16px; color: #808080; }
+.ui-tips-success { color: #000; }
+.ui-tips i { display: inline-block; width: 23px; height: 0px; position: relative; overflow: visible; margin-right: 8px; margin-left: 0px; font-size: 20px; }
+.ui-tips i:before { background: url(icon.png) no-repeat -25px 0px; -webkit-background-size: 150px auto; content: ""; display: block; width: 23px; height: 23px; position: absolute; left: 0px; top: -16px; }
+.ui-tips-success i:before { background-position: 0 -25px; }
+.ui-tips-warn i:before { background-position: -50px 0; }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <div class="ui-tips ui-tips-info"> <i></i>
+      提供相关的信息或建议
+    </div>
+    <div class="ui-tips ui-tips-warn"> <i></i>
+      警示已经发生或可能在未来发生的问题
+    </div>
+    <div class="ui-tips ui-tips-success">
+      <i></i>
+      提示操作成功或流程成功
+    </div>
+  </div>
+
+</body>
+
+</html>

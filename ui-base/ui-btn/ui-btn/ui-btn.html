@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>触屏版首页</title>
+  <style type="text/css">
+ul,li,body{ margin: 0; padding: 0; }
+body{  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-user-select: none;}
+h5,h1{ margin: 0}
+a{text-decoration: none}
+button:focus, input:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent; }
+.box{margin: 20px}
+.ui-btn {
+height: 30px;
+line-height: 30px;
+padding: 0 13px;
+min-width: 56px;
+display: inline-block;
+position: relative;
+text-align: center;
+border: 0 none;
+color: #0079ff;
+font-size: 14px;
+background-color: #fdfdfd;
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.38, white), to(#fafafa));
+border-radius: 3px;
+vertical-align: top;
+color: #00a5e0;
+text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+-webkit-box-sizing: border-box;
+border: 1px solid #c8c7cc;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+}
+.ui-btn-danger {
+background-color: #f75549;
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.49, #fe594d), to(#f75549));
+color: #fff;
+border-color: #f43d30;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+}
+.ui-btn-danger:not(.disabled):active, .ui-btn-danger.active {
+  background: #df5045;
+  border-color: #df5045;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box; }
+ .ui-btn-lg {
+font-size: 18px;
+height: 44px;
+line-height: 42px;
+display: block;
+width: 100%;
+border-radius: 5px;
+}
+  </style>
+  </head>
+<body>
+	<div class="box">
+    <button class="ui-btn ui-btn-danger">确定</button>
+    <button class="ui-btn ui-btn-danger active">确定</button>
+    <button class="ui-btn disabled">取消</button>
+    <button class="ui-btn ui-btn-lg ui-btn-danger">确定</button>
+    </div>
+</body>
+
+</html>

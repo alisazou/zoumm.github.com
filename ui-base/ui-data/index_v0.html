@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>触屏版首页</title>
+  <style type="text/css">
+ul,li,body,h1{ margin: 0; padding: 0; }
+ul{list-style: none;}
+body{ min-width:320px; font-size:14px; font-family:'microsoft yahei',Verdana,Arial,Helvetica,sans-serif; color:#333; -webkit-text-size-adjust:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent; }
+body{ -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-user-select: none; }
+.layer{width: 100%;height: 100%;position: absolute;background-color: rgba(0,0,0,.7);}
+
+.mask-content{position: absolute;top: 50%;margin-top: -150px;left: 50%;margin-left: -140px;width: 280px;height: 300px;background-color: #fff;border-radius: 4px;}
+.title{height: 44px;line-height: 44px;font-size: 18px;text-align: center;color: #333;}
+.mask-area{position: relative;background: #fafafa;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;color: #e0e0e0;overflow: hidden;}
+.month,.data{position: relative;z-index: 3;float: left;width: 50%;height: 199px;font-size: 18px;line-height: 40px;text-align: center;}
+
+.mask-label {position: absolute;z-index: 1;top: 50%;left: 0;right: 0;height: 40px;background: blue;margin-top: -20px;}
+.on{color: #fff;}
+.mask-ft{padding: 10px 5px;display: -webkit-box;display: box;}
+.mask-ft a:nth-child(1),.mask-ft a:nth-child(2) {display: block;width: 50%;text-decoration: none;height: 40px;padding: 8px 0;border-width: 1px;
+border-style: solid;border-radius: 3px;font-size: 16px;line-height: 22px;text-align: center;margin: 0 5px;-webkit-box-sizing: border-box;box-sizing: border-box;-webkit-box-flex: 1;box-flex: 1;}
+.mask-ft a:nth-child(1){background: #fff;border-color: #ddd;color: #333;}
+.mask-ft a:nth-child(2){border-color: #bd2625;color: #fff;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e04241), color-stop(1, #e04241));}
+
+  </style>
+</head>
+<body>
+<div class="layer"></div>
+  <div class="mask-content">
+  	 <h1 class="title">测试选择</h1>
+  	 <div class="mask-area">
+  	 	 <div class="month" id="month">
+  	 	 	<ul id="J-scroll-mod-M" style="transform: translate(0px, -438px) translateZ(0px);">
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		<li>3</li>
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		<li>3</li>
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		<li>3</li>
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 	
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		<li>3</li>
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 	</ul>
+  	 	 </div>
+  	 	 <div class="data" >
+  	 	 	<ul style="transform: translate(0px, -438px) translateZ(0px);">
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		<li>3</li>
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>13</li>
+  	 	 		<li>14</li>
+  	 	 		<li>15</li>
+  	 	 		<li>16</li>
+  	 	 		<li>17</li>
+  	 	 		<li>18</li>
+  	 	 		<li>19</li>
+  	 	 		<li>20</li>
+  	 	 		<li>21</li>
+  	 	 		<li>22</li>
+  	 	 		<li>23</li>
+  	 	 		<li>24</li>
+  	 	 		<li>25</li>
+  	 	 		<li>26</li>
+  	 	 		<li>27</li>
+  	 	 		<li>28</li>
+  	 	 		<li>29</li>
+  	 	 		<li>30</li>
+  	 	 		<li>31</li>
+  	 	 		<li>1</li>
+  	 	 		<li>2</li>
+  	 	 		<li>3</li>
+  	 	 		<li>4</li>
+  	 	 		<li>5</li>
+  	 	 		<li>6</li>
+  	 	 		<li>7</li>
+  	 	 		<li>8</li>
+  	 	 		<li>9</li>
+  	 	 		<li>10</li>
+  	 	 		<li>11</li>
+  	 	 		<li>12</li>
+  	 	 		<li>13</li>
+  	 	 		<li>14</li>
+  	 	 		<li>15</li>
+  	 	 		<li>16</li>
+  	 	 		<li>17</li>
+  	 	 		<li>18</li>
+  	 	 		<li>19</li>
+  	 	 		<li>20</li>
+  	 	 		<li>21</li>
+  	 	 		<li>22</li>
+  	 	 		<li>23</li>
+  	 	 		<li>24</li>
+  	 	 		<li>25</li>
+  	 	 		<li>26</li>
+  	 	 		<li>27</li>
+  	 	 		<li>28</li>
+  	 	 		<li>29</li>
+  	 	 		<li>30</li>
+  	 	 		<li>31</li>
+  	 	 	</ul>
+  	 	 </div>
+  	 	 <b class="mask-label"></b>
+  	 </div>
+  	 <div class="mask-ft">
+  	 	<a href="">取消</a>
+  	 	<a href="">确认</a>
+  	 </div>
+  </div>
+</body>
+<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script> 
+<script src="../js/frozen.js"></script> 
+<script>
+		$(function(){
+			 var myScroll = new fz.Scroll('.month', {
+		                scrollY: true
+		            });  
+		            var twoScroll = new fz.Scroll('.data', {
+		                scrollY: true
+		            });
+		        myScroll.scrollToElement("li:nth-child(12)", 1000, true);
+		        twoScroll.scrollToElement("li:nth-child(43)", 1000, true);
+		})
+       
+</script>
+</html>

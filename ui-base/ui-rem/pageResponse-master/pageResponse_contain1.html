@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>demo</title>
+<link type="text/css" rel="stylesheet" href="http://www.500cache.com/mobile/widget/head/head.css?v=20160128">
+<style type="text/css">
+*{padding: 0;margin: 0;}
+img{border: none;}
+html,body{height: 100%;background-color:#211d4d}
+h1,p{width: 100%;color: #FFFFFF;font-size: 15px;position: absolute;top: 248px;left: 0;text-align: center;line-height: 1;}
+p{font-size: 9px;top: 282px;}
+
+.page{
+    position: relative;
+    width: 320px;
+    height: 504px;
+    overflow: hidden;
+    
+}
+.game{position:absolute;left:0;top:80px;width:750px;height:1067px;}
+.text{width:100%;height:100%;}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+	<img src="img/bg.jpg" alt="" class="text">
+   <!--  <h1>你一定也有过一个翱翔天际的梦</h1>
+    <p>-  回家，或踏上旅途，飞机是自由的符号  -</p> -->
+    <img  src="img/game-bg.png" alt=""  class="game" >
+</div>
+
+
+<script type="text/javascript" src="js/pageResponse.js"></script>
+<script type="text/javascript">
+window.onload = window.onresize = function(){
+    pageResponse({
+        selectors : '.page',     //模块选择器，使用querySelectorAll的方法
+        mode : 'contain',     // auto || contain || cover ，默认模式为auto 
+        width : '750',      //输入页面的宽度，只支持输入数值，默认宽度为320px
+        height : '1302',      //输入页面的高度，只支持输入数值，默认高度为504px
+         template : 2  
+    })
+}
+</script>
+</body>
+</html>

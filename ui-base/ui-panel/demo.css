@@ -1,0 +1,117 @@
+body,ul,li{margin: 0;padding: 0;list-style: none;}
+.ui-panel {
+    overflow:hidden;
+    padding-top:10px
+}
+.ui-panel .ui-grid-halve, .ui-panel .ui-grid-trisect {
+    padding-top:0
+}
+.ui-panel h1, .ui-panel h2, .ui-panel h3 {
+    padding-left:15px;
+    padding-right:15px;
+    line-height:44px;
+    position:relative;
+    overflow:hidden;
+    display:-webkit-box
+}
+.ui-arrowlink .icon-jiantouyou {
+
+font-size: 24px;
+line-height: 44px;
+font-style: normal;
+
+display: block;
+color: rgba(0,0,0,.5);
+color: #c7c7c7;
+
+position: absolute;
+right: 15px;
+top: 50%;
+margin-top: -22px;
+margin-right: -10px;
+}
+.ui-list:not(.ui-list-text) li>p, .ui-list li>h5 {
+font-size: 14px;
+color: #777;
+}
+.ui-list li h4 {
+font-size: 16px;
+}
+.ui-border-t {
+border-top: 1px solid #e0e0e0;
+}
+.ui-grid-trisect>li {
+width: 33.3333%;
+}
+.ui-border {
+border: 1px solid #e0e0e0;
+}
+.ui-grid-trisect-img, .ui-grid-halve-img {
+position: relative;
+width: 100%;
+}
+.ui-grid-trisect-img {
+padding-top: 149.47%;
+}
+.ui-grid-trisect-img>span, .ui-grid-halve-img>span {
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1;
+background-repeat: no-repeat;
+-webkit-background-size: cover;
+}
+
+.ui-grid-trisect h4 {
+position: relative;
+margin: 7px 0 3px;
+}
+.ui-nowrap {
+max-width: 100%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+
+.ui-nowrap-multi {
+display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+}
+.ui-grid li, .ui-grid-trisect li, .ui-grid-halve li {
+padding-right: 5px;
+padding-bottom: 10px;
+float: left;
+position: relative;
+-webkit-box-sizing: border-box;
+}
+.ui-panel h1 span, .ui-panel h2 span, .ui-panel h3 span {
+    display:block
+}
+.ui-panel-pure h2, .ui-panel-pure h3 {
+    color:#777
+}
+.ui-panel-card {
+    margin-bottom:10px
+}
+.ui-panel-card, .ui-panel-simple {
+    background-color:#fff
+}
+.ui-panel-simple {
+    padding-top:0
+}
+.ui-panel-subtitle {
+    font-size:14px;
+    color:#777;
+    margin-left:10px
+}
+.ui-panel-title-tips {
+    font-size:12px;
+    color:#777;
+    position:absolute;
+    right:15px
+}

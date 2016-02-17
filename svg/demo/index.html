@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	  <style>
+	  body{
+	  	
+	  	background-color: #15466C;
+	  }
+     @keyframes spin {
+			0% {
+				stroke: #00aeef
+			}
+			37.5% {
+				stroke: #ed1c24;
+			}
+			67.5% {
+				stroke: #f69f37;
+			}
+			100% {
+				stroke-dashoffset: 240;
+				stroke: #00aeef;
+			}
+	}
+	  @-webkit-keyframes spin {
+			0% {
+				stroke: #00aeef
+			}
+			37.5% {
+				stroke: #ed1c24;
+			}
+			67.5% {
+				stroke: #f69f37;
+			}
+			100% {
+				stroke-dashoffset: 240;
+				stroke: #00aeef;
+			}
+	}
+	
+
+svg {
+	width: 500px;
+	height: 500px;
+}
+
+polygon {
+    stroke: black;
+    stroke-linecap: round;/*strokelinecap属性定义不同类型的开放路径的终结：*/
+    stroke-width: 4;
+    stroke-dasharray: 0, 0, 50, 190;
+    stroke-dashoffset: 0;
+    stroke-linejoin: round;
+    -webkit-animation: spin 3.5s infinite linear;
+	animation: spin 3.5s infinite linear;*/
+}
+		
+		
+      </style>
+</head>
+<body>
+
+
+
+
+<svg  x="0px" y="0px" width="320px" height="480px" viewBox="0 0 320 480" enable-background="new 0 0 320 480" xml:space="preserve" class="squiggle-animated">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#E99313" stroke-width="2" stroke-miterlimit="10" d="
+			M6.5,306.5v-53h21L28,305h24l-0.5-100l40.5,1l-0.5,100H126V151l49-0.5v156l33-1V105l44,0.5l0.5,200.5l30.5,0.5L282,55l32,0.5
+			l-0.5,246V352l-191,1"/>	
+	</g>
+</svg>
+
+	<svg class="progress" viewBox="0 0 52.56 60.756" >
+	
+	<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="
+		26.844,50.531 9.975,41.525 9.975,21.517 26.844,31.531 43.714,21.125 43.714,42.047 26.844,50.531 26.844,31.531 9.975,21.517 
+		26.844,11.531 43.714,21.125 26.844,31.531 "/>
+		
+	</svg>
+	
+	<svg width="600px" height="60px">
+	    <line x1="0" y1="20" x2="600" y2="20" stroke="#000" stroke-width="3" stroke-dasharray="10 4, 5 10, 1 1, 10 30" />
+	</svg>
+
+
+
+
+</svg>
+</body>
+<!--<script src="http://cache.500boss.com/public/js/jquery/jquery- .7.2.min.js"></script>-->
+<script>
+	var path = document.querySelector('.squiggle-animated path');
+	//var path = $(".squiggle-animated path");
+	
+   var length = path.getTotalLength();
+  
+// 清除之前的动作
+path.style.transition = path.style.WebkitTransition =
+  'none';
+// 设置起始点
+path.style.strokeDasharray = length + ' ' + length;
+
+path.style.strokeDashoffset = length;
+
+// 获取一个区域，获取相关的样式，让浏览器寻找一个起始点。
+path.getBoundingClientRect();
+// 定义动作
+path.style.transition = path.style.WebkitTransition =
+  'stroke-dashoffset 5s ease-in-out';
+// Go!
+path.style.strokeDashoffset = '0';
+
+
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演示</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no"> 		
+	<link type="text/css" rel="stylesheet" href="common.css" /> 
+	<script src="rem2.js"></script>
+</head>
+
+<body>
+	<!--===================loading start======================-->
+<script type="text/javascript" src="js/queryloader.js"></script>
+<script type="text/javascript">
+function uiLgid(o){return document.getElementById(o);}
+halo.use('loader',function(m){
+		var uiLimgPath= "http://cache.500boss.com/mobile/huodong/2015/20150413_dear/images/";
+		var uiLsourceArr = ['pic-mail3.png','pic0.jpg','pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg','pic5.jpg','pic6.jpg','pic7.jpg','pic8.jpg','pic9.jpg','pic10.jpg'];
+		for (var i = 0; i < uiLsourceArr.length; i++) {uiLsourceArr[i] = (uiLimgPath + uiLsourceArr[i]);};
+	    m.loader(uiLsourceArr)
+		.loadend(function(){
+			uiLgid("ui-load-loadPer").innerHTML = (this.percent);
+			uiLgid("ui-load-bar-in").style.width=this.percent;
+			})
+		.complete(function(){
+			setTimeout(function(){
+				uiLgid("ui-load-bg").className="ui-load-hide";
+				setTimeout(function(){
+						uiLgid("ui-load-bg").style.display="none";
+					},400);
+			},1000)
+		});
+})
+uiLgid("ui-load-bg").addEventListener('touchmove', function(e){e.preventDefault();});
+</script>
+<!-- ===================loading end======================-->
+ <!--main start-->
+<div class="ui-acttemp-wrap">
+	<!--head begin-->
+	<header id="uiHead" class="ui-head">
+	    <div class="ui-head-in">
+	        <div class="ui-head-l">
+	            <span class="ui-head-btn1">返回</span>
+	        </div>
+	        <div class="ui-head-m">
+	            <h2 class="ui-head-tit">单关投注</h2>
+	        </div>
+	        <div class="ui-head-r">
+	            <span class="ui-head-btn2">分享</span>
+	        </div>
+	    </div>
+	</header>
+	<!--head end-->
+	<section>
+		<p class="ui-acttemp-rule-head">活动规则</p>
+			<div class="ui-acttemp-rule">
+				<ol type="1" class="ui-acttemp-rule-list">
+					<li>活动中所有奖励都以竞足红包形式发放，查看红包使用规则；</li>
+					<li>如您参加本次活动，即视为同意本活动所有的规则， 500彩票网保留变更本活动规则条款的权利；</li>
+					<li>邀请人可查看受邀好友的加奖金额，如果你对此有异议， 可以联系在线客服进行沟通； </li>
+					<li>本活动最终解释权归500彩票网所有，如有任何疑问，请联系在线客服；</li>
+				</ol>
+			</div>
+	</section>
+</div>
+<!--main end-->
+</body>
+
+</html>

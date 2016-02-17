@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>触屏版首页</title>
+  <style type="text/css">
+  body,html{margin: 0;padding: 0;height: 100%}
+.box{width: 100%;min-height: 100%;background-color: red}
+  </style>
+</head>
+<body>
+ <!--  <audio  class="music" autoplay>
+    <source src="1.mp3" type="audio/mpeg"></audio> -->
+<div class="box">666</div>
+<p>你好</p>
+</body>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript">
+  
+//   var ifr=document.createElement("iframe");
+// ifr.setAttribute('src', "1.mp3");
+// ifr.setAttribute('width', '1px');
+// ifr.setAttribute('height', '1px');
+// ifr.setAttribute('scrolling', 'no');
+// ifr.style.border="0px";
+// document.body.appendChild(ifr);
+
+
+var isiPad = false;
+if (navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)) { 
+    isiPad = true; 
+}
+$(function() { 
+    if (isiPad) { 
+        var audioElement2 = document.createElement('audio'); 
+        audioElement2.setAttribute('src', '1.mp3'); 
+        audioElement2.controls = true; 
+        audioElement2.loop = true; 
+        audioElement2.load();
+        audioElement2.play();
+    }
+});
+</script>
+
+</html>

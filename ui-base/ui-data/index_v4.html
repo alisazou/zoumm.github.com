@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>触屏版首页</title>
+		<style type="text/css">
+			#div1 {
+			                width: 100px;
+			                height: 100px;
+			                position: absolute;
+			                background: red;
+			                top: 50px;
+			                left: 0; /*600 初始值*/
+			        }
+		    #div2 {
+		        width: 1px;
+		        height: 600px;
+		        position: absolute;
+		        left: 600px;
+		        top: 0;
+		        background: black;
+		    }
+		    .div3{width: 50px;height: 50px;background-color: black;position: absolute;}
+		    
+		</style>
+	</head>
+
+	<body>
+
+		<body>
+			<input type="button" id="btn" value="开始运动" />
+
+			<!--<div id="div1">
+
+			</div>-->
+			<div id="div2">
+
+			</div>
+			<div class="div3" id="div3"></div>
+		</body>
+	</body>
+	<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+	<script type="text/javascript">
+           // var speed;
+           // var a  = Math.ceil(-12.2);
+            //console.log(a);
+//          function startMove() {
+//              var oDiv = document.getElementById("div1"),
+//                   speed = 0;
+//              
+//              var t= setInterval(function() {
+//              	 speed = (600 - oDiv.offsetLeft) / 10;
+//                   
+//                 if(speed>0){
+//                 	 speed= Math.ceil(speed);
+//                 }
+//      
+//                  //speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+//                   
+//                  oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+//                    
+//		            if(speed==0){
+//		                	clearInterval(t)
+//		               }
+//		                 
+//
+//              }, 30)
+//             // console.log("speed->="+speed+"  "+"oDiv.offsetLeft"+(300 - oDiv.offsetLeft));
+//             
+//           
+//          }
+           function text(){
+	           	var oDiv = document.getElementById("div3"),
+                     speed = 0;
+                
+                var t= setInterval(function() {
+                	 speed = (600 - oDiv.offsetLeft) / 10;
+                     
+                   if(speed>0){
+                   	 speed= Math.ceil(speed);
+                   }
+        
+                    //speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                     
+                    oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                      
+		            if(speed==0){
+		                	clearInterval(t)
+		               }
+		                 
+
+                }, 30)
+                //return speed;
+               // console.log("speed->="+speed+"  "+"oDiv.offsetLeft"+(300 - oDiv.offsetLeft));
+           	 
+           }
+          
+          $(function(){
+          	//startMove();
+          	//text()
+          	$("#btn").on("click",function(){
+          		
+        		$('.div3').css({
+        		"-webkit-transform": "translate3d(0,"+text()+",0)"   
+        		//"marginLeft":text()
+        	})
+          	})
+          	
+          	
+          })
+        </script>
+
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link type="text/css" rel="stylesheet" href="load.css" />
+
+<title>img loader</title>
+</head>
+<body>
+<!--游戏开始加载进度条 开始-->
+
+<!--html 开始  如果用默认的加载样式，下面的html可以去掉-->
+<div id="ui-load-bg">
+  <div id="ui-load-box">
+    <p><span class="ui-load-logo"></span></p>
+    <p id="ui-load-bar"><span id="ui-load-bar-in"></span></p>
+    <p><span id="ui-load-loadPer">0%</span></p>
+  </div>
+</div>
+<!--html 结束-->
+
+<!--<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/queryloader/queryloader.js"></script>-->
+<script type="text/javascript">
+function uiLgid(o){return document.getElementById(o);}
+halo.use('loader',function(m){
+		var uiLimgPath= "http://ossweb-img.qq.com/images/bl/act/a20140610mobile/";
+		var uiLsourceArr = ['arrow.png','bg1.jpg','wx.png','p1.png','p2.png','p3.png','p4.png','p5.png','p6.png','p7.png','p8.png','p9.png'];
+		for (var i = 0; i < uiLsourceArr.length; i++) {uiLsourceArr[i] = (uiLimgPath + uiLsourceArr[i]);};
+	    m.loader(uiLsourceArr)
+		.loadend(function(){
+			uiLgid("ui-load-loadPer").innerHTML = (this.percent);
+			uiLgid("ui-load-bar-in").style.width=this.percent;
+			})
+		.complete(function(){
+			setTimeout(function(){
+				uiLgid("ui-load-bg").className="ui-load-hide";
+				setTimeout(function(){
+						uiLgid("ui-load-bg").style.display="none";
+					},400);
+			},1000)
+		});
+})
+uiLgid("ui-load-bg").addEventListener('touchmove', function(e){e.preventDefault();});
+</script>
+<!--游戏开始加载进度条 结束-->
+<h1>我是body内容</h1>
+</body>
+</html>
