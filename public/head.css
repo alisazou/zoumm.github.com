@@ -1,0 +1,12 @@
+.head-area { overflow: hidden; border-bottom: 1px solid #eee;position: fixed;width: 100% }
+.head-area-on{position: fixed;top: 0;background-color: #000;width: 100%;}
+.head-content { max-width: 1140px; margin: auto; line-height: 50px; }
+.title-area { position: absolute; }
+.title-area h1 a { font-weight: 300; font-size: 30px; }
+.nav-area { font-size: 16px; height: 50px; color: #888; text-align: center; overflow: hidden; }
+.main-nav { list-style-position: inside; margin: auto 0; padding: 0; float: right; font-size: 16px; }
+.main-nav li { margin: 0 18px; display: inline-block; }
+.main-nav li a { display: block; }
+
+
+
