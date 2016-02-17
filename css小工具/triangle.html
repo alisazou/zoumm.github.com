@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+html,body {margin:0;padding:0;}
+.wrap {width:1000px;overflow:hidden;padding:10px;margin:10px auto;border:1px solid #37393A;border-radius:8px;}
+h1 {text-align:center;font-size:16px;color:#FF0000;}
+.demo {padding:20px;background-color:#000000;color:#EFEFEF;border-radius:8px;}
+.change_box li {margin-bottom:5px;}
+.change_box li input {width:50px;}
+.nav {overflow:hidden;padding:10px 0;text-align:center;}
+.nav a {color:#242424;margin-left:8px;}
+.nav a:hover {text-decoration:none;color:#F32600;}
+.nav a.current {font-weight:bold;text-decoration:none;color:#F32600;cursor:default;}
+.tips {padding: 30px;font-size:12px;color:#FF0000;border-left:5px solid #FF0000;border-bottom:1px solid #CCCCCC;}
+.tips strong {font-weight:bold;font-size:14px;color:#000000;}
+.href_pootip{font-size: 30px;text-decoration: none;}
+</style>
+</head>
+<body>
+	<div class="wrap">
+	<h1>边框border制作三角的小工具 v2.0</h1>
+	<p class="tips">在<a href="http://rekey.im/">rekey</a>的英明指导下，使用了IE滤镜中chroma滤镜方式针对IE6的方式做了hack处理。处理的方式是设置一个颜色color用于透明使用，并且这个color要与chroma中的color相同，但重要的是不能与边框色相同，否则边框色透明了看不到，直接导致三角形不会出现。<br/>好了，万恶的IE6在<a href="http://rekey.im/" >rekey</a>的淫威下，结束了。本文中的方向箭头，只适用于移动端，要想兼容pc端请移驾<a href="../zmmpc/widget.html#modules-szhujian" class="href_pootip">pc组件poptip</a></p>
+	<div class="change_box">
+		<ul>
+			<li>大小：<input type="text" value="7" id="ipt_width" /> px</li>
+			<li>颜色：#<input type="text" value="FFFFFF" id="this_color" /></li>
+			<li>
+				<select id="direction">
+					<option value="" selected="selected">选择三角的方向</option>
+					<option value="d_top">上</option>
+					<option value="d_left">左</option>
+					<option value="d_bottom">下</option>
+					<option value="d_right">右</option>
+
+					<option value="o_top">线上</option>
+					<option value="o_left">线左</option>
+					<option value="o_bottom">线下</option>
+					<option value="o_right">线右</option>
+				</select>
+			</li>
+		</ul>
+	</div>
+	<h4 class="code_type_tit">CSS代码如下：</h4>
+	<div id="out_style" style="margin:15px 0;font:100 12px/18px monaco, andale mono, courier new;padding:10px 12px;border:#ccc 1px solid;border-left-width:4px;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"></div>
+
+	<div class="demo"><span class="triangle"></span> 修改上面的设置，<span class="triangle"></span><span style="color:#ACD334;">文字旁边会出现三角</span>，三角与文字的对齐方式默认采用vertical-align:middle;的居中对齐方式，有需要的可以根据实际情况进行修改。<span class="triangle"></span></div>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+	var triangle_d = document.getElementById('direction');
+	var out_css = document.getElementById("out_style");
+	var ipt_w = document.getElementById('ipt_width');
+	var triangle_c = document.getElementById('this_color');
+	var triangle_d_value;
+	var color = changeColor(triangle_c.value);
+
+	ipt_w.onblur = function() {show_triangle();}
+
+	triangle_c.onblur = function() {
+
+		function check16(val){
+			val = val.substr(0,6);
+			return /[0-9a-f]{6}/.test(val);
+		}
+
+		function check16_3(val){
+			val = val.substr(0,3);
+			return /[0-9a-f]{3}/.test(val);
+		}
+
+		triangle_c.value = triangle_c.value.replace(/[g-zG-Z]/g,function(i){
+				return "";
+			});
+
+		if(triangle_c.value.length &&  !check16(triangle_c.value) &&  !check16_3(triangle_c.value)){
+				return;
+			}
+		triangle_c.value = triangle_c.value.substr(0,6)?triangle_c.value.substr(0,6):"000000";
+
+		show_triangle();
+	}
+
+	triangle_d.onchange = function() {
+		show_triangle();
+	}
+	
+	function changeColor(color){
+		var str = color[2] = color[2] =='3'?'F':'3';
+		return color.slice(0,2) + str + color.slice(3);
+	}
+
+	function show_triangle() {
+		if (triangle_d.options[triangle_d.selectedIndex].value == "d_top"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;<br>vertical-align:middle;<br>border-bottom:' + ipt_w.value + 'px solid #' + triangle_c.value + ';<br>border-top:0 none;<br>border-left:' + ipt_w.value + 'px solid transparent;<br>border-right:' + ipt_w.value + 'px solid transparent;<br>_color:#' + color + ';<br>_filter:chroma(color=#' + color + ');<br>}<br>&lt;/style&gt;';
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;vertical-align:middle;border-bottom:' + ipt_w.value + 'px solid #' + triangle_c.value + ';border-top:0 none;border-left:' + ipt_w.value + 'px solid transparent;border-right:' + ipt_w.value + 'px solid transparent;_color:#' + color + ';_filter:chroma(color=#' + color + ');}</style>';
+		}
+		if (triangle_d.options[triangle_d.selectedIndex].value == "d_left"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;<br>vertical-align:middle;<br>border-right:' + ipt_w.value + 'px solid #' + triangle_c.value + ';<br>border-left:0 none;<br>border-top:' + ipt_w.value + 'px solid transparent;<br>border-bottom:' + ipt_w.value + 'px solid transparent;<br>_color:#' + color + ';<br>_filter:chroma(color=#' + color + ');<br>}<br>&lt;/style&gt;';
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;vertical-align:middle;border-right:' + ipt_w.value + 'px solid #' + triangle_c.value + ';border-left:0 none;border-top:' + ipt_w.value + 'px solid transparent;border-bottom:' + ipt_w.value + 'px solid transparent;_color:#' + color + ';_filter:chroma(color=#' + color + ');}</style>';
+		}
+		if (triangle_d.options[triangle_d.selectedIndex].value == "d_bottom"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;<br>vertical-align:middle;<br>border-top:' + ipt_w.value + 'px solid #' + triangle_c.value + ';<br>border-bottom:0 none;<br>border-left:' + ipt_w.value + 'px solid transparent;<br>border-right:' + ipt_w.value + 'px solid transparent;<br>_color:#' + color + ';<br>_filter:chroma(color=#' + color + ');<br>}<br>&lt;/style&gt;';
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;vertical-align:middle;border-top:' + ipt_w.value + 'px solid #' + triangle_c.value + ';border-bottom:0 none;border-left:' + ipt_w.value + 'px solid transparent;border-right:' + ipt_w.value + 'px solid transparent;_color:#' + color + ';_filter:chroma(color=#' + color + ');}</style>';
+		}
+		if (triangle_d.options[triangle_d.selectedIndex].value == "d_right"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;<br>vertical-align:middle;<br>border-left:' + ipt_w.value + 'px solid #' + triangle_c.value + ';<br>border-right:0 none;<br>border-top:' + ipt_w.value + 'px solid transparent;<br>border-bottom:' + ipt_w.value + 'px solid transparent;_color:#' + color + ';<br>_filter:chroma(color=#' + color + ');<br>}<br>&lt;/style&gt;';
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;vertical-align:middle;border-left:' + ipt_w.value + 'px solid #' + triangle_c.value + ';border-right:0 none;border-top:' + ipt_w.value + 'px solid transparent;border-bottom:' + ipt_w.value + 'px solid transparent;_color:#' + color + ';_filter:chroma(color=#' + color + ');}</style>';
+		}
+
+		
+		if (triangle_d.options[triangle_d.selectedIndex].value == "o_top"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;overflow:hidden;<br>vertical-align:middle;<br>border-right:2px solid #' + triangle_c.value + ';<br>border-bottom:2px solid #'+ triangle_c.value+'<br>width:'+ipt_w.value+'px;<br>height:'+ipt_w.value+'px;<br>-webkit-transform:rotate(-135deg);<br>transform:rotate(-135deg);}<br>&lt;/style&gt;';
+
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;overflow:hidden;vertical-align:middle;border-right:2px solid #' + triangle_c.value + ';border-bottom:2px solid #'+ triangle_c.value+';width:'+ipt_w.value+'px;height:'+ipt_w.value+'px;-webkit-transform:rotate(-135deg);transform:rotate(-135deg);}</style>';
+		}
+
+			
+		if (triangle_d.options[triangle_d.selectedIndex].value == "o_left"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;overflow:hidden;<br>vertical-align:middle;<br>border-right:2px solid #' + triangle_c.value + ';<br>border-bottom:2px solid #'+ triangle_c.value+'<br>width:'+ipt_w.value+'px;<br>height:'+ipt_w.value+'px;<br>-webkit-transform:rotate(135deg);<br>transform:rotate(135deg);}<br>&lt;/style&gt;';
+
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;overflow:hidden;vertical-align:middle;border-right:2px solid #' + triangle_c.value + ';border-bottom:2px solid #'+ triangle_c.value+';width:'+ipt_w.value+'px;height:'+ipt_w.value+'px;-webkit-transform:rotate(135deg);transform:rotate(135deg);}</style>';
+		}
+		if (triangle_d.options[triangle_d.selectedIndex].value == "o_right"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;overflow:hidden;<br>vertical-align:middle;<br>border-right:2px solid #' + triangle_c.value + ';<br>border-bottom:2px solid #'+ triangle_c.value+'<br>width:'+ipt_w.value+'px;<br>height:'+ipt_w.value+'px;<br>-webkit-transform:rotate(-45deg);<br>transform:rotate(-45deg);}<br>&lt;/style&gt;';
+
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;overflow:hidden;vertical-align:middle;border-right:2px solid #' + triangle_c.value + ';border-bottom:2px solid #'+ triangle_c.value+';width:'+ipt_w.value+'px;height:'+ipt_w.value+'px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);}</style>';
+		}
+		if (triangle_d.options[triangle_d.selectedIndex].value == "o_bottom"){
+			out_css.innerHTML = '&lt;style type="text/css"&gt;<br>.triangle {display:inline-block;overflow:hidden;<br>vertical-align:middle;<br>border-right:2px solid #' + triangle_c.value + ';<br>border-bottom:2px solid #'+ triangle_c.value+'<br>width:'+ipt_w.value+'px;<br>height:'+ipt_w.value+'px;<br>-webkit-transform:rotate(45deg);<br>transform:rotate(45deg);}<br>&lt;/style&gt;';
+
+			out_css.innerHTML += '<style type="text/css">.triangle {display:inline-block;overflow:hidden;vertical-align:middle;border-right:2px solid #' + triangle_c.value + ';border-bottom:2px solid #'+ triangle_c.value+';width:'+ipt_w.value+'px;height:'+ipt_w.value+'px;-webkit-transform:rotate(45deg);transform:rotate(45deg);}</style>';
+		}
+
+
+
+
+
+	}
+}
+</script>
+</body>
+</html>

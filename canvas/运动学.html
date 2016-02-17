@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid red;margin:0 200px;}
+			.btn{width: 100px;height: 36px;border:1px solid #e6e6e6;cursor: pointer;text-align: center;line-height: 36px;}
+		</style>
+	</head>
+	<body>
+		<div class="btn" id="btn">开始</div>
+		<canvas id="canvas" width="" height=""></canvas>
+	</body>
+	<script>
+	var arr =["red","blue","black"],
+	    num = Math.floor(Math.random()*3),
+	    ball = {x:500,y:50,r:20,g:2,vx:-4,vy:-10,color:arr[num]},
+        window_width = 1024,
+        window_height = 768,
+        time ,
+        tmp=true;
+   var canvas = document.getElementById('canvas');
+			 var btn = document.getElementById("btn");
+    		 var context = canvas.getContext("2d");
+    		 canvas.width = window_width;
+    		canvas.height = window_height;
+    		
+    		btn.onclick = function(){
+    			if(tmp==true){
+    				strat();
+    				tmp =false;
+    			}
+    			else if(tmp==false){
+    				tmp = true;
+    				strat();
+    			}
+    			else{
+    				tmp ==false;
+    			}
+    			console.log(tmp)
+    		}
+		
+		function strat(){
+			clearInterval(time);
+			ball.x = 500;
+			ball.y=50;
+    			time = setInterval(
+    		 	function(){
+    		 	   render(context);
+    		 	   update();
+    		 	},
+    		 	50
+    		 );
+    		} 
+		function  update(){
+			ball.x+= ball.vx;
+			ball.y+=ball.vy;
+			ball.vy+=ball.g;
+			if(ball.y >=window_height-ball.r){
+				ball.y = window_height-ball.r;
+				ball.vy = -ball.vy*0.5;
+				//console.log(ball.vy);
+				
+				if(ball.x<=ball.r){
+					 clearInterval(time);
+				}
+			}
+			
+		}
+		function render(cxt){
+			   
+			 	cxt.clearRect(0,0,cxt.canvas.width,cxt.canvas.height);
+			 	cxt.fillStyle = ball.color;
+			    cxt.beginPath();
+			    cxt.arc(ball.x,ball.y,ball.r,0,2*Math.PI);
+			    cxt.closePath();
+                cxt.fill();
+		}
+	</script>
+</html>

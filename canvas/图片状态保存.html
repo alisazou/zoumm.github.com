@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" style="margin: 0 auto;border: 1px solid red;margin: 50px auto;display: block;">
+			
+		</canvas>
+	</body>
+	<script>
+	var width =800;
+	var height = 800;
+		window.onload = function(){
+			 	var canvas = document.getElementById("canvas"); 
+		 		var content = canvas.getContext("2d");
+		 		canvas.width =width;
+		 		canvas.height =height;
+		 	content.fillStyle = "black";
+		 	content.fillRect(0,0,canvas.width,canvas.height);
+		 	changStart();
+		
+		  function changStart(){
+		  	 for(var i=0;i<100;i++){
+		 			  var r =Math.random()*10+10;
+		 			  var rot = Math.random()*360;
+		 			  var marL = Math.random()*canvas.width;
+		 			  var marT = Math.random()*canvas.height;
+		 			  var color = randomColor();
+		 			  
+		 			 // console.log(color);
+		 			  startDrow(content,marL,marT,r,color,rot);
+		 		}
+		    
+		  } 		 
+		 	
+	}
+ function randomColor() {
+	//16进制方式表示颜色0-F
+	var arrHex = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+	var strHex = "#";
+	var index;
+	for(var i = 0; i < 6; i++) {
+		//取得0-15之间的随机整数
+		index = Math.round(Math.random() * 15);
+		strHex += arrHex[index];
+	}
+	return strHex;
+}
+
+	function startDrow(txt,x,y,R,color,rot){
+		txt.save();
+		txt.translate(x,y);
+		txt.rotate(rot/180*Math.PI);
+		startPath(txt);
+		txt.fillStyle =color;
+		txt.strokeStyle = "#fd5";
+		txt.lineWidth = 3;
+		txt.lineJoin ="round";
+		txt.fill();
+		txt.stroke();
+		txt.restore();
+		 
+	}
+	function startPath(txt){
+		 txt.beginPath();
+		for(var i=0;i<5;i++){
+			txt.lineTo(Math.cos((18+i*72)/180*Math.PI)*20,
+			-Math.sin((18+i*72)/180*Math.PI)*20);
+			txt.lineTo(Math.cos((54+i*72)/180*Math.PI)*10,
+			-Math.sin((54+i*72)/180*Math.PI)*10);
+			
+		}
+		txt.closePath();
+	   
+	}
+	</script>
+</html>

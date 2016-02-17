@@ -1,0 +1,22 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+       ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  font-family: 'Neuton', serif;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  background: url(../images/dust.png);
+  color: rgb(31,43,51);
+}
+
+
+
+.container{height: 500px}
+.pinned{height: 50px;line-height: 50px;text-align: center;background-color: #e9e9e9}
+.container1{background-color: red}
+.container2{background-color: blue}
+.container3{background-color: black}

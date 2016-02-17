@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<style type="text/css">
+       a{color: #333;}
+       p{color:red;font-size:18px;}
+       .error-box{margin: 30px;}
+       .postview{color:#000;}
+       .text{line-height:30px;}
+       .h2{font-size:24px;color:blue;}
+	</style>
+	</head>
+	<body>
+	<!--#include virtual="/public/head.html" -->
+	<div class="error-box">
+	<p><a href="tap.html">1：zepto的tap事件的点透问题的几种解决方案</a></p>
+	<p><a href="d2.html">2：1px边框解决方案</a></p>
+    <p><a href="d3.html">3：Web移动端Fixed布局的解决方案</a></p>
+    <p><a href="http://www.ghugo.com/chrome-timeline/">4：Chrome渲染分析之Timeline工具的使用</a></p>
+    <article id="postview" class="postview editor_content lazy">
+    <p>5：winphone系统a、input标签被点击时产生的半透明灰色背景怎么去掉</p>
+    <div> &nbsp;&lt;meta name="msapplication-tap-highlight" content="no"&gt;</div>
+    <p>6：关闭iOS键盘首字母自动大写</p>
+    <div>&lt;input type="text" autocapitalize="off" /&gt;</div>
+	  <p>7：禁止文本缩放 </p>
+	  <div class="text">html: -webkit-text-size-adjust: 100%;</div>
+	  <p>8：移动端如何清除输入框内阴影<br></p>
+	  <div class="text">在iOS上，输入框默认有内部阴影，但无法使用 box-shadow来清除，如果不需要阴影，可以这样关闭：<br>input,textarea {&nbsp; &nbsp; border: 0; &nbsp; &nbsp; -webkit-appearance: none;}</div>
+	  <p>9：忽略页面的数字为电话，忽略email识别</p>
+	  <div class="text">&lt;meta name="format-detection" content="telephone=no, email=no"/&gt;<br></div>
+	  <p>10：快速回弹滚动</p>
+	  <div class="text">.xxx {&nbsp; &nbsp; overflow: auto;&nbsp; &nbsp; -webkit-overflow-scrolling: touch;}<br>PS：iScroll用过之后感觉不是很好，有一些诡异的bug，这里推荐另外一个 iDangero Swiper，这个插件集成了滑屏滚动的强大功能（支持3D），而且还有回弹滚动的内置滚动条，官方地址：<br>http://www.idangero.us/sliders/swiper/index.php<br></div>
+	  <p>11：移动端禁止选中内容</p>
+	  <div class="text">div {-webkit-user-select: none;}</div>
+	  <p>12：移动端取消touch高亮效果
+	  <div class="text">在做移动端页面时，会发现所有a标签在触发点击时或者所有设置了伪类 :active 的元素，默认都会在激活状态时，显示高亮框，如果不想要这个高亮，那么你可以通过css以下方法来禁止：.xxx {&nbsp; &nbsp; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}</p></div>
+	  <p> 13：如何禁止保存或拷贝图像</p>
+	  <div class="text">通常当你在手机或者pad上长按图像 img ，会弹出选项 存储图像 或者 拷贝图像，如果你不想让用户这么操作，那么你可以通过以下方法来禁止：img {&nbsp; &nbsp; -webkit-touch-callout: none;}<br>PS：需要注意的是，该方法只在 iOS 上有效。<br></div>
+	  <p>14：解决字体在移动端比例缩小后出现锯齿的问题：</p>
+	  <div class="text">-webkit-font-smoothing: antialiased;</div>
+	  <p>15：栅格布局</p>
+	  <div class="text">box-sizing:border-box;可以改变盒子模型的计算方式方便你设置宽进行自适应流式布局</div>
+	  <p>16：input[type=input]{-webkit-appearance:none;}移除ios的样式，</p>
+	  <div class="text">但这个属性存在bug，会导致iso无法获取checkbox值，给这个元素重新赋上input[type=checkbox]{-webkit-appearance:checkbox;}就不会报错了。</div>
+	  <p>17：按钮被按下效果的实现</p>
+	  <div class="text">需要给a标签加a:active属性和添加一段空函数document.body.addEventListener('touchend', function () { });<br></div>
+	  <p>18：-webkit-border-bottom:none;</p>
+	  <div class="text">解决去掉下边框。</div>
+	   <p>19：英文文本换行(不拆分单词)</p>
+	  <div class="text">word-wrap:break-word;</div>
+	   <p> 20：字体大小尽量使用pt或者em，rem，代替px</p>
+	 
+	   <p>21：设置input里面placeholder字体的大小</p>
+	  <div class="text">::-webkit-input-placeholder{ font-size:10pt;}</div>
+	   <p>22：wap页面有img标签，记得加上display：block属性</p>
+	  <div class="text">来解决img的边缘空白间隙的1px像素。如果图片要适应不同的手机要设置width:100%;而且不能添加高度。</div>
+	  <p>23： 移动端如何清除输入框内阴影</p>
+	  <div class="text">在iOS上，输入框默认有内部阴影，但无法使用 box-shadow 来清除，如果不需要阴影，可以这样关闭：input,textarea {border: 0;-webkit-appearance: none; }<br></div>
+  	  <p>24： 移动端禁止选中内容</p>
+	  <div class="text">如果你不想用户可以选中页面中的内容，那么你可以在css中禁掉：.user-select-none {&nbsp;&nbsp;-webkit-user-select: none;&nbsp;&nbsp;};兼容IE6-9的写法：onselectstart="return false;" unselectable="on"}<br></div>
+  	  <p>25：audio元素和video元素在ios和andriod中无法自动播放</p>
+	  <div class="text">应对方案：触屏即播$('html').one('touchstart',function(){audio.play()})</div>
+  	  <p>26：手机拍照和上传图片</p>
+	  <div class="text">&lt;input type="file"&gt;的accept 属性<br>&lt;!-- 选择照片 --&gt;<br>&lt;input type=file accept="image/*"&gt;<br>&lt;!-- 选择视频 --&gt;<br>&lt;input type=file accept="video/*"&gt;<br>ios 有拍照、录像、选取本地图片功能<br>部分android只有选取本地图片功能<br>winphone不支持<br>input控件默认外观丑陋<br></div>
+  	  <p>27： 消除transition闪屏</p>
+	  <div class="text">.css{&nbsp; &nbsp; -webkit-transform-style: preserve-3d;&nbsp; &nbsp; &nbsp; -webkit-backface-visibility: hidden;}</div>
+  	  <p>28：开启硬件加速,解决页面闪白,保证动画流畅</p>
+	  <div class="text"> .css {-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);&nbsp;&nbsp;}设计高性能CSS3动画的几个要素尽可能地使用合成属性transform和opacity来设计CSS3动画，不使用position的left和top来定位利用translate3D开启GPU加速</div>
+ `	  <p>29：单行文本溢出</p>
+	  <div class="text">.xx{ overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}</div>
+      <p>30：多行文本溢出</p>
+	  <div class="text">.xx{display:-webkit-box !importmort;overflow:hidden; text-overflow:ellipsis; word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:2;(数字2表示隐藏两行)}</div>
+	  <p>31：使用流体图片</p>
+	  <div class="text">img{width:100%; height:auto;width:auto\9;}</div>
+	  
+
+**************************************************************************<br>
+
+<h2 class="h2">框架</h2>
+<p>1. 移动端基础框架</p>
+<div class="text">zepto.js 语法与jquery几乎一样，会jquery基本会zepto~<br>iscroll.js 解决页面不支持弹性滚动，不支持fixed引起的问题~ 实现下拉刷新，滑屏，缩放等功能~<br>underscore.js 该库提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置对象。<br>fastclick 加快移动端点击响应时间<br>animate.css CSS3动画效果库<br>Normalize.css Normalize.css是一种现代的、CSS reset为HTML5准备的优质替代方案<br></div> 
+<p>2. 滑屏框架</p>
+<div class="text">适合上下滑屏、左右滑屏等滑屏切换页面的效果<br>slip.js<br>iSlider.js<br>fullpage.js<br>swiper<br></div>
+<p>3.瀑布流框架</p>
+<div class="text">masonry</div>
+<p>4.工具推荐</p>
+<div class="text">caniuse 各浏览器支持html5属性查询<br>paletton 调色搭配</div>
+
+ =========================================================================
+ <h2 class="h2">对于网站字体设置</h2>
+<p>移动端项目</p>：
+<div class="text">font-family:Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,sans-self;</div>
+<p>移动和pc端项目：</p>
+<div class="text">font-family:Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,”Hiragino Sans GB”,Simsun,sans-self;</div>
+
+
+
+
+
+ </article>
+
+	</div>
+	
+		
+	</body>
+</html>

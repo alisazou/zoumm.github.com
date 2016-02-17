@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta meta charset="utf-8">
+	<title>Demo</title>
+	<style type="text/css" media="all">
+	   body{color:black;background-color:white;padding:50px;font-size: 12px;line-height:16px;font-family:arial; color: #1E346E;}
+	   * {margin: 0;padding:0;border-width: 0;}
+	   .list{vertical-align: middle;width:1000px;margin-bottom: 1px;border: solid 1px #00a0da;background-color:#F0F5FF; }
+	   .list:hover{background-color:#d9e7f5;}
+	   /*----------set vertical align middle----------*/
+	   .list p { vertical-align: middle;display: -moz-inline-stack;display:inline-block;zoom:1;*display:inline; padding:10px;}
+	   .list:before{content:"";display: -moz-inline-stack;display: inline-block;zoom:1;*display:inline;vertical-align:middle;height:50px; background-color:#ce6;}
+	   .baseline{content:"";display: -moz-inline-stack;display: inline-block;zoom:1;*display:inline; vertical-align:middle;background-color:#ce6;height:50px;visibility:hidden;margin-left:-2em;}
+	   .list { *zoom:expression(function(x){x.style.zoom = "1";
+	   var _tag=document.createElement('span');_tag.innerHTML='&nbsp;';
+	   _tag.className='baseline';x.appendChild(_tag);}(this));}
+	   </style>
+</head>
+<body>
+	<div class="list">
+		<p style="width:80px;">first class</p>
+		<p style="width:160px;">Can be modified me class if available; further changes charged 10% of fare. Passengers must go to CA ticketing office to process fee-base</p>
+		<p style="width:160px;">Can be refunded.</p>
+		<p style="width:160px;">Can be endorsed</p>
+	</div>
+	<div class="list">
+		<p style="width: 80px;">Economy class class class</p>
+		<p style="width:160px;">Can be modified</p>
+		<p style="width:160px;">Can be refunded.</p>
+		<p style="width:160px;">Can be endorsed</p>
+	</div>
+	<div class="list">
+		<p style="width:80px;">23% off Economy class</p>
+		<p style="width:160px;">
+			One free change permitted within same class if available; further changes charged 10% of fare. Passengers must go to CA ticketing office to process fee-based changes.
+		</p>
+		<p style="width:160px;">10% of fare charged.</p>
+		<p style="width:160px;">Can not be endorsed</p>
+	</div>
+	<div class="list">
+		<p style="width:80px;">-6% off Economy class</p>
+		<p style="width:160px;">
+			Free change permitted within same class if available at least 4 days prior to departure.
+		</p>
+		<p style="width:160px;">20% of fare charged (minimum CNY50 charge).</p>
+		<p style="width:160px;">Can not be endorsed</p>
+	</div>
+</body>
+</html>

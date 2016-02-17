@@ -1,0 +1,26 @@
+@charset "utf-8";
+.ui-button {display:inline-block; border-radius:4px; font-size:18px; height:42px; line-height:42px; text-align:center; border:0 none; outline:0 none; width:300px;}
+/*红色按钮*/
+.ui-button-red {background:#f42023; color:#fff;}
+.ui-button-red:active {background:#d02427;}
+/*白色按钮*/
+.ui-button-white {background:#fff; color:#333; font-size:18px; width:300px; box-shadow:inset 1px 1px #bbb,inset -1px -1px #bbb,inset 1px -1px #bbb,inset -1px 1px #bbb;}
+.ui-button-white:active {color:#c10; background:#e7e7e7; box-shadow:inset 2px 2px #c10,inset -2px -2px #c10,inset 2px -2px #c10,inset -2px 2px #c10;}
+.ui-button-white .ui-ico-add {margin-right:.5em;}
+.ui-button-white .ui-ico-add2 {margin-right:.5em;}
+/*灰色按钮*/
+.ui-button-gray, .ui-button-gray:active {background:#999; color:#666}
+
+/*icon样式1*/
+.ui-ico-add {display:inline-block; width:17px; height:17px; border:1px solid #f64d4f; border-radius:50% 50%; position:relative; top:3px;}
+.ui-ico-add:before {position:absolute; content:''; width:11px; height:1px; background:#f64d4f; left:3px; top:8px;}
+.ui-ico-add:after {position:absolute; content:''; width:1px; height:11px; background:#f64d4f; left:8px; top:3px;}
+.ui-ico-add2 {display:inline-block; width:17px; height:17px; position:relative; top:3px;}
+.ui-ico-add2:before {position:absolute; content:''; width:11px; height:1px; background:#8d8d8d; left:3px; top:8px;}
+.ui-ico-add2:after {position:absolute; content:''; width:1px; height:11px; background:#8d8d8d; left:8px; top:3px;}
+
+
+.ui-button-w100 {width:100px;}
+.ui-button-wauto {width:auto; padding:0 10px;}
+
+.ui-button-h32 {height:32px; line-height:32px; font-size:14px;}

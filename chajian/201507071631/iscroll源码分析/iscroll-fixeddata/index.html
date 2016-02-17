@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<style type="text/css">
+	body,ul,li,h3{margin: 0;padding: 0;}
+	html,body{height: 100%}
+	.box{position: relative;min-height: 100%}
+	.box{padding-bottom: 20px;}
+    .box h3{position: absolute;z-index: 3;top: 0;left: 0;width: 100%;height: 40px;line-height: 40px;background-color: #e9e9e9;font-size: 20px;text-align: center;}
+	.box ul li{height: 30px;line-height: 30px;text-align: center;border-bottom: 1px solid red}
+.iscroll-box {position: absolute;z-index: 2;top: 40px;bottom: 48px;left: 0;width: 100%;overflow: hidden;}
+
+	</style>
+	<script type="text/javascript" src="../iscroll/iscroll.js"></script>
+
+	<script type="text/javascript">
+
+var myScroll;
+var myScroll1;
+
+function loaded () {
+	myScroll = new IScroll('.iscroll-box',{scrollbars: true,});
+	
+}
+
+
+
+</script>
+</head>
+<body onload="loaded ()">
+	<div class="box">
+			<h3>测试分组</h3>
+			<div class="iscroll-box ">
+				<ul></ul>
+			</div>
+	</div>
+	<div class="box">
+			<h3>测试分组</h3>
+			<div class="iscroll-box ">
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript">
+	function del_space(elem){
+    var elem_child = elem.childNodes;//得到参数元素的所有子元素
+    for(var i=0;i<elem_child.length;i++){ //遍历子元
+        if(elem_child[i].nodeName == "#text" && !/\S/.test(elem_child[i].nodeValue)) { 
+             elem.removeChild(elem_child[i]);
+        };   
+    }
+}
+ function createLi(){
+	 	 for(var i=1; i<=40; i++){
+		var yearStr;
+		 yearStr += '<li>'+i+'</li>';	
+	}
+
+ 		$(".iscroll-box").find("ul").append(yearStr);
+	 }
+	
+createLi();
+ //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+* {margin:0;padding:0;}
+body {padding:15px 15px 30px;font:normal 13px/1.5 Tahoma, simsun, Verdana,Lucida, Arial, Helvetica, sans-serif;}
+ul {list-style:none;}
+label {cursor:pointer;}
+label:hover {color:#B50000;border-bottom:1px dashed #A0A0A0;}
+
+.tips {overflow:hidden;margin-bottom:10px;padding:10px 10px 15px;color:#D2D2D2;border:1px solid #000000;border-radius:8px;background-color:#242424;box-shadow:2px 2px 2px #999999;zoom:1;-moz-transition:all 500ms ease-out;-webkit-transition:all 500ms ease-out;opacity:1;}
+.tips dt {font-size:14px;font-weight:bold;color:#99CC29;}
+.tips dd {padding:2px;text-indent:2em;-moz-transition:all 300ms ease-out;-webkit-transition:all 300ms ease-out;}
+.tips dd:hover {color:#FFFFFF;background-color:#000000;border-radius:5px;}
+.tips dd * {margin:0 3px;}
+.tips dd strong {color:#FFFF00;}
+.tips dd em {font-style:normal;color:#FFFA8E;}
+.tips dd span {color:#CC9502;}
+.tips .close {text-align:right;}
+.tips .close a {color:#EFEFEF;}
+.tips .close a:hover {text-decoration:none;color:#FF0000;}
+.fill_box {overflow:hidden;padding:10px 0 5px;zoom:1;}
+.fill_box dt {font-weight:bold;font-size:14px;}
+.fill_box dd {overflow:hidden;padding:5px 10px;zoom:1;}
+#meta_charset li {float:left;margin-right:15px;}
+#meta_charset li input {vertical-align:-2px;margin-right:4px;}
+#browser_list {width:400px;height:90px;overflow:hidden;zoom:1;}
+#browser_list li {float:left;width:200px;height:22px;overflow:hidden;line-height:22px;margin-bottom:5px;}
+#browser_list li input {width:50px;margin:0 3px;text-align:center;border:1px solid #ABADB3;background-color:#FFFFFF;}
+#browser_list li input:hover {color:#FF0000;background-color:#F5F7FB;}
+.zxx_align_box_2{margin-bottom: 30px;display:table-cell; width:550px; height:200px; padding:0 20px; border:4px solid #beceeb; color:#069; font-size:14px; vertical-align:middle;text-align: center;}
+.zxx_align_box_2 .zxx_align_word{display:inline-block; font-size:20px; vertical-align:middle;}
+.middle-box{width: 1000px;margin:0 auto;}
+ * {margin: 0;padding:0;border-width: 0;}
+	   .list{vertical-align: middle;width:1000px;margin-bottom: 1px;border: solid 1px #00a0da;background-color:#F0F5FF; margin-top: 20px}
+	   .list:hover{background-color:#d9e7f5;}
+	   /*----------set vertical align middle----------*/
+	   .list p { vertical-align: middle;display: -moz-inline-stack;display:inline-block;zoom:1;*display:inline; padding:10px;}
+	   .list:before{content:"";display: -moz-inline-stack;display: inline-block;zoom:1;*display:inline;vertical-align:middle;height:50px; background-color:#ce6;}
+	   .baseline{content:"";display: -moz-inline-stack;display: inline-block;zoom:1;*display:inline; vertical-align:middle;background-color:#ce6;height:50px;visibility:hidden;margin-left:-2em;}
+	   .list { *zoom:expression(function(x){x.style.zoom = "1";
+	   var _tag=document.createElement('span');_tag.innerHTML='&nbsp;';
+	   _tag.className='baseline';x.appendChild(_tag);}(this));}
+}
+</style>
+</head>
+<body>
+	
+<dl class="tips" id="tips">
+
+	<dt>有几点简要说明：</dt>
+	<dd>外部div不能使用浮动；</dd>
+<dd>内部标签的vertical-align:middle可以省略，但是外部div高度和文字大小比例要修改，我自己试了一下，高度比字体1.5左右的样子；</dd>
+<dd>ie67不兼容</dd>
+<dd>第二个框兼容ie67 <a href="http://ued.ctrip.com/blog/another-way-to-set-css-vertical-center.html" style="color:#fff" target="_block">详细解释请移步这里</a></dd>
+	
+</dl>
+<div class="middle-box">
+<div class="zxx_align_box_2">
+	<span class="zxx_align_word">这里的文字用来做多行文字垂直居中对齐的测试。<br>这是第二行文字，您还可以再一行文字做测试！<br>这是第二行文字，您还可以再一行文字做测试！</span>
+</div>
+
+
+	<div class="list">
+		<p style="width: 80px;">Economy class class class</p>
+		<p style="width:160px;">Can be modified</p>
+		<p style="width:160px;">Can be refunded.</p>
+		<p style="width:160px;">Can be endorsed</p>
+	</div>
+	<div class="list">
+		<p style="width:80px;">23% off Economy class</p>
+		<p style="width:160px;">
+			One free change permitted within same class if available; further changes charged 10% of fare. Passengers must go to CA ticketing office to process fee-based changes.
+		</p>
+		<p style="width:160px;">10% of fare charged.</p>
+		<p style="width:160px;">Can not be endorsed</p>
+	</div>
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<script type="text/javascript" src="flexible.js"></script>
+	<style type="text/css">
+	body{background-color: black}
+body,ul,li{margin: 0;padding: 0;list-style: none;}
+.luckSr-select-time{position: relative;top: 2.133333rem;margin-left: auto;margin-right: auto;width:7.866667rem ;height: 200px;background-color: blue}
+#wrapper1,#wrapper2,#wrapper3{overflow: hidden;height:100%;position: absolute;text-align: center;z-index:1;top:0px;bottom: 0px;}
+#wrapper1 {left: 0;width: 3.466667rem;}
+#wrapper2 {left:3.6rem;width: 2.0rem;}
+#wrapper3 {left: 5.866667rem;width: 2.0rem;}
+#wrapper1 ul,#wrapper2 ul,#wrapper3 ul{width: 100%}
+
+#wrapper1 li.selected,#wrapper2 li.selected,#wrapper3 li.selected{color: #fe0000}
+#wrapper1 li,#wrapper2 li,#wrapper3 li{height: 200px;line-height:  200px;font-size: 1.466667rem;color: #fe0000}
+.input{margin-top: 200px;width: 2.666667rem;font-weight: normal;background-color: rgba(255,255,255,0);border: 0 none;height: 0.666667rem;font-size: 0.48rem;color: #fff}
+ @media only screen and (min-width: 360px) and (max-width:399px) {
+            .luckSr-select-time > *{zoom:1.125;}
+        }
+        @media only screen and (min-width: 400px) and (max-width:539px) {
+           .luckSr-select-time > *{zoom:1.25;}
+        }
+        @media only screen and (min-width: 540px) and (max-width:639px) {
+            .luckSr-select-time > *{zoom:1.6875;}
+        }
+        @media only screen and (min-width: 640px) {
+            .luckSr-select-time > *{zoom:1;}
+        }
+        .text{height: 2000px;background-color: red}
+</style>
+
+</head>
+<body>
+<div class="luckSr-select-time">
+	<div id="wrapper1">
+	    <ul></ul>
+      </div>
+      <!-- math -->
+      <div id="wrapper2">
+	     <ul></ul>
+      </div>
+       <!-- data -->
+      <div id="wrapper3">
+			<ul></ul>
+      </div>
+
+</div>
+<h3><input type="text" class="input" value=""></h3>
+<div class="text"></div>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript" src="iscroll-probe.js"></script>
+<script type="text/javascript">
+$(function(){
+	  //小于10的数字前加0
+    function preZero(num){
+		num = parseInt(num);
+		if(num<10){
+			return '0'+num;
+		}
+		else{
+			return num;
+		}
+    };
+    //创建Fyear
+    var input = $(".input");
+ var defaultDate = input.val()!='' ? getDateValue(input.val()) : new Date(),
+          dYear = defaultDate.getFullYear(),
+          dMonth = defaultDate.getMonth(),
+          dDate = defaultDate.getDate();
+function getDateValue(value){
+   	var array = value.replace(/\D ?/g,',').slice(0,-1).split(',');
+
+	return new Date(array[0], array[1]-1, array[2], array[3], array[4], array[5]);
+		 
+}
+getDateValue(input.val());
+
+   var years = new Array();
+   for(var i=1980;i<2050;i++){
+    	years.push(i);
+   }
+    function Fyear(obj){
+    	      yearStr = '';
+    	for(var i=0; i<years.length; i++){
+    		 var ulyear = document.createElement("ul");
+					var y = years[i];
+					var sel = y==dYear ? 'selected' : '';
+					yearStr += '<li class="'+sel+'" data-year="'+y+'">'+y+'</li>';
+				}
+				
+				obj.find('ul').append(yearStr);
+	   
+    };
+     //初始化month
+    function Fmonth(obj){
+    	 
+		var monthStr = '';
+		for(var j=1; j<=12; j++){
+					var sel = j==dMonth ? 'selected' : '';
+					monthStr += '<li class="'+sel+'" data-month="'+(j-1)+'">'+preZero(j)+'</li>';
+		}
+		
+		obj.find('ul').append(monthStr);
+	   
+    };
+      //初始化day
+    function Fdata(obj){
+		var dayStr = '';
+		
+		for(var k=1; k<=31; k++){
+			var sel = k==dDate ? 'selected' : '';
+			dayStr += '<li class="'+sel+'" data-day="'+k+'">'+preZero(k)+'</li>';
+		}
+		
+		obj.find('ul').append(dayStr);
+	   
+    };
+  Fyear($("#wrapper1"));
+  Fmonth($("#wrapper2"));
+  Fdata($("#wrapper3")); 	
+     var wrapper1, wrapper1, wrapper1;
+     var itemHeight = 200;
+     //滑动配置项
+		var scrollConf = {
+			snap : 'li',
+			snapSpeed: 600,
+			probeType : 1,
+			tap : true
+		};
+		  // document.removeEventListener('touchmove', function (e) { e.preventDefault(); }, true);
+		  // document.addEventListener('touchmove', function (e) { e.preventDefault(); }, true);
+     //初始化scroll
+		var elHeight = itemHeight;
+
+		var yearScroll = new IScroll('#wrapper1', scrollConf);
+		yearScroll.on('scroll', function(){
+			updateSelected($("#wrapper1"), this);
+			textVal();
+		});
+		yearScroll.on('scrollEnd', function(){
+			updateSelected($("#wrapper1"), this);
+			textVal();
+			//_this.updateDay(mpYear, mpMonth, mpDay);
+		});
+
+		var monthScroll = new IScroll('#wrapper2', scrollConf);
+		monthScroll.on('scroll', function(){
+			updateSelected($("#wrapper2"), this);
+			textVal();
+		});
+		monthScroll.on('scrollEnd', function(){
+			updateSelected($("#wrapper2"), this);
+			textVal();
+			//_this.updateDay(mpYear, mpMonth, mpDay);
+		});
+
+		var dayScroll = new IScroll('#wrapper3', scrollConf);
+		
+		dayScroll.on('scroll', function(){
+			
+			updateSelected($("#wrapper3"), this);
+			textVal();
+			
+		});
+		dayScroll.on('scrollEnd', function(){
+			updateSelected($("#wrapper3"), this);
+			textVal();
+			
+			
+		});
+		
+			
+		//计算日期输入到文本框
+		function textVal(){
+                 var year = $("#wrapper1").find('.selected').text();
+					var month = $("#wrapper2").find('.selected').text();
+					var day = $("#wrapper3").find('.selected').text();
+					//console.log(day)
+					input.val(formatDate(year, month, day));
+		}
+		//计算formatdata
+		function formatDate(year, month, day){
+			  month = preZero(month);
+				day = preZero(day);
+				var result = '';
+				    result += year+'-'+month+'-'+day;
+					return result;
+		}
+		
+		//计算选中的日期
+		function updateSelected(container,iscroll){
+               var index = (-iscroll.y) / itemHeight ;
+  console.log(-iscroll.y);
+                  console.log(parseInt(index) );
+				var current = container.find('li').eq(index);
+				current.addClass('selected').siblings().removeClass('selected');		 
+		};
+			
+			//初始化数据
+		function setValue(y,m,d){
+          var yearItem = $('#wrapper1 li[data-year="'+y+'"]');
+              monthItem = $('#wrapper2 li[data-month="'+m+'"]'),
+			  dayItem = $('#wrapper3 li[data-day="'+d+'"]');
+				
+
+			checkYear(yearItem);
+			checkMonth(monthItem);
+			 checkDate(dayItem);
+		}
+
+		//当前年显示select
+		function checkYear(el){
+  				if(el.text()=='')return;
+				var target = el;
+				yearScroll.scrollToElement(target[0]);
+		}
+		function checkMonth(el){
+  				if(el.text()=='')return;
+				var target = el;
+				monthScroll.scrollToElement(target[0]);
+		}
+		function checkDate(el){
+  				if(el.text()=='')return;
+				var target = el;
+				dayScroll.scrollToElement(target[0]);
+		}
+		setValue(dYear,dMonth,dDate);
+		
+})
+
+    
+
+	</script>	
+</body>
+</html>

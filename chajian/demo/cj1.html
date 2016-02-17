@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+   .text a{width: 50px;height: 40px;line-height: 40px;text-align: center;display: block;border: 1px solid #e9e9e9;;text-decoration: none;float: left;margin: 10px}
+
+    </style>
+</head>
+<body>
+<div class="text">
+     <a href="">1</a>
+     <a href="">2</a>
+     <a href="">3</a>
+     <a href="">4</a>
+</div>
+<div class="box">
+     <p>测试1</p>
+     <p>测试2</p>
+     <p>测试3</p>
+     <p>测试4</p>
+</div>
+    <script type="text/javascript">
+    (function(){
+        
+    })()
+     //首先创建闭包
+//       (function(window,document) {
+//         var w = window,
+//             doc = document;
+//         var Kodo = function(selector) {
+//             return new Kodo.prototype.init(selector);
+//         }
+//         Kodo.prototype = {
+//             constructor : Kodo,
+//             length : 0,
+//             splice: [].splice,
+//             selector : '',
+//             init : function(selector) {//dom选择的一些判断
+
+//             }
+//         }
+//         Kodo.prototype.init.prototype = Kodo.prototype;
+
+//         Kodo.ajax = function() { //直接挂载方法  可k.ajax调用
+//             console.log(this);
+//         }
+
+//         window.f = Kodo;
+//     })(window,document);
+// f.ajax();
+
+// function baseClass()
+// {
+//   this.showMsg = function()
+//   {
+//      alert("baseClass::showMsg");   
+//   }
+// }
+
+// function extendClass()
+// {
+//      this.showMsg =function ()
+//     {
+//         alert("extendClass::zmm");
+//     }
+// }
+
+// extendClass.prototype = new baseClass();//extendClass的原型是baseClass的一个实例,可以理解extendClass将baseClass中的方法和属性全部克隆了一遍
+// var instance = new extendClass();
+// instance.showMsg(); // 显示baseClass::showMsg
+// var baseinstance = new baseClass();
+// baseinstance.showMsg.call(instance);//显示baseClass::showMsg
+    </script>
+</body>
+</html>

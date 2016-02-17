@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	/*http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/comment-page-2/*/
+	.box{display:block;margin: 100px;;width:100px;height:100px;border-left:1px solid red;border-right:1px solid blue;;border-bottom:1px solid black;;border-top:1px solid pink;
+		transform: matrix(1, 0, 0, 1, 30, 30);
+		/*transform: matrix(1, 0, 0, 1, 30, 30);*/
+
+		 /* a=1, b=0, c=0, d=1, e=30, f=30 
+		 1：matrix表现偏移就是
+		 transform: matrix(与我无关, 与我无关, 与我无关, 与我无关, 水平偏移距离, 垂直偏移距离);
+		 你只要关心后面两个参数就可以了，至于前面4个参数，是牛是马，是男是女都没有关系的。*/
+		 /*
+		 2:matrix表现缩放(scale)就是
+		 transform:matrix(sx, 0, 0, sy, 0, 0);，等同于scale(sx, sy);
+         
+		 */
+
+
+	}
+</style>
+<body>
+	<div class="box"></div>
+</body>
+</html>

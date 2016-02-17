@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	 <a href="11"></a>
+	 <a href="22"></a>
+	 <a href="33"></a>
+	
+	<span data-href="aa"></span>
+	<span data-href="bb"></span>
+	<span data-href="cc"></span>
+     <p>测试插件接受参数</p>
+     <div>测试空对象</div>
+     <h2>测试面向对象</h2>
+</body>
+<script src="http://www.500cache.com/public/js/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+//1通过$.extend()来扩展jQuery.但是不能操作dom
+// function add(num){
+// 	 if(num<10){
+// 	 	 num = "0"+num;
+// 	 }
+// 	 return num;
+// }
+	
+// 	$.extend({
+// 		sayname:function(name){
+//                console.log(name);
+// 		},
+// 		shortdate:function(){
+// 			var now = new Date();
+// 			var dyear = now.getFullYear(),
+// 			    dmonth = add(now.getMonth()+1),
+// 			    d = now.getDate();
+// 			    console.log(dyear+'/'+dmonth+'/'+d);
+// 		}
+// 	});
+// 	$.sayname("邹苗");
+// 	$.shortdate();
+//2通过$.fn 向jQuery添加新的方法
+
+$.fn.myPlugin1 = function() {
+    //在这里面,this指的是用jQuery选中的元素
+    this.css('color', 'blue');
+    this.each(function() {
+        //对每个元素进行操作
+        $(this).append($(this).attr('data-href'));
+    })
+};
+$("span").myPlugin1();
+//3我们都知道jQuery一个优雅的特性是支持链式调用，选择好DOM元素后可以不断地调用其他方法。要让插件不打破这种链式调用，只需return一下即可。
+$.fn.myPlugin2 = function() {
+    //在这里面,this指的是用jQuery选中的元素
+    this.css('color', 'red');
+    return this.each(function() {
+        //对每个元素进行操作
+        $(this).append(' ' + $(this).attr('href'));
+    })
+};
+$("a").myPlugin2();
+/*4例如我们不想让链接只变成红色，我们让插件的使用者自己定义显示什么颜色，需要使用者在调用的时候传入一个参数。我们在插件的代码里面接收。如果使用者不传递参数，插件里面会给出参数的默认值。
+在处理插件参数的接收上，通常使用jQuery的extend方法。extend方法传递单个对象的情况下，这个对象会合并到jQuery身上，而当用extend方法传递一个以上的参数时，它会将所有参数对象合并到第一个里。同时，如果对象中有同名属性时，合并的时候后面的会覆盖前面的。
+
+利用这一点，可以在插件里定义一个保存插件参数默认值的对象，同时将接收来的参数对象合并到默认对象上，最后就实现了用户指定了值的参数使用指定的值，未指定的参数使用插件默认值。
+上面代码调用extend时会将defaults的值改变，如果在后续代码中还要使用defaults的话，会发现它已经被用户传进来的参数更改了。但是对于插件来说，defaults的值不应该被改变。
+ 所以，将一个新的空对象做为$.extend的第一个参数，defaults和用户传递的参数对象紧随其后，这样所有值被合并到这个空对象上，保护了插件里面的defaults对象中的默认值。
+*/
+$.fn.myPlugin3 = function(options) {
+    var defaults = {
+        'color': 'red',
+        'fontSize': '12px'
+    };
+    var settings = $.extend({},defaults, options);
+    return this.css({
+        'color': settings.color,
+        'fontSize': settings.fontSize
+    });
+}
+$("p").myPlugin3({
+	"color":"black"
+});
+$("div").myPlugin3();
+/*
+ 面向对象的插件开发
+
+面向对象编程的概念和重要性不再阐述。对于插件开发来说，为什么要使用面向对象的思维。
+
+假设你不这样做，当你需要一个方法的时候就去定义一个function，需要另外一个方法的时候，再去定义一个function，毫无规则地定义一些散落在代码各处的变量和方法，结构不够清晰，维护起来也不方便。
+
+假设使用面向对象的思想设计插件，将需要的重要变量定义到对象的属性上，函数变成对象的方法，一来方便管理，二来不会影响外部命名空间，因为所有这些变量名还有方法名都是在对象内部。
+
+接着上面的例子，他的功能是设置颜色啊字体啊什么的，我们可以把这个插件抽象成一个美化页面的对象，我们还可以加入其他功能，比如设置下划线什么的。
+
+所以我们新建一个对象命名为Beautifier，然后我们在插件里使用这个对象来编码。
+*/
+//定义Beautifier的构造函数
+;(function($,window,document,undefined) {
+    //定义Beautifier的构造函数
+    var Beautifier = function(ele, opt) {
+        this.$element = ele,
+        this.defaults = {
+            'color': 'red',
+            'fontSize': '12px',
+            'textDecoration': 'none'
+        },
+        this.options = $.extend({}, this.defaults, opt)
+    }
+    //定义Beautifier的方法
+    Beautifier.prototype = {
+        beautify: function() {
+            return this.$element.css({
+                'color': this.options.color,
+                'fontSize': this.options.fontSize,
+                'textDecoration': this.options.textDecoration
+            });
+        }
+    }
+    //在插件中使用Beautifier对象
+    $.fn.myPlugin = function(options) {
+        //创建Beautifier的实体
+        var beautifier = new Beautifier(this, options);
+        //调用其方法
+        return beautifier.beautify();
+    }
+})(jQuery,window,document);
+$("h2").myPlugin({
+     'color': '#2C9929',
+     'fontSize': '20px'
+});
+</script>
+</html>

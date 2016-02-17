@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div>
+	<h3>ios4</h3>
+	<p>@media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone 4 */</p>
+</div>
+<div>
+	<h3>ios6</h3>
+	<p>@media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone 6 */}</p>
+</div>
+<div>
+	<h3>ios6 plus</h3>
+<p>@media (device-width:414px) and (-webkit-min-device-pixel-ratio:3.0){/* 兼容iphone6 plus */}</p>
+
+
+针对适配等比缩放的方法:<br>@media only screen and (min-width: 1024px){<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:3.2;} <br>}<br>@media only screen and (min-width: 768px) and (max-width: 1023px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:2.4;}<br>}<br>@media only screen and (min-width: 640px) and (max-width: 767px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:2;}<br>}<br>@media only screen and (min-width: 540px) and (max-width: 639px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:1.68;}<br>}<br>@media only screen and (min-width: 480px) and (max-width: 539px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:1.5;}<br>}<br>@media only screen and (min-width: 414px) and (max-width: 479px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:1.29;}<br>}<br>@media only screen and (min-width: 400px) and (max-width: 413px) {<br>&nbsp; &nbsp; body{zoom:1.25;}<br>}<br>@media only screen and (min-width: 375px) and (max-width: 413px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:1.17;}<br>}<br>@media only screen and (min-width: 360px) and (max-width:374px) {<br>&nbsp; &nbsp; &nbsp; &nbsp; body{zoom:1.125;}<br>}
+
+
+
+</div>
+	
+	
+
+
+</body>
+</html>

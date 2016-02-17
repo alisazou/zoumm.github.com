@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <style type="text/css">
+    body{margin:0;padding:0;}
+
+#J_TabHeader{ height:44px; background:#666666; width:100%;}
+</style>
+</head>
+<body>
+<h1>text fixed</h1>
+    <div id="J_TabHeader" style="height:44px; background:#666666; width:100%; z-index:999999;">sddsfsfd</div>
+    <br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df<br />dfdf df
+
+</body>
+<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript">
+(function() { 
+    var a = $(window),
+    b = function(b) {
+        function c() {
+            if (a.scrollTop() >= f) {
+                g.show();
+                d.css("position", "fixed")
+            } else {
+                g.hide();
+                d.css("position", "static")
+            }
+        }
+        var d = $(b.el),
+        e = this;
+        d.css({
+            position: "-webkit-sticky",
+            top: 0,
+            zIndex: 1e3
+        });
+        if (d.length > 0 && -1 == d.css("position").indexOf("sticky")) {
+            e.nav = d;
+            e.setPlaceHolder();
+            var f = d.offset().top,
+            g = e.placeHolder,
+            h = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
+            function(a) {
+                setTimeout(a, 1e3 * (1 / 60))
+            };
+            window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.clearTimeout;
+            a.on("scroll",
+            function() {
+                h(c)
+            })
+        }
+    };
+    b.prototype.setPlaceHolder = function() {
+        var a = this.nav,
+        b = a.css("margin-top"),
+        c = a.css("margin-bottom"),
+        d = a.height(),
+        e = $('<div style="height: ' + d + "px;margin-top:" + b + ";margin-bottom:" + c + ';display:none;"></div>');
+        a.before(e);
+        this.placeHolder = e
+    };
+   $.fn.sticky = function(a) {
+        a = a || {};
+        a.el = this;
+        return new b(a)
+    };
+})();
+    $("#J_TabHeader").sticky();
+ </script>
+</html>

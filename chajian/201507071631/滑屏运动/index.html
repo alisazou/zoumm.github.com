@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>焦点图</title>
+<style>
+*{margin:0;padding:0}
+body{font-family:'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;}
+</style>
+
+<!--需引用css-->
+<link href="http://cache.500boss.com/mobile/widget/banner/banner.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+	<script type="text/javascript">
+		  (function () {
+			function setBannerHeight() {
+			  try {
+				document.getElementById('ui-banner-scroll').style.height = (document.documentElement.clientWidth * 100 / 320) + 'px';
+			  } catch (e) {
+			  }
+			}
+			setBannerHeight();
+			window.addEventListener && window.addEventListener("resize", setBannerHeight, true);		
+		  })();
+	</script>
+	<!--banner轮播图 start-->
+        <section class="ui-banner-box" id="ui-banner-scroll">
+            <div class="ui-banner-pic bd">
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141111110009788.png" alt="燃情世界杯" /></a></div>
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141119103332203.png" alt="燃情世界杯" /></a></div>
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141111110009788.png" alt="燃情世界杯" /></a></div>
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141119103332203.png" alt="燃情世界杯" /></a></div>
+            </div>
+            <div class="ui-banner-hd">
+                <span class="on"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+    <!--banner轮播图 end-->   
+    <!--banner轮播图 start-->
+        <section class="ui-banner-box" id="ui-banner-scroll2">
+            <div class="ui-banner-pic bd">
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141111110009788.png" alt="燃情世界杯" /></a></div>
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141119103332203.png" alt="燃情世界杯" /></a></div>
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141111110009788.png" alt="燃情世界杯" /></a></div>
+                <div class="ui-banner-scroll"><a href="#"><img data-src="http://img.500wan.com/upimages/wap/img/20141119103332203.png" alt="燃情世界杯" /></a></div>
+            </div>
+            <div class="ui-banner-hd">
+                <span class="on"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+    <!--banner轮播图 end--> 
+    <script src="zepto-1.1.4.min.js"></script>
+    
+    <!--需引用js-->
+    <script src="TouchSlide.1.1.js"></script>
+    <script>
+		$(function(){
+			//轮播图
+			TouchSlide({slideCell:"#ui-banner-scroll",titCell:".ui-banner-hd span",effect:"leftLoop",interTime:4000,autoPlay:false,switchLoad:"data-src"});
+            //轮播图
+TouchSlide({slideCell:"#ui-banner-scroll2",titCell:".ui-banner-hd span",effect:"leftLoop",interTime:4000,autoPlay:false,switchLoad:"data-src"});
+            
+		})
+
+	</script>
+</body>
+</html>
