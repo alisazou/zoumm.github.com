@@ -1,0 +1,101 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>春节祝福器</title>
+
+    <link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/head/head.css" />
+
+    <!--<link type="text/css" rel="stylesheet" href="css/index.css" />-->
+       <link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/huodong/2015/20150126_SpringFestival/css/index.css?123456" />
+       <style>
+       	
+       </style>
+</head>
+<body class="bgdedede">
+<div class="text"></div>
+</body>
+<script type="text/javascript">
+(function(){
+    function getColor(){//随机产生一个十六进制颜色
+        var num = Math.floor(Math.random() * 16777215);//十六进制FFFFFF转换为十进制为16777215，理论上这里取不到FFFFFF
+        var color = num.toString(16);
+        for(; color.length < 6;){
+            color = "0" + color;
+        }
+        return color;
+        
+    }
+//  var num = Math.floor(Math.random() * 16777215);
+//  console.log(num);
+    var doc = document;
+    var oBody = doc.body;
+    var delta = 0.08;
+    var timer = 10;//初始化每个烟花出现的间隔时间
+    
+    setTimeout(function(){
+        var wT = doc.documentElement.clientHeight || oBody.clientHeight;
+        var wW = doc.documentElement.clientWidth || oBody.clientWidth;
+//      var x = Math.random() * wW;//产生单个烟花的随机水平位置
+        var y = Math.random() * wT;//产生单个烟花的随机垂直位置(上升顶点)
+        var color = getColor();
+        console.log("color->"+color)
+        var oDiv = doc.createElement("div");
+        oDiv.className="baoz";
+        oDiv.style.width = "4px";
+        oDiv.style.height = "16px";
+        oDiv.style.left = 160 + "px";
+        oDiv.style.top = wT + "px";//将该节点（烟花）定位到屏幕下方，之后做减速上升运动
+        oDiv.style.backgroundColor = "#" + color;
+         console.log("oDiv->"+oDiv.style.background)
+        oBody.appendChild(oDiv);
+        oDiv.dis = 600;//计算上升距离
+
+        var t1 = setInterval(function(){//执行上升动画
+            if(parseInt(oDiv.style.top) > y){
+                oDiv.style.top = parseInt(oDiv.style.top) - oDiv.dis * delta + "px";
+                oDiv.dis -= oDiv.dis * delta;
+            }else{
+                clearInterval(t1);
+                oBody.removeChild(oDiv);
+                zha();//上升到顶点后调用zha函数，启动爆炸效果
+            }
+        },20);
+
+        var t = [];//存储每一个烟花爆炸后的interval返回值
+        var sDiv = [];//存储爆炸后产生的每一个小块（div）
+        function zha(){
+            for(var i = 0; i < 50; i++){//产生50个爆炸碎片
+                var nDiv = document.createElement("div");
+                nDiv._xspeed = Math.random() * 30 - 15;//产生-15到15之间的随机水平速度
+                nDiv._yspeed = Math.random() * 30 - 15;//产生-15到15之间的随机垂直速度
+                nDiv.className="fensan";
+                nDiv.style.width = "4px";
+                nDiv.style.height = "4px";
+                nDiv.style.backgroundColor = "#" + getColor();
+                nDiv.style.left = 160 + "px";
+                nDiv.style.top = 200 + "px";
+                oBody.appendChild(nDiv);
+                sDiv.push(nDiv);//将单个小块推入sDiv数组
+                (function(i){
+                    t[i] = setInterval(function(){//创建单个炸裂碎片的降落动画
+                        sDiv[i].style.left = parseInt(sDiv[i].style.left) + sDiv[i]._xspeed + "px";
+                        sDiv[i].style.top = parseInt(sDiv[i].style.top) + sDiv[i]._yspeed + "px";
+                        sDiv[i]._yspeed++;//垂直向下加速，加速值为1
+                        //判断是否超出屏幕边界
+                        if(parseInt(sDiv[i].style.left) < 0 || parseInt(sDiv[i].style.left) > wW || parseInt(sDiv[i].style.top) < 0 || parseInt(sDiv[i].style.top) > wT){
+                            oBody.removeChild(sDiv[i]);//移除超出屏幕边界的节点，同时清除相应的interval，节约内存
+                            clearInterval(t[i]);
+                        }
+                    },40);
+                })(i);
+            }
+        }
+        timer = Math.round(Math.random() * 300);
+    },timer);
+})();
+</script>
+</html>

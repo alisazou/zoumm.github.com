@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>触屏版首页</title>
+  <style type="text/css">
+  .bj{background: url(bg.jpg) 0px 0px repeat-y fixed;background-size: 100% auto;padding-bottom: 50px;}
+  .btn{margin:10px;border: 1px solid red;height: 50px;line-height: 50px;text-align: center;}
+  .pop-get{top: 0px;left: 0px;width: 100%;height: 100%;z-index: 999;display: -webkit-box;-webkit-box-orient: vertical;-webkit-box-pack: center;-webkit-box-align: center;position: fixed;display: none;}
+.pop-get.show{display: -webkit-box;}
+.pop-get .mask{position: absolute;top:0px;left:0px;width: 100%;height:100%;background: rgba(0,0,0,.5);-webkit-transition:all .5s;}
+.pop-get .gain-icon{position: relative;}
+.pop-get.show .gain-icon{-webkit-animation: pop1 .3s  linear;-webkit-transition:all .5s;}
+.pop-get .gain-icon img{width:50px;height:50px;position: relative;z-index: 2;}
+.pop-get .gain-icon .border1,.pop-get .gain-icon .border2{width:46px;height:46px;border-radius: 11px;border:#fff solid 2px;position: absolute;top:0px;left:0px;content:"";display: block;-webkit-animation:pop3 1s .3s ;}
+.pop-get .gain-icon .border2{-webkit-animation:pop3 1s .6s ;}
+.pop-get  .info{position: absolute;width:200px;left:50%;margin-left:-100px;top:50%;margin-top:-65px;text-align: center;-webkit-transition:all .5s;color:#fff;}
+.pop-get  .info .name{font-size:16px;margin-bottom:70px;padding-top:12px; }
+.pop-get  .info .detail{font-size:18px;text-align: left;padding-left:90px; }
+.pop-get  .point{font-size: 18px;color:#ff9900;opacity: 0;position: absolute;top:102px;right:112px;}
+.pop-get.show  .point{-webkit-animation: point2 .3s .3s linear ;-webkit-animation-fill-mode:forwards;display:inline-block;}
+
+.pop-get .light{background:url(get-light.png);position: absolute;top:-197px;left:-136px;width:320px;height:435px;background-size: 320px auto;}
+.pop-get.show .light{-webkit-animation: rotate 6s linear infinite;}
+.pop-get .light-star{background:url(get-star2.png) no-repeat;position: absolute;top:-20px;left:-33px;width:65px;height:50px;background-size: 65px auto;-webkit-animation: rotate 5s linear infinite;z-index: 9;}
+.pop-get .light-star.light-star2{top:-20px;left:16px;-webkit-animation-duration:20s;}
+.pop-get .stars{position: absolute;top:-78px;left:-76px;width:200px;height:200px;-webkit-transition:all .2s .5s;}
+.pop-get .star{background:url(get-star.png) no-repeat;position: absolute;top:0px;left:0px;width:20px;height:19px;background-size: 20px auto;}
+.pop-get.show .star{-webkit-animation-name: star;-webkit-animation-timing-function: linear;-webkit-animation-iteration-count: infinite;}
+.pop-get .stars.show{opacity: 1;-webkit-transform:scale(1);}
+.pop-get .star1{left:40px;top:60px;background-size: 10px auto;-webkit-animation-duration:3s;}
+.pop-get .star2{left:54px;top:70px;background-size: 20px auto;-webkit-animation-duration:1.8s;}
+.pop-get .star3{left:20px;top:90px;background-size: 15px auto;-webkit-animation-duration:2s;}
+.pop-get .star4{left:30px;top:115px;background-size: 8px auto;-webkit-animation-duration:2.5s;}
+.pop-get .star5{left:43px;top:125px;background-size: 18px auto;-webkit-animation-duration:2.8s;}
+.pop-get .star6{left:118px;top:85px;background-size: 20px auto;-webkit-animation-duration:4s;}
+.pop-get .star7{left:135px;top:110px;background-size: 15px auto;-webkit-animation-duration:2.4s;}
+.pop-get .star8{left:160px;top:83px;background-size: 13px auto;-webkit-animation-duration:3.4s;}
+.pop-get .star9{left:150px;top:65px;background-size: 10px auto;-webkit-animation-duration:2.2s;}
+.pop-get .star10{left:165px;top:125px;background-size: 8px auto;-webkit-animation-duration:2.7s;}
+.jls img{margin-top: 30px;width: 270px;background-size: 270 auto;-webkit-animation: move 5s linear forwards}
+@-webkit-keyframes move{
+
+    0% {
+      -webkit-transform: scale(.7) translate(0px,-300px) rotate(-10deg);
+    }
+    5% {
+      -webkit-transform: scale(.75) translate(0px,-250px) rotate(0deg);
+    }
+    10% {
+      -webkit-transform: scale(.8) translate(0px,-200px) rotate(10deg);
+    }
+    15% {
+      -webkit-transform: scale(.85) translate(0px,-150px) rotate(0deg);
+    }
+    20% {
+      -webkit-transform: scale(.9) translate(0px,-100px) rotate(-10deg);
+    }
+    25% {
+      -webkit-transform: scale(.95) translate(0px,-50px) rotate(0deg);
+    }
+  
+    80%{
+      -webkit-transform: scale(1) translate(0px,0px) rotate(0deg);
+    } 
+    100%{
+      -webkit-transform: scale(1) translate(0px,0px) rotate(0deg);
+    }   
+
+}
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform:rotate(0);
+        
+    }
+    
+    100% {
+        -webkit-transform:rotate(360deg);
+        
+    }
+
+}
+@-webkit-keyframes star {
+    0% {
+    -webkit-transform:translate(0px,0px);
+    opacity: 1;
+  }
+  25%{
+    -webkit-transform:translate(1px,-1px);
+  }
+  50%{
+    -webkit-transform:translate(1px,0px);
+    opacity: .8;
+  }
+  75%{
+    -webkit-transform:translate(-1px,1px);
+  }
+  100%{
+    -webkit-transform:translate(0px,0px);
+    opacity: 1;
+  }
+
+}
+
+  </style>
+</head>
+<body class='bj'>
+<div class="btn">点击领取</div>
+<div class="jls">
+   <img src="balloons.png">
+</div>
+  <div class="pop-get" id="pop">
+    <div class="mask" style="opacity: 1;"></div>
+    <div class="gain-icon" style="opacity: 1;">
+      <div class="info">
+        <div class="name">爱心X5</div>
+
+      </div>
+      <div class="light-star light-star2"></div>
+      <img src="gift1.png" alt="">
+      <div class="light"></div>
+      <div class="stars">
+        <div class="star star1"></div>
+        <div class="star star2"></div>
+        <div class="star star3"></div>
+        <div class="star star4"></div>
+        <div class="star star5"></div>
+        <div class="star star6"></div>
+        <div class="star star7"></div>
+        <div class="star star8"></div>
+        <div class="star star9"></div>
+        <div class="star star10"></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+<script type="text/javascript" src="zepto.min.js"></script>
+<script type="text/javascript">
+
+
+  
+  $(function(){
+
+    // 领取动画2
+    $(".btn").tap(function(){
+      
+      $("#pop").addClass("show");
+      setTimeout(function(){
+        
+        $("#pop .stars").addClass("show");
+          setTimeout(function(){
+            
+            $("#pop .gain-icon").css({
+                  "-webkit-transform":"scale(0)",
+                  "opacity":0
+            });
+            $("#pop .mask").css({
+              "opacity":0
+            });
+            
+            
+            setTimeout(function(){
+              
+              $("#pop").removeClass("show");
+              $("#pop .gain-icon").css({
+                "-webkit-transform":"",
+                "opacity":1
+              });
+              $("#pop .mask").css({
+                "opacity":1
+              });
+
+             
+            },400);
+          },1500);
+      },20);
+      
+    });
+
+    //贡献动画
+    var nowProgress=20;
+    $("#btn-share-mileage").tap(function(){
+      var myNum=$(".detail-mymileage .mileage .num");
+      var mymileage=parseInt($(myNum).html());
+      
+      if(mymileage==0){
+        myNum.html(parseInt(Math.random()*1000));
+      }else{
+        NumTo(myNum,0,parseInt(mymileage/50));
+
+        var allNum=$(".detail-total-num .num");
+        var allmileage=parseInt($(allNum).html());
+        NumTo(allNum,allmileage+mymileage,parseInt(mymileage/50));
+
+        $(".detail-progress .progress").css({
+          "-webkit-transform":"translateX("+(nowProgress+5)+"%)"
+
+        });
+        nowProgress+=5;
+      }
+    });
+  })
+</script>
+
+</html>

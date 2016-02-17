@@ -1,0 +1,138 @@
+﻿
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>喊朋友翻牌，优先获得公测</title>
+		<script src="http://cache.500boss.com/mobile/libs/utils/platform.min.js"></script>
+
+		
+		<link type="text/css" rel="stylesheet" href="../css/common.css">
+		<link type="text/css" rel="stylesheet" href="../css/fanpai.css">
+	</head>
+
+	<body>
+		<div class="wrap">
+			
+			
+			<!--start 翻牌-->
+			<div class="faipai-main">
+
+			
+				<div class="fp-intro">
+					<div class="fpi-intro-box">
+						<div class="component" id="component">
+							<ul class="itemwrap">
+								<li class="fanpai-page current p1">
+									<div class="p1_card"></div>
+									<div class="fpi-introb-hand">
+										<img src="../images/i1.png" alt="" class="i1" />
+										<img src="../images/i2.png" alt="" class="i2" />
+									</div>
+								</li>
+								<li class="fanpai-page p2">
+									<div class="p2_card"></div>
+									<div class="fanpai-page-intro">
+										<div class="fanpai-page-suc"></div>
+										<h3 class="t0">翻牌成功</h3>
+										<p class="t1">您将获得100元现金券抽奖机会</p>
+										<p class="t2">2012年4月，美国一女彩民操作失误，买下两张同种彩票，结果各中１００万美元。</p>
+										<a  href="javascript:;" class="btn mt20 js-chouj">抽100元现金券</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+			<!--end od 翻牌-->
+			
+		</div>
+
+	<script type="text/javascript" src="../zepto-1.1.4.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+
+				var colorarr=["2012年4月，美国一女彩民操作失误，买下两张同种彩票，结果各中１００万美元。，","美国一女彩民操作失误，买下两张同种彩票2。","美国一女彩民操作失误3。"];
+
+				function changeNew(max,min){
+
+					var rm = colorarr[Math.floor(Math.random()*(max-min+1)+min)] ;
+					return rm   ;
+
+				};
+
+
+				//翻牌逻辑
+				var	component = document.getElementById( 'component' );
+				function init() {
+					changeEffect("fxSlideBehind");
+					$(".p1_card").on("tap",function(){
+
+						changeEffect("fxFlip");
+
+						$(".p1").addClass("navOutNext ");
+						$(".p2").addClass('navInNext  current' );
+
+
+						window.setTimeout(function() {
+							$(".page").removeClass("navOutNext navInNext  current");
+							$(".p2").addClass('current' );
+							$('.fanpai-page-suc').addClass("fps-ani");
+
+
+						}, 900);
+
+					})
+					function changeEffect(animation) {
+						component.className = component.className.replace(/\bfx.*?\b/g, '');
+						$('#component').addClass(animation );
+					}
+
+
+				}
+				init();
+				//弹窗
+				$('.gui-ze').on("tap",function(){
+					$('.alert,.gc-alert').show();
+					// $(".gc-alert").addClass('checkout--active');
+					$(".gc-alert").addClass("checkout-active");
+
+
+
+				});
+				$('.get-prize').on("tap",function(){
+					$('.alert,.gc-alert-zj').show();
+					$(".gc-alert-zj").addClass("checkout-active");
+
+				});
+
+				$('.gc-alert-cl').on("tap",function(){
+					$('.alert,.gc-alert,.gc-alert-zj').hide();
+					$(".gc-alert,.gc-alert-zj").removeClass("checkout-active");
+
+				})
+
+				//====================================跳转到中奖页面=================================================//
+
+
+
+			})
+
+
+
+
+			
+
+		</script>
+	</body>
+
+</html>

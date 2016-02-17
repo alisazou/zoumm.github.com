@@ -1,0 +1,75 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>春节祝福器</title>
+
+    <link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/head/head.css" />
+
+    <!--<link type="text/css" rel="stylesheet" href="css/index.css" />-->
+       <link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/huodong/2015/20150126_SpringFestival/css/index.css?123456" />
+       <style>
+     
+      
+       
+       </style>
+</head>
+<body class="bgdedede">
+
+</body>
+<script type="text/javascript">
+
+   	  	(function(){
+   	  		var doc = document,
+   	  		    oBody = doc.body,
+   	  		    wT = doc.documentElement.clientHeight || oBody.clientHeight,
+                wW = doc.documentElement.clientWidth || oBody.clientWidth,
+                 y = Math.random() * wT,//产生单个烟花的随机垂直位置(上升顶点)
+                 
+                 delta = 0.08;
+                
+   	  		 function getColor(){
+   	  			var num = Math.floor(Math.random() * 16777215),
+   	  			 color = num.toString(16);
+   	  			return color;
+   	  		}
+   	  		var t = setInterval(
+   	  			function(){
+   	  				var color = getColor();
+	   	  			var odiv = document.createElement("div");
+	   	  			odiv.style.width="25px";
+	   	  			odiv.style.height="25px";
+	   	  			odiv.style.top = wT+'px';
+	   	  			odiv.style.left = 160+'px';
+	   	  			odiv.style.position="absolute";
+	   	  			odiv.style.backgroundColor="#"+color;
+	   	  			 odiv._xspeed = Math.random() * 30 - 15;//产生-15到15之间的随机水平速度
+                	odiv._yspeed = Math.random() * 30 - 15;//产生-15到15之间的随机垂直速度
+	   	  			oBody.appendChild(odiv);
+	   	  			odiv.dis = 600;//计算上升距离
+			   	  		var t1 = setInterval(function(){//执行上升动画
+					           
+					          if(parseInt(odiv.style.left) < 0 || parseInt(odiv.style.left) > wW || parseInt(odiv.style.top) < 0 || parseInt(odiv.style.top) > wT){
+					            	//sDiv[i]._xspeed
+					                 clearInterval(t1);
+					                oBody.removeChild(odiv);
+					                //odiv.dis -= odiv.dis * delta;
+					              
+					            }else{
+					            	odiv.style.top = parseInt(odiv.style.top) - odiv._xspeed + "px";
+					                 odiv.style.left = parseInt(odiv.style.left) - odiv._yspeed + "px";
+					                 // console.log(y);
+					               
+					                //zha();//上升到顶点后调用zha函数，启动爆炸效果
+					            }
+		        		},100);	   	  			
+   	  			},400)
+   	  		
+   	  	})()
+   	  	 
+  
+</script>
+</html>

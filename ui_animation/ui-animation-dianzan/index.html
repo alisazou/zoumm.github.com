@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+<style>
+
+.box{width: 200px;height: 200px;background-color: red;}
+
+
+.renshu{position: absolute;width: 150px;height: 50px;top: 60px;text-align: center;}
+#btn{margin-top: 100px;width: 150px;height: 50px;position: absolute;}
+.zan{-webkit-animation:playzan .4s ease-in-out  forwards;}
+@-webkit-keyframes playzan{
+	0%{opacity: 1;-webkit-transform:translateY(0)}
+	100%{opacity: 0;-webkit-transform:translateY(-100px)}
+}
+
+
+</style>
+	</head>
+	<body>
+	<div class="box">
+		<div  class="renshu"></div>
+		<button value="点击我出现点赞" id="btn">点击我出现点赞</button>
+	</div>		
+
+	</body>
+	<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+	<script>
+	$(function(){
+		var addOne = '<span class="zan">+1</span>';
+		var flag = 1;
+
+		  $("#btn").tap(function(){
+		  	
+		  	//$(this).append(addOne);
+		  	$(".renshu").append(addOne)
+		  	  if(flag==1){
+		  	  	 	
+		  	  	 addOne=null;
+		  	  	 flag=0;
+		  	  	
+		  	  }else{
+		  	  	flag=0;
+		  	  	 alert("您已点赞过");
+		  	  }
+		  	
+
+		  })
+			
+	})
+		
+	</script>
+</html>

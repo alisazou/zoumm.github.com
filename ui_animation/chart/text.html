@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #canvas{border: 1px solid red;margin: 50px;background-color:#E1E0FF }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300"></canvas>
+<script>
+
+
+    //定义圆环函数
+    function draw (obj,data_arr,color_arr){
+        var c=document.getElementById(obj),
+            ctx=c.getContext("2d"),
+            radius = c.height / 2 - 20; //半径
+            ox = radius + 20, oy = radius + 20, //圆心
+            startAngel = 0,//起始角度，
+            endAngel =0,//完成角度
+
+            poxw = 30,
+            poxy =10,
+         posX = ox * 2 + 20, posY = 30,  //
+         textX = posX + poxw + 5, textY = posY + 10;
+
+           //
+        for(var i=0;i<data_arr.length;i++){
+
+            //绘制饼图
+            endAngel = startAngel + data_arr[i] * Math.PI * 2; //结束弧度
+            percent = data_arr[i]*100+"%";
+            var txvalue = ox+Math.cos(endAngel)*radius-10;
+            var tyvalue = oy+Math.sin(endAngel)*radius;
+            ctx.beginPath();
+            ctx.fillStyle ="#fff";//颜色分配
+            ctx.moveTo(ox, oy); //移动到到圆心
+            ctx.arc(ox,oy,radius,startAngel,endAngel,false);
+            ctx.fillStyle =color_arr[i] ;
+            ctx.fillText(percent,txvalue, tyvalue);
+            console.log(txvalue+"  "+tyvalue);
+            ctx.closePath();
+            ctx.fill();
+            startAngel=endAngel;
+
+            //绘制比例图与文字
+
+            ctx.fillStyle =color_arr[i] ;
+            ctx.fillRect(posX, posY+20*i,poxw,poxy);
+            ctx.moveTo(posX,posY+20*i);
+            //console.log(tx+"  "+ty);
+            ctx.font = 'bold 12px 微软雅黑';    //斜体 30像素 微软雅黑字体
+            percent = data_arr[i]*100+"%";
+            ctx.fillText(percent,textX, textY+20*i);
+
+        }
+
+
+    }
+    function init(){
+        var data_arr = [0.05, 0.25, 0.6, 0.1];
+        var color_arr = ["#00FF21", "#FFAA00", "#00AABB", "#FF4400"];
+
+        draw("canvas",data_arr, color_arr);
+
+    }
+    //页面加载时执行init()函数
+    window.onload = init;
+
+
+
+
+</script>
+</body>
+</html>

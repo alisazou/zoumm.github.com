@@ -1,0 +1,52 @@
+.ui-icon {
+	display: inline-block;
+  	width: 22px;
+  	height:0px;
+  	position: relative;
+  	vertical-align: middle;
+  	overflow: visible;
+}
+.ui-icon:before{
+	background:url(../../img/global/icon.png) no-repeat 0px 0px;
+	background-size: 200px auto;
+	content:"";
+	display: block;
+	width: 22px;
+	height:22px;
+	position: absolute;
+	left:0px;
+	top:-14px;
+}
+
+.ui-icon.icon-refresh{
+	width: 22px;
+}
+.ui-icon.icon-refresh.blue {
+	width: 25px;
+	height:0px;
+}
+.ui-icon.icon-refresh.loading{
+	-webkit-animation: rotate 1s linear infinite;
+}
+
+.ui-icon.icon-refresh:before{
+	background-position: -50px -25px;
+}
+.ui-icon.icon-refresh.white:before{
+	background-position: -75px -25px;
+}
+.ui-icon.icon-refresh.blue:before{
+	background-position: -125px -25px;
+
+}
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform:rotate(0deg);
+    }
+    100% {
+        -webkit-transform:rotate(360deg);
+    }
+}
+
+.gc-icon-check{display: inline-block;width: 24px;height: 1px;position: relative;vertical-align: middle;}
+.gc-icon-check:after{width: 24px;height: 24px;background: url(../../img/global/icon-check.png) no-repeat;background-size: 24px auto;position: absolute;top: -13px;line-height: 100px;overflow: hidden;content: "\0020";display: block;left: 0px;}

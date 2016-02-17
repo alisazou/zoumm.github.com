@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie</title>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+   	<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.js"></script>
+	<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Canvas.js"></script>
+	<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Chart.js"></script>
+	
+    <script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Pie.js"></script>
+    <script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+    <style>
+    	body{margin: 0;padding: 0;}
+    </style>
+</head>
+<body>
+<canvas id="pie-canvas1"></canvas>
+<canvas id="pie-canvas2"  style="margin-top: 10px;"></canvas>
+
+<script type="text/javascript">
+var App = (function(){
+			//动态计算chart canvas的高度，宽度，以适配终端界面
+			    var calcChartOffset = function(){
+			        return {
+			            height : $(document).height(),
+			            width : $(document).width()
+			        }
+			    }
+			    return {
+			      
+			        calcChartOffset : calcChartOffset
+			    }
+		})()
+		
+		var  pieCanvas1 = $("#pie-canvas1");
+		var  pieCanvas2 = $("#pie-canvas2");
+        var wh = App.calcChartOffset();
+        
+        pieCanvas1.attr('width',wh.width).attr('height',wh.height);
+        pieCanvas2.attr('width',wh.width).attr('height',wh.height);
+    var pieData = [
+        {
+            name : 'A',
+            value: 50,
+            color:"#F38630"
+        },
+        {
+            name : 'B',
+            value : 50,
+            color : "#E0E4CC"
+        },
+        {
+            name : 'C',
+            value : 100,
+            color : "#69D2E7"
+        }
+    ];
+    var p1 = new JChart.Pie(pieData,{
+        id : 'pie-canvas1'
+    });
+  
+    p1.on('renderText',function(percent,data,i){
+        if(i == 0){
+            this.ctx.set('fillStyle','#fff');
+        }
+        return data.value;
+    })
+    
+    p1.draw();
+
+    var p2 = new JChart.Pie(pieData,{
+        id : 'pie-canvas2',
+        isDount : true,//中间cpu部分时候显示
+      
+        dountText : 'CPU'
+    });
+
+    p2.draw();
+
+</script>
+</body>
+</html>

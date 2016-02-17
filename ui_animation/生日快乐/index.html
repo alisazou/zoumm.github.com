@@ -1,0 +1,160 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>生日快乐！</title>
+
+
+	<style>
+	html,body { height: 100%; margin: 0; padding: 0;}
+	.mainarea {width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden;}
+	.shadow { height: 36px; width: 250px; background: url(img/gift01.png) no-repeat left bottom; background-size: 250px auto; }
+	.shadow { position: absolute; left: 50%; bottom: 50px; margin-left: -125px;}
+	.gift { height: 175px; width: 250px; position: absolute; left: 0; top: 0; background: url(img/gift01.png) no-repeat left top; background-size: 250px auto; }
+	.giftarea { height: 175px; width: 250px; position: absolute; left: 50%; bottom: 90px; margin-left: -125px;}
+	.giftarea { -webkit-transform-origin:center -80px;}
+	.giftarea { -webkit-transition-property:all;-webkit-transition-duration:0.8s;-webkit-transition-delay:0.1s;-webkit-transition-timing-function:ease;}
+	.balloon { height: 245px; width: 270px; background: url(img/balloons.png) no-repeat left top; background-size: 270px auto; }
+	.balloon { position: absolute; left: 50%; bottom: 140px; margin-left: -140px;}
+	.balloon.boom { background-image: url(img/boom.png);}
+	.balloon:after { content: ""; display: block; width: 105px; height: 45px; background: url(img/tapit.png) no-repeat left top; background-size: 105px auto; }
+	.balloon:after { position: absolute; left: 50%; top: 50px; margin-left: -52px;}
+	.balloon.boom:after { display: none;}
+	.hide { opacity: 0;}
+	.giftop { height: 270px; width: 305px; background: url(img/gift02.png) no-repeat left top; background-size: 305px auto; }
+	.giftop { position: absolute; left: 50%; bottom: 52px; margin-left: -152px;}
+	.skip { height: 35px; width: 75px; background: url(img/skip.png) no-repeat left bottom; background-size: 75px auto; }
+	.skip { position: absolute; right: 20px; bottom: 10px; margin-left: -125px;}
+/*	.giftdrop { -webkit-transition-duration:2000ms; -webkit-transform: scale(1) translate(0px,0px) rotate(0deg);} */
+	.giftwave { -webkit-animation: wave 10000ms linear 1;}
+	.shadowcome { -webkit-animation: come 8000ms linear 1;}
+
+
+
+	@-webkit-keyframes come {
+		0% {
+			-webkit-transform: scale(.2);
+			opacity: 0.2;
+		}
+		100%{
+			-webkit-transform: scale(1);
+			opacity: 1;
+		}			
+	}
+
+	@-webkit-keyframes wave {
+		0% {
+			-webkit-transform: scale(.7) translate(0px,-400px) rotate(-10deg);
+		}
+		5% {
+			-webkit-transform: scale(.75) translate(0px,-350px) rotate(0deg);
+		}
+		10% {
+			-webkit-transform: scale(.8) translate(0px,-300px) rotate(10deg);
+		}
+		15% {
+			-webkit-transform: scale(.85) translate(0px,-250px) rotate(0deg);
+		}
+		20% {
+			-webkit-transform: scale(.9) translate(0px,-200px) rotate(-10deg);
+		}
+		25% {
+			-webkit-transform: scale(.95) translate(0px,-150px) rotate(0deg);
+		}
+	
+		80%{
+			-webkit-transform: scale(1) translate(0px,0px) rotate(0deg);
+		}	
+		100%{
+			-webkit-transform: scale(1) translate(0px,0px) rotate(0deg);
+		}		
+	}
+
+	</style>
+</head>
+<body>
+<body class="">
+
+	<div class="bodybg"></div>
+	<div id="main" class="mainarea">
+		<div class="shadow shadowcome"></div>
+		<div id="giftarea" class="giftarea" style="">
+			<div id="gift" class="gift giftwave">
+				<div class="balloon " id="poke"></div>
+			</div>
+		</div>
+		<div id="giftop" class="giftop" style="display:none;">
+
+		</div>
+		<div id="skip" class="skip"></div>
+
+	</div>
+    <script src="zepto.min.js"></script>
+    <!--script src="mobile.js"></script-->   
+    <!--script src="qqapi.js"></script-->  
+
+	<script>
+	(function(){
+
+		$("#main").click(function(){
+			//alert("aabb");
+			$("#poke").addClass("boom");
+			setTimeout(function(){
+				$("#poke").addClass("hide");
+				$("#gift").removeClass("giftwave");
+			},800);
+			setTimeout(function(){
+				$("#gift").addClass("hide");
+				$("#giftop").show();
+			},1200);
+		})
+		$("#skip").click(function(){
+			$(".mainarea").addClass("hide");
+		})
+
+	 //    var habir=document.getElementById("giftarea"); 
+	 //    // habir.style.webkitTransform="rotate(20deg)";
+	 //    var gamma,beta,alpha,xgamma,xbeta;  
+	 //    function Orientation(selector) {
+	    
+	 //    }
+	 //    Orientation.prototype.init = function(){
+	 //        window.addEventListener('deviceorientation', this.orientationListener, false);
+	 //    }
+	 //    Orientation.prototype.orientationListener = function(evt) {
+	 //        if(!flagSet) return false;
+	 //        gamma = evt.gamma;
+	 //        beta = evt.beta;
+	 //        alpha = evt.alpha;
+	 //        flagSet = false;
+	 //    }
+
+	 //    setInterval(function(){
+	 //      if (xgamma != gamma || xbeta != beta) {
+	 //        if(beta>0){
+	 //         gamma = parseInt(gamma/10)*10;
+	 //         habir.style.webkitTransform="rotate("+-gamma/2+"deg)";
+
+	 //        }
+	 //        xgamma = gamma;
+	 //        xbeta = beta;
+	 //      }
+	 //      flagSet=true;
+	 //    },400);
+
+	 //    setTimeout(function(){
+		//     (new Orientation()).init();
+		// },4000);
+
+	})();
+
+	</script>
+
+</body>
+</html>

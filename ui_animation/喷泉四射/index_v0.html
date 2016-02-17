@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+    <title>Fountain</title>
+    <style>
+  #canvas{border: 1px solid red}
+    </style>
+</head>
+<body>
+<button id="run">开始</button>
+<button id="stop">停止</button>
+<canvas id="canvas" width="320" height="400"></canvas>
+
+<script src="utils.js"></script>
+
+<script>
+    //==============================================定义星星==================================//
+    function Img (radius,color) {
+        this.color=color;
+        this.x = 0;
+        this.y = 0;
+        this.radius = radius;
+        this.vx = 0;
+        this.vy = 0;
+
+    }
+
+    Img.prototype.draw = function (context) {
+        context.save();
+        context.translate(this.x, this.y);
+
+        context.beginPath();
+        //x, y, radius, start_angle, end_angle, anti-clockwise
+        for(var i=0;i<5;i++){
+            var rot = 360;
+            context.lineTo(Math.cos((18+i*72-this.radius)/180*Math.PI)* this.radius+ this.x, -Math.sin((18+i*72-rot)/180*Math.PI)*this.radius+ this.y);
+            context.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*this.radius/2+ this.x, -Math.sin((54+i*72-rot)/180*Math.PI)*this.radius/2+this.y);
+
+        }
+
+        context.closePath();
+        context.fillStyle = this.color;
+        context.fill();
+
+        context.restore();
+    };
+    //==============================================加载==================================//
+    window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+
+                context = canvas.getContext('2d'),
+                balls = [],
+                numBalls = 50,
+                gravity = 0.5;
+
+
+        for (var ball, i = 0; i < numBalls; i++) {
+            ball = new Img(10, "yellow");
+            ball.x  = canvas.width/5;
+            ball.y  = Math.random() * canvas.height;
+            ball.vx = Math.random() * 2 - 1;
+            ball.vy = Math.random() * -10 - 10;
+            balls.push(ball);
+
+        }
+
+        function draw (ball,pos) {
+            ball.vy += gravity;
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+
+            if (ball.x> canvas.width || ball.x < 0 || ball.y > canvas.height ||ball.y < 0) {
+                ball.x = canvas.width / 5;
+                ball.y = canvas.height;
+                ball.vx = Math.random() * 2 - 1;
+                ball.vy = Math.random() * -10 - 10;
+  setTimeout(zmm,1000)
+                function zmm(){
+                    balls.splice(pos,1)
+                }
+            }
+
+            ball.draw(context);
+
+        }
+
+        var stop=null;
+        function drawFrame(){
+            stop =  window.requestAnimationFrame(drawFrame, canvas);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            var i = balls.length;
+            while(i--){
+                draw(balls[i],i);
+
+            }
+
+
+          // balls.forEach(draw);
+        }
+        document.getElementById("run").addEventListener("click", function() {
+            drawFrame();
+
+        }, false);
+        document.getElementById("stop").addEventListener("click", function() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            window.cancelAnimationFrame(stop);//可以取消该次动画。
+        }, false);
+//        setTimeout(bb,1000);
+//        function bb(){
+//           // context.clearRect(0, 0, canvas.width, canvas.height);
+//            window.cancelAnimationFrame(stop);//可以取消该次动画。
+//        }
+
+    };
+</script>
+</body>
+</html>

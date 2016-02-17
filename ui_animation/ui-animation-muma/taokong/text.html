@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>1元包月</title>
+    <style type="text/css">
+    span{display: inline-block;width: 100px;height: 100px;background-color: red;}
+    .left{margin-left: 10px;}
+    .right{margin-left: 50px;}
+    .slide-m{}
+    .a{width: 0;height: 0;}
+    .tantiao{width: 100px;height: 100px;background-color: red;margin-top: 50px;-webkit-animation: bounce 1s  ease  infinite ;}
+    /* 弹跳 */
+@-webkit-keyframes bounce{
+    0%,20%,50%,80%,100%{-webkit-transform:translateY(0);}
+    40%{-webkit-transform:translateY(-30px);}
+    60%{-webkit-transform:translateY(-15px);}
+}
+    </style>
+
+</head>
+<body>
+    <audio  class="a" autoplay>
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="http://dx.sc.chinaz.com/Files/DownLoad/sound1/201407/4679.mp3" type="audio/mpeg"></audio>
+    <div class="slide">
+        <div class="slide-m">
+            <span class="left">1</span>
+            <span class="right">2</span>
+        </div>
+    </div>
+    <div class="tantiao"></div>
+    <script type="text/javascript"src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+    <script type="text/javascript">
+    
+$(function(){
+     /* 手指点触时事件 */
+    var nStartX, nDir, aLen=[], aIndex=[];
+    $('.slide').each(function(i,o){
+      
+        $(o).find('.slide-m').on("touchstart",function(e){
+           // e.preventDefault();
+            nStartX = e.changedTouches[0].pageX;
+            nStartY = e.changedTouches[0].pageY;
+        });
+        $(o).find('.slide-m').on("touchmove",function(e){
+            nMoveX = Math.abs( e.changedTouches[0].pageX - nStartX );
+            nMoveY = Math.abs( e.changedTouches[0].pageY - nStartY );
+            if(nMoveY-nMoveX<=1){
+                e.preventDefault();
+            }
+        });
+        $(o).find('.slide-m').on("touchend",function(e){
+            nDir = e.changedTouches[0].pageX - nStartX; //(0左，1右)
+            
+            if( nDir<0 ){
+                nDir = 2;
+            } else if( nDir>0) {
+                nDir = 1;
+            } else {
+               if(nStartX < ww/3){
+                    nDir = 1;   
+                }else if(nStartX < ww && nStartX > ww/2){
+                    nDir = 2;   
+                }
+            }
+
+            if(nDir==2){ //如果往左
+                // fnGoLeft();
+                alert("左")
+            } else if(nDir == 1){  //如果往右
+                // fnGoRight();
+               alert("右");
+            }
+        });
+
+    });
+ 
+})
+      
+
+</script>
+</body>
+</html>

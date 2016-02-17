@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .box {
+
+            height: 3px;
+            width: 900px;
+            background-color: #202e4a;
+            -webkit-animation: cd-loading 0.4s 0.3s backwards;
+            /*-moz-animation: cd-loading 0.4s 0.3s backwards;*/
+            /*animation: cd-loading 0.4s 0.3s backwards;*/
+        }
+  @-webkit-keyframes cd-loading {
+      0%{-webkit-transform: scalex(0) }
+      100%{-webkit-transform: scalex(1) }
+  }
+    </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

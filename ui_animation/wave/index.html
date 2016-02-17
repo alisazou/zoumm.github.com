@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>波浪</title>
+	<style>
+	.wrap {
+background: #1158e7 url(404_bg.jpg) no-repeat center bottom;
+width: 100%;
+overflow: hidden;
+margin-top: 200px;
+}
+		.wave1{
+			position: relative;
+			z-index: 3;
+			width: 100%;
+			
+			color: #999;
+			background: url(bl.png) repeat-x 0 0;
+			-webkit-animation: 8s linear 0s none infinite tweenxx;
+			-moz-animation: 8s linear 0s none infinite tweenxx;
+			animation: 8s linear 0s none infinite tweenxx;
+		}
+		.wave {
+		height: 220px;
+		background: url(bl.png) repeat-x 330px 0;
+		-webkit-animation: 10s linear 0s none infinite tweenx;
+		-moz-animation: 10s linear 0s none infinite tweenx;
+		animation: 10s linear 0s none infinite tweenx;
+		}
+		@-webkit-keyframes tweenx{
+	0%{background-position:0 0;}
+	100%{background-position:1600px 0;}
+}
+@-moz-keyframes tweenx{
+	0%{background-position:0 0;}
+	100%{background-position:1600px 0;}
+}
+@keyframes tweenx{
+	0%{background-position:0 0;}
+	100%{background-position:1600px 0;}
+}
+@-webkit-keyframes tweenxx{
+	0%{background-position:0 0;}
+	100%{background-position:-1600px 0;}
+}
+@-moz-keyframes tweenxx{
+	0%{background-position:0 0;}
+	100%{background-position:-1600px 0;}
+}
+@keyframes tweenxx{
+	0%{background-position:0 0;}
+	100%{background-position:-1600px 0;}
+}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="wave1">
+			 <div class="wave"></div>
+		</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+		<title></title>
+		<style>
+		body{background: black;}
+			.box{width: 245px;height: 243px;background: url(f1.png);background-size: 245px auto ;-webkit-animation:slideInLeft  5s linear infinite ;}
+			@-webkit-keyframes slideInLeft {
+				    0% { -webkit-transform: rotate(0)  }
+				    100% {-webkit-transform:  rotate(360deg)  }
+				}
+				.text{width: 245px;height: 243px;-webkit-animation:slideInLeft1  5s linear infinite ;}
+			
+@-webkit-keyframes slideInLeft1 {
+				    0% { -webkit-transform: rotate(0)  }
+				    100% {-webkit-transform:  rotate(180deg)  }
+				}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		
+		<img src="f1.png" alt=""  class="text"/>
+	</body>
+</html>

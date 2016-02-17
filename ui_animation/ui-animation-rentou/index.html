@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+<style>
+ .santa{position: absolute;
+ 		top: 54px;
+		left: 120px;
+		width: 200px;
+		height: 470px;
+		-webkit-transform: scale(0.5); 
+		transform: scale(0.5);
+		-webkit-animation: intro-head-small 3s linear infinite;
+		animation: intro-head-small 3s linear infinite;
+		}
+ .hat {
+ 	position: absolute;
+top: 3px;
+left: 0;
+-webkit-transform-origin: top right;
+-webkit-animation: popup-hat 3s linear infinite;
+transform-origin: top right;
+animation: popup-hat 3s linear infinite;
+}
+.head {
+	position: absolute;
+top: 0;
+left: 0;
+}
+ .mouth {
+ 	position: absolute;
+top: 385px;
+left: 102px;
+-webkit-animation: popup-mouth 1.5s linear infinite;
+animation: popup-mouth 1.5s linear infinite;
+}	
+@-webkit-keyframes popup-mouth {
+    0%   {-webkit-transform: scaleY(1)}
+    15%  {-webkit-transform: scaleY(0)}
+    30%  {-webkit-transform: scaleY(2)}
+    45%  {-webkit-transform: scaleY(0.5)}
+    60%  {-webkit-transform: scaleY(2)}
+    75%  {-webkit-transform: scaleY(0)}
+    90%  {-webkit-transform: scaleY(2)}
+    100% {-webkit-transform: scaleY(1)}
+}
+@-webkit-keyframes intro-head-small {
+    0%   {-webkit-transform: scale(0.6) translate3d(0,0,0) rotateZ(0deg)}
+    15%  {-webkit-transform: scale(0.6) translate3d(0,-2px,0) rotateZ(-1deg)}
+    30%  {-webkit-transform: scale(0.6) translate3d(0,0,0) rotateZ(1deg)}
+    45%  {-webkit-transform: scale(0.6) translate3d(0,2px,0) rotateZ(0deg)}
+    60%  {-webkit-transform: scale(0.6) translate3d(0,0,0) rotateZ(-2deg)}
+    75%  {-webkit-transform: scale(0.6) translate3d(0,-2px,0) rotateZ(1deg)}
+    90%  {-webkit-transform: scale(0.6) translate3d(0,2px,0) rotateZ(-0.5deg)}
+    100% {-webkit-transform: scale(0.6) translate3d(0,0,0) rotateZ(0deg)}
+}
+@-webkit-keyframes popup-hat {
+    0%   {-webkit-transform: rotateZ(0deg)}
+    15%  {-webkit-transform: rotateZ(4deg)}
+    30%  {-webkit-transform: rotateZ(-6deg)}
+    45%  {-webkit-transform: rotateZ(0deg)}
+    60%  {-webkit-transform: rotateZ(-6deg)}
+    75%  {-webkit-transform: rotateZ(4deg)}
+    90%  {-webkit-transform: rotateZ(-2deg)}
+    100% {-webkit-transform: rotateZ(0deg)}
+}
+</style>
+
+
+
+
+</style>
+	</head>
+	<body>
+	 <div class="santa">
+	 	 <img src="intro_hat.png" alt="" class="hat"/>
+	 	 <img src="intro_head.png" class="head" />
+	 	 <img src="intro_mouth.png" alt=""  class="mouth"/>
+	 </div>
+	</body>
+	
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>触屏版首页</title>
+  <style type="text/css">
+   body{ background-color: #E6E6E6}
+   html,body,ul,li{padding: 0;margin:0;}
+.embed-article h2 { color: #828282; font-size: 13px; font-weight: normal; text-shadow: 0 1px 1px #fff; margin-bottom: 4px; height: 22px; line-height: 21px;padding-left: 10px; }
+.embed-teqlist { text-align: left; background: #fff; }
+.embed-teqlist li { padding: 6px 0 0 15px; background-size: 4px auto; position: relative; overflow: hidden; }
+.embed-teqlist li:before { content: " "; display: block; width: 10px; height: 18px; background-position: -94px top; position: absolute; right: 8px; top: 22px; }
+ .embed-teqlist li:before, .embed-tips .embed-tips-a:after, .embed-teqlist .pic { background-image: url(img/detail.png); background-repeat: no-repeat; background-size: 150px auto; }
+ .embed-teqlist .teqlist-con { overflow: hidden; height: 50px; padding-bottom: 5px; }
+ .embed-teqlist .pic { width: 48px; height: 48px; background-size: 300px auto; background-position: -258px 4px; float: left; margin-right: 15px; pointer-events: none; }
+ .embed-teqlist .tit { padding-right: 15px; color: #333; font-size: 16px; font-weight: bold; line-height: 26px; pointer-events: none; }
+.embed-teqlist .txt { padding-right: 15px; font-size: 13px; color: #777; pointer-events: none; }
+.em { color: #e7381f; margin: 0 2px; font-weight: bold; }
+/*love.css*/
+.loveWrapper {overflow: hidden;position:absolute;position:fixed;top:0;left:0;width: 100%; height: 480px; pointer-events:none;}
+
+
+#loveContainer{position:absolute;width:100%;height:480px; left:0; top:0; pointer-events:none; overflow:hidden; z-index:12;-webkit-transition-property:all;-webkit-transition-duration:0.8s;-webkit-transition-delay:0;-webkit-transition-timing-function:ease;}
+#loveContainer>div{position:absolute;width:20px;height:20px;padding:10px;overflow:hidden;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-direction:normal,normal;-webkit-animation-timing-function:linear,ease-in;}
+#loveContainer>div>img{
+  display:block;
+  position:absolute;
+  border-radius:50%;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-direction:alternate;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-transform-origin:50% -100%;}
+@-webkit-keyframes fade{
+  0%{opacity:1;}
+  95%{opacity:1;}
+  100%{opacity:0;}}
+@-webkit-keyframes drop{
+  0%{-webkit-transform:translate(-10px,-100px);}
+  90%{-webkit-transform:translate(30px,480px);}
+  100%{-webkit-transform:translate(30px,480px);}}
+@-webkit-keyframes clockwiseSpin{
+  0%{-webkit-transform:rotate(-50deg);}
+  100%{-webkit-transform:rotate(50deg);}}
+@-webkit-keyframes counterclockwiseSpinAndFlip{
+  0%{ -webkit-transform:scale(-1,1) rotate(50deg); } }
+
+ 
+   </style>
+<body>
+
+  <div id="loveContainer" style="">
+    <div>
+      <img src="img/ban.png" width="12"></div>
+    <div>
+      <img src="img/ban.png" width="13"></div>
+    <div>
+      <img src="img/ban.png" width="12"></div>
+    <div>
+      <img src="img/ban.png" width="10"></div>
+    <div>
+      <img src="img/ban.png" width="14"></div>
+  </div>
+
+  <!-- <section class="embed-article">
+    <h2>未使用的特权</h2>
+    <div class="sec-bd">
+      <div class="embed-teqlist">
+        <ul>
+          <li>
+            <div class="teqlist-con">
+              <div class="pic">
+                <img src="img/1.png" width="48" height="48"></div>
+              <div class="tit">原创表情</div>
+              <div class="txt">
+                免费提供
+                <span class="em">20</span>
+                个专属表情
+              </div>
+              <div></div>
+            </div>
+          </li>
+          <li>
+            <div class="teqlist-con">
+              <div class="pic">
+                <img src="img/1.png" width="48" height="48"></div>
+              <div class="tit">充值特权</div>
+              <div class="txt">
+                话费充值
+                <span class="em">96</span>
+                折
+              </div>
+              <div></div>
+            </div>
+          </li>
+          <li>
+            <div class="teqlist-con">
+              <div class="pic">
+                <img src="img/1.png" width="48" height="48"></div>
+              <div class="tit">千人群特权</div>
+              <div class="txt">
+                最高可开通
+                <span class="em">2000</span>
+                人群
+              </div>
+              <div></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section> -->
+
+</body>
+
+ 
+   <script type="text/javascript" src="js/love.js"></script>
+</html>

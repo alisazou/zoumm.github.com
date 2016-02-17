@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+		<style>
+		@charset "utf-8";
+				/* reset */
+				body{font:12px/18px arial,sans-serif;color:#585858;min-height: 100%;background-color: #2e1d76;margin:0;padding:0;}
+				ul,ol,li,dl{list-style-type:none;}
+				#phoneCarousel .arrow{position:absolute;z-index: 10;top:50%;width:46px;height:47px;background:url(arrows.png) no-repeat;background-size: 23px auto;cursor:pointer;}
+				#phoneCarousel .previous{left:0;background-position: -11px 0;}
+				#phoneCarousel .next{right:0;background-position: 34px 0;}
+				
+				.sucaijiayuan{ width:320px; margin-right: auto;margin-left: auto;margin-top: 150px;}
+				#phoneCarousel{width:320px;height:300px;margin:0 auto;position:relative;}
+				
+				#stage{left:50%;margin-left:-150px;position:absolute;width:300px;height:100%;}
+				
+				#stage .default{display:block;left:50%;margin-left:-100px;position:absolute;}
+				#stage .animationReady{display:block;position:absolute;top:0;left:0;}
+				
+		</style>
+	</head>
+
+	<body>
+		<div class="sucaijiayuan clearfix">
+			<div id="phoneCarousel">
+				<div class="previous arrow">&nbsp;</div>
+				<div class="next arrow">&nbsp;</div>
+				<div id="stage">
+					<a href="javascript:;" ><img width="217"  src="i1.png"   class="default" /></a>
+					<a href="javascript:;" ><img width="217"  src="i2.png" /> </a>
+					<a href="javascript:;" ><img width="217"  src="i3.png" /></a>
+					<a href="javascript:;"><img  width="217"  src="i4.png" /></a>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+	<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+	  <!--<script type="text/javascript" src="xuanzhuan/js/script.js"></script>--> 
+	<script>
+	$(function(){
+		
+				var deg=0;
+				/* Storing all the images into a variable */
+			
+				var images	= $('#stage img').addClass('animationReady');
+				
+				var dim		= { width:images.width(),height:images.height()};
+				
+				var cnt = images.length;
+					
+				/* Finding the centers of the animation container: */
+				var centerX = $('#stage').width()/2;
+				var centerY = $('#stage').height()/2;
+				
+			
+				function rotate(step,total){
+					// This function loops through all the phone images, and rotates them
+					// with "step" degrees (10 in this implementation) until total has reached 0
+				
+					/* Increment the degrees: */
+					deg+=step;
+					
+					var eSin,eCos,newWidth,newHeight,q;
+					for(var i=0;i<cnt;i++){
+						/* Calculate the sine and cosine for the i-th image */
+						q = ((360/cnt)*i+deg)*Math.PI/180;
+						eSin = Math.sin(q);
+						eCos = Math.cos(q);
+						/*
+						/	With the sine value, we can calculate the vertical movement, and the cosine 
+						/	will give us the horizontal movement.
+						*/
+						
+						q = (0.6+eSin*0.4);
+					
+						newWidth	= q*dim.width;
+						newHeight	= q*dim.height;
+							
+						/*
+						/	We are using the calculated sine value (which is in the range of -1 to 1)
+						/	to calculate the opacity and z-index. The front image has a sine value
+						/	of 1, while the backmost one has a sine value of -1.
+						*/
+						
+						images.eq(i).css({
+							top			: (centerY-100)+10*eSin,
+							left		: centerX+90*eCos,
+							opacity		: 0.8+eSin*0.2,
+							marginLeft	: -newWidth/2,
+							zIndex		: Math.round(80+eSin*20)
+						}).width(newWidth).height(newHeight);
+					}
+			
+					total-=Math.abs(step);
+					if(total<=0) return false;
+					
+					// Setting the function to be run again in 40 seconds (equals to 25 frames per second):
+					setTimeout(function(){rotate(step,total)},40);
+				
+				}
+	
+	// Running the animation once at load time (and moving the iPhone into view):
+			rotate(10,360/cnt);
+		
+	
+			$('.previous').on("tap",function(){
+				rotate(-10,360/cnt);
+				//console.log("b");
+			})
+			$('.next').on("tap",function(){
+				rotate(10,360/cnt);
+				//console.log("a");
+			})
+	})
+			
+	</script>
+
+</html>

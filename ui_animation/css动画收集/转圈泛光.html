@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+body{background-color: black}
+       .pop-box , .pop-box .outer, .pop-box .outer-circle,.inner,.inner-circle,.inner-point, .pop-box .outer-point{
+             position: absolute;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+       .pop-box{
+           position: absolute;
+           left: 300px;
+           top: 300px;
+           width: 84px;
+           height: 84px;
+       }
+        .pop-box .outer {
+           width: 84px;
+           height: 84px;
+           -webkit-animation: circleouter 3s linear infinite;
+           -moz-animation: circleouter 3s linear infinite;
+           -o-animation: circleouter 3s linear infinite;
+           animation: circleouter 3s linear infinite;
+       }
+       @-webkit-keyframes   circleouter {
+           0% {
+               -webkit-transform:rotate(0);
+               -moz-transform:rotate(0);
+               -ms-transform:rotate(0);
+               -o-transform:rotate(0);
+               transform:rotate(0)
+           }
+           50% {
+               -webkit-transform:rotate(180deg);
+               -moz-transform:rotate(180deg);
+               -ms-transform:rotate(180deg);
+               -o-transform:rotate(180deg);
+               transform:rotate(180deg)
+           }
+           100% {
+               -webkit-transform:rotate(360deg);
+               -moz-transform:rotate(360deg);
+               -ms-transform:rotate(360deg);
+               -o-transform:rotate(360deg);
+               transform:rotate(360deg)
+           }
+       }
+       @keyframes circleouter {
+           0% {
+               -webkit-transform:rotate(0);
+               -moz-transform:rotate(0);
+               -ms-transform:rotate(0);
+               -o-transform:rotate(0);
+               transform:rotate(0)
+           }
+           50% {
+               -webkit-transform:rotate(180deg);
+               -moz-transform:rotate(180deg);
+               -ms-transform:rotate(180deg);
+               -o-transform:rotate(180deg);
+               transform:rotate(180deg)
+           }
+           100% {
+               -webkit-transform:rotate(360deg);
+               -moz-transform:rotate(360deg);
+               -ms-transform:rotate(360deg);
+               -o-transform:rotate(360deg);
+               transform:rotate(360deg)
+           }
+       }
+       .pop-box .outer-circle {
+           width: 84px;
+           height: 84px;
+           border: 1px solid #1b6096;
+           -webkit-border-radius: 50%;
+           -webkit-background-clip: padding-box;
+           -moz-border-radius: 50%;
+           -moz-background-clip: padding;
+           border-radius: 50%;
+           background-clip: padding-box;
+           clip: rect(16px,84px,84px,0);
+       }
+      .pop-box .outer-point {
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;
+           width: 6px;
+           height: 6px;
+           left: 11px;
+           margin-left: -3px;
+           top: 11px;
+           background-color: #1b6096;
+           -webkit-border-radius: 50%;
+           -webkit-background-clip: padding-box;
+           -moz-border-radius: 50%;
+           -moz-background-clip: padding;
+           border-radius: 50%;
+           background-clip: padding-box;
+       }
+
+      .pop-box .inner {
+           width: 74px;
+          position: absolute;
+           height: 74px;
+           left: 4.5px;
+           top: 4.5px;
+           background-color: #1f1364;
+           -webkit-animation: circleinner 3s linear infinite;
+           -moz-animation: circleinner 3s linear infinite;
+           -o-animation: circleinner 3s linear infinite;
+           animation: circleinner 3s linear infinite;
+           -webkit-box-shadow: 0 0 3px 2px #1b436e inset;
+           -moz-box-shadow: 0 0 3px 2px #1b436e inset;
+           box-shadow: 0 0 3px 2px #1b436e inset;
+           -webkit-border-radius: 50%;
+           -webkit-background-clip: padding-box;
+           -moz-border-radius: 50%;
+           -moz-background-clip: padding;
+           border-radius: 50%;
+           background-clip: padding-box;
+       }
+       .pop-box .inner-circle {
+           width: 74px;
+           height: 74px;
+           border: 2px solid #1aafcc;
+           -webkit-border-radius: 50%;
+           -webkit-background-clip: padding-box;
+           -moz-border-radius: 50%;
+           -moz-background-clip: padding;
+           border-radius: 50%;
+           background-clip: padding-box;
+           clip: rect(16px,86px,86px,0);
+       }
+        .pop-box .inner-point {
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;
+           width: 6px;
+           height: 6px;
+           left: 66px;
+           margin-left: -3px;
+           top: 14px;
+           background-color: #1aafcc;
+           -webkit-border-radius: 50%;
+           -webkit-background-clip: padding-box;
+           -moz-border-radius: 50%;
+           -moz-background-clip: padding;
+           border-radius: 50%;
+           background-clip: padding-box;
+       }
+       @keyframes circleinner {
+           0% {
+               -webkit-transform:rotate(0);
+               -moz-transform:rotate(0);
+               -ms-transform:rotate(0);
+               -o-transform:rotate(0);
+               transform:rotate(0)
+           }
+           50% {
+               -webkit-transform:rotate(-180deg);
+               -moz-transform:rotate(-180deg);
+               -ms-transform:rotate(-180deg);
+               -o-transform:rotate(-180deg);
+               transform:rotate(-180deg)
+           }
+           100% {
+               -webkit-transform:rotate(-360deg);
+               -moz-transform:rotate(-360deg);
+               -ms-transform:rotate(-360deg);
+               -o-transform:rotate(-360deg);
+               transform:rotate(-360deg)
+           }
+       }
+       @-webkit-keyframes circleinner {
+           0% {
+               -webkit-transform:rotate(0);
+               -moz-transform:rotate(0);
+               -ms-transform:rotate(0);
+               -o-transform:rotate(0);
+               transform:rotate(0)
+           }
+           50% {
+               -webkit-transform:rotate(-180deg);
+               -moz-transform:rotate(-180deg);
+               -ms-transform:rotate(-180deg);
+               -o-transform:rotate(-180deg);
+               transform:rotate(-180deg)
+           }
+           100% {
+               -webkit-transform:rotate(-360deg);
+               -moz-transform:rotate(-360deg);
+               -ms-transform:rotate(-360deg);
+               -o-transform:rotate(-360deg);
+               transform:rotate(-360deg)
+           }
+    </style>
+</head>
+<body>
+<div class="pop-box">
+    <div class="outer">
+        <div class="outer-circle"></div>
+        <div class="outer-point"></div>
+    </div>
+    <div class="inner" >
+        <div class="inner-circle"></div>
+        <div class="inner-point"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+    <style class="cp-pen-styles">
+        html {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+*, *:before, *:after {
+  -moz-box-sizing: inherit;
+       box-sizing: inherit;
+}
+
+html,body {
+    height:100%;
+    margin: 0;
+    font: 12px/10px "Helvetica Neue";
+    font-weight: 900;
+    color: rgba(255, 255, 255, 1);
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+.container {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+ 
+#current{
+	width: 60px;
+	height: 60px;border-radius:100% ;background-color: red;
+}
+.animate {-webkit-animation: boyarm 1s cubic-bezier(0.07, 0.85, 0.86, 0.21)  forwards ;}
+@-webkit-keyframes boyarm {
+    0%   {-webkit-transform:translateX(10px)}
+    100% {-webkit-transform: translateX(200px)}
+}
+#MyRect:hover {
+   stroke: black;
+   fill: blue;
+ }
+ .text{width: 200px;height: 100px;background-color: transparent;}
+p{color: #333;}
+</style>
+</head>
+<body>
+<p>测试</p>
+<div class="text"><img src="boy_arm.png"</div>
+
+<div id="current" class="animate"></div>
+<svg version="1.1" width="300" height="500">
+
+    <rect width="50" height="50" x="10" y="10"  stroke="black" fill="transparent" stroke-width="5"></rect>
+<!--x：矩形左上角的坐标(用户坐标系)的x值。y：矩形左上角的坐标(用户坐标系)的y值。width：矩形宽度。height：矩形高度。rx：实现圆角效果时，圆角沿x轴的半径。ry：实现圆角效果时，圆角沿y轴的半径。-->
+
+    <rect width="50" height="50" x="100" y="10" rx="4" ry="4" stroke="black" fill="transparent" stroke-width="5"></rect>
+    <circle r="30" cx="30" cy="100"></circle>      <!-- r：圆的半径。cx：圆心坐标x值。cy：圆心坐标y值。-->
+
+    <ellipse rx="40" ry="10" cx="100" cy="100"></ellipse>  <!--rx：半长轴(x半径)。ry：半短轴(y半径)。cx：圆心坐标x值。cy：圆心坐标y值。-->
+    <line x1="10" y1="10" x2="140" y2="100" stroke="red" fill="transparent" stroke-width="5"></line>      <!--x1：起点x坐标。y1：起点y坐标。x2：终点x坐标。y2：终点y坐标。-->
+
+<polyline points="60 110, 65 120, 70 115, 75 130, 80 125, 85 140 ,90 135 ,95 150, 100 145" stroke="orange" fill="transparent" stroke-width="5"/>
+<path d="M10 315
+           L 110 215
+           A 30 50 0 0 1 162.55 162.45
+           L 172.55 152.45
+           A 30 50 -45 0 1 215.1 109.9
+           L 315 10" stroke="black" fill="green" stroke-width="2" fill-opacity="0.5"/>
+ <path d="M80 80
+           A 45 45, 0, 0, 0, 125 125
+           L 125 80 Z" fill="green"/>
+            <path d="M80 80
+           A 45 45, 0, 0, 0, 125 125
+           L 125 80 Z" fill="green"/>
+  <path d="M230 80
+           A 45 45, 0, 1, 0, 275 125
+           L 275 80 Z" fill="red"/>
+  <path d="M80 230
+           A 45 45, 0, 0, 1, 125 275
+           L 125 230 Z" fill="purple"/>
+ <!--<text x="150" y="125" font-size="60" text-anchor="middle" fill="white"><tspan font-weight="bold" fill="red">This is bold and red</tspan>
+ </text>  -->
+ <text x="10" y="400">Hello World!
+  <tspan x="100 200 300"  font-weight="bold" fill="red">This is bold and red</tspan>
+</text>
+<rect x="50" y="100" width="100" height="100" stroke="blue" fill="none"
+       fill-opacity="0.5" stroke-opacity="0.8"/>
+  <svg width="200" height="150">
+  <path d="M 10 75 Q 50 10 100 75 T 190 75" stroke="black"
+    stroke-linecap="round" stroke-dasharray="5,10,5" fill="none" id="MyRect"/>
+  <path d="M 10 75 L 190 75" stroke="red"
+    stroke-linecap="round" stroke-width="1" stroke-dasharray="5,5" fill="none"/>
+</svg>
+</svg>
+<svg width="8cm" height="3cm"  viewBox="0 0 800 300"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>基本动画元素</desc>
+  <rect x="1" y="1" width="798" height="298" 
+        fill="none" stroke="blue" stroke-width="2" />
+  <!-- 矩形位置和大小的动画 -->
+  <rect id="RectElement" x="300" y="100" width="300" height="100"
+        fill="rgb(255,255,0)"  >
+    <animate attributeName="x" attributeType="XML"
+             begin="0s" dur="9s" fill="freeze" from="300" to="0" />
+    <animate attributeName="y" attributeType="XML"
+             begin="0s" dur="9s" fill="freeze" from="100" to="0" />
+    <animate attributeName="width" attributeType="XML"
+             begin="0s" dur="9s" fill="freeze" from="300" to="800" />
+    <animate attributeName="height" attributeType="XML"
+             begin="0s" dur="9s" fill="freeze" from="100" to="300" />
+  </rect>
+  <!-- 创建新的用户坐标空间，所以text是从新的(0,0)开始，后续的变换都是针对新坐标系的 -->
+  <g transform="translate(100,100)" >
+    <!-- 下面使用了set去动画visibility，然后使用animateMotion,
+ animate和animateTransform执行其他类型的动画 -->
+    <text id="TextElement" x="0" y="0"
+          font-family="Verdana" font-size="35.27" visibility="hidden"  > 
+      It's alive!
+      <set attributeName="visibility" attributeType="CSS" to="visible"
+           begin="3s" dur="6s" fill="freeze" />
+      <animateMotion path="M 0 0 L 100 100" 
+           begin="3s" dur="6s" fill="freeze" />
+      <animate attributeName="fill" attributeType="CSS"
+           from="rgb(0,0,255)" to="rgb(128,0,0)"
+           begin="3s" dur="6s" fill="freeze" />
+      <animateTransform attributeName="transform" attributeType="XML"
+           type="rotate" from="-30" to="0"
+           begin="3s" dur="6s" fill="freeze" />
+      <animateTransform attributeName="transform" attributeType="XML"
+           type="scale" from="1" to="3" additive="sum"
+           begin="3s" dur="6s" fill="freeze" />
+    </text>
+  </g>
+</svg>
+</body>
+<script src="http://192.168.18.54:8081/target/target-script-min.js#anonymous"></script>
+</html>
+

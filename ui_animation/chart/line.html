@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+
+		<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.js"></script>
+		<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Canvas.js"></script>
+		<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Chart.js"></script>
+		<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Scale.js"></script>
+		<script type="text/javascript" src="http://cache.500boss.com/mobile/widget/chart/JChart.Line.js"></script>
+		<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+        <style>
+    	body{margin: 0;padding: 0;}
+    </style>
+	</head>
+
+	<body>
+		<h1 style="text-align: center">折线图</h1>
+
+		<div class="chartsContainer" >
+			<div>公司产品销售汇总(2012-2014)</div>
+			<canvas id="line_canvas"></canvas>
+			<canvas id="line_canvas2"></canvas>
+			
+		</div>
+
+		<script type="text/javascript">
+		var App = (function(){
+			//动态计算chart canvas的高度，宽度，以适配终端界面
+			    var calcChartOffset = function(){
+			        return {
+			            height : $(document).height(),
+			            width : $(document).width()
+			        }
+			    }
+			    return {
+			      
+			        calcChartOffset : calcChartOffset
+			    }
+		})()
+		
+		var  lineCanvas = $("#line_canvas");
+		var  lineCanvas2 = $("#line_canvas2");
+		
+        var wh = App.calcChartOffset();
+        
+        lineCanvas.attr('width',wh.width).attr('height',wh.height);
+        lineCanvas2.attr('width',wh.width).attr('height',wh.height);
+			var data = {
+			        labels : ['一月',"二月","三月","四月","五月","六月","七月",'八月','九月','十月','十一月','十二月'],
+			        datasets : [
+			            {
+			                name : 'A产品',
+			                color : "#72caed",
+			                pointColor : "#95A5A6",
+			                pointBorderColor : "#fff",
+			                data : [65,59,90,81,56,55,40,20,13,20,11,60]
+			            },
+			            {
+			                name : 'B产品',
+			                color : "#a6d854",
+			                pointColor : "#95A5A6",
+			                pointBorderColor : "#fff",
+			                data : [28,48,40,19,96,27,100,40,40,70,11,89]
+			            }
+			            
+			        ]
+			    }
+			    var line = new JChart.Line(data,{
+			        id : 'line_canvas',
+			       animation:false,//将animation:true将会有动画效果。d注意动画效果在安卓上面特别慢，建议去掉动画
+			        smooth : true,//平滑曲线
+			        fill : false
+			    });
+			  
+			    line.draw();
+			    //带填充面积与动画
+			    var  lineCanvas2 = $("#line_canvas2");
+			      lineCanvas2.attr('width',wh.width).attr('height',wh.height);
+			
+			    var line2 = new JChart.Line(data,{
+			        id : 'line_canvas2',  
+			        smooth : false,//平滑曲线
+			        
+			    });
+			  
+			    line2.draw();
+		</script>
+	</body>
+
+</html>

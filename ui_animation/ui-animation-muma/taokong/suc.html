@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/head/head.css" />
+    <link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/acttemp/acttemp.css" />
+    <link rel="stylesheet" href="http://cache.500boss.com/mobile/huodong/caipiaojie/public/css/done.css">
+    <style type="text/css">
+.dlt-suc{position: relative;font-size: 14px;color: #666}
+.dlt-icon{background: url(http://cache.500boss.com/mobile/huodong/caipiaojie/20141215dlt_beitou/images/dlt.png);background-size: 56px auto;width: 56px;height: 56px;position: absolute;top: 22px;left: 15px;}
+.dlt-content {margin: 14px 0 14px 87px;}
+.dlt-title{font-size: 14px;color: #666;font-weight: 400;padding-top: 10px}
+.dlt-explain em{color: #dc3548;font-style: normal;}
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <!--head begin-->
+        <header id="uiHead" class="ui-head">
+            <div class="ui-head-in">
+                <div class="ui-head-l">
+                    <span class="ui-head-btn1">返回</span>
+                </div>
+                <div class="ui-head-m">
+                    <h2 class="ui-head-tit">竞足包月</h2>
+                </div>
+                <div class="ui-head-r">
+                    <span class="ui-head-btn2">分享</span>
+                </div>
+            </div>
+        </header>
+        <!--head end-->
+
+        <!--购买成功 begin-->
+        <div class="done">
+            <div class="done-hd">
+                <h3 class="done-title">购买成功！</h3>
+            </div>
+
+            <div class="done-main">
+
+                <div class="dlt-suc">
+                     <div class="dlt-icon"></div>
+                     <div class="dlt-content">
+                         <h3 class="dlt-title">第14129期超  12-10 20:30开奖</h3>
+                         <p class="dlt-explain">投注号码：02,12,17,23,30 │ 02,09</p>
+                         <p class="dlt-explain">预计奖金：<em>13亿（130倍）</em></p>
+                     </div>
+                </div>
+
+            </div>
+
+            <div class="done-btns">
+                <p class="done-tips">大产品经理欠我一句话，我也不清楚要写啥！</p>
+                <span class="done-btns1">告诉小伙伴</span>
+                <span class="done-btns2">继续买彩票</span>
+                <span class="done-btns3">我的购彩记录</span>
+            </div>
+        </div>
+        <!--购买成功 end--> </div>
+
+    <div class="ui-acttemp-layer js-ui-acttemp-layer hide"></div>
+    <!-- 微信分享弹窗 begin-->
+    <div class="ui-acttemp-wx-alert  js-ui-acttemp-wx-alert hide">
+        <p class="ui-acttemp-wx-arrow">
+            <span></span>
+        </p>
+        <p>请点击右上角【发送给朋友】【分享到朋友圈】，邀请小伙伴和你一起玩游戏拿红包吧~</p>
+    </div>
+    <!-- 微信分享弹窗 end-->
+
+    <!-- 触屏版分享弹窗 begin-->
+    <!--这个css文件只做ui演示用，开发的时候，技术会通过异步加载，对应的把下面的引入代码去掉-->
+    <link type="text/css" rel="stylesheet" href="http://v3.jiathis.com/code/css/jiathis_share.css" />
+    <div class="ui-acttemp-tuc-alert js-ui-acttemp-tuc-alert">
+        <div class="ui-acttemp-head">
+            把内容分享至
+            <span class="ui-acttemp-hide js-ui-acttemp-hide">取消</span>
+        </div>
+        <div class="ui-acttemp-content jiathis_style_32x32">
+            <a class="jiathis_button_tsina" title="分享到新浪微博">
+                <span class="jiathis_txt jtico jtico_tsina"></span>
+            </a>
+            <a class="jiathis_button_tqq" title="分享到腾讯微博">
+                <span class="jiathis_txt jtico jtico_tqq"></span>
+            </a>
+            <a class="jiathis_button_qzone" title="分享到QQ空间">
+                <span class="jiathis_txt jtico jtico_qzone"></span>
+            </a>
+        </div>
+    </div>
+    <!-- 触屏版分享弹窗  end-->
+
+    <script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+    <script type="text/javascript">
+
+//显示微信微信分享弹窗
+$(".done-btns1, .ui-head-btn2").on('click',function(){
+    $(".js-ui-acttemp-wx-alert").removeClass("hide")
+    $(".js-ui-acttemp-layer").removeClass("hide")
+})
+
+//显示触屏版分享弹窗
+$(".done-btns1, .ui-head-btn2").on('click',function(){
+    $(".js-ui-acttemp-tuc-alert").addClass("ui-acttemp-show")
+    $(".js-ui-acttemp-layer").removeClass("hide")
+})
+
+//关闭弹窗
+$(".js-ui-acttemp-wx-alert,.js-ui-acttemp-layer,.js-ui-acttemp-hide").on('click',function(){
+    $(".js-ui-acttemp-wx-alert,.js-ui-acttemp-layer").addClass("hide")
+    $(".js-ui-acttemp-tuc-alert").removeClass("ui-acttemp-show")
+})
+</script>
+
+    <!--//微信自定义分享图片，标题，内容  begin 【如技术重写，请自行删除一下js】-->
+    <script type="text/javascript" src="http://cache.500boss.com/mobile/widget/acttemp/share-wx.js"></script>
+    <script type="text/javascript">
+imgUrl = ''; //图片
+lineLink = ''; //链接
+shareTitle = ''; //标题
+descContent = ""; //描述
+</script>
+    <!--//微信自定义分享图片，标题，内容 End-->
+
+</body>
+</html>

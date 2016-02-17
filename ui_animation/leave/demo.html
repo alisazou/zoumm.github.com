@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+ 			body,div{padding: 0;margin: 0;}
+			html,body {height:100%;}
+			body{ background-color: #000;}
+			#leaveContainer {position:fixed;top: 0;z-index: 5;min-height:100%; width: 100%;overflow: hidden;pointer-events: none;}
+			#leaveContainer >div { position: absolute;width: 100px;height: 100px;
+			   -webkit-animation-iteration-count: infinite, infinite; -webkit-animation-direction: normal;-webkit-animation-timing-function: linear;}
+			#leaveContainer > div > span { position: absolute; width: 44px; height: 57px;background: url(images/money.png) no-repeat;background-size: 44px auto; -webkit-animation-iteration-count: infinite;-webkit-animation-direction: alternate;-webkit-animation-timing-function: ease-in-out;-webkit-transform-origin: 50% -100%;
+			}
+			
+			@-webkit-keyframes fade
+			{
+			  
+			    0%   { opacity: 1; }
+			    95%  { opacity: 1; }
+			    100% { opacity: 0; }
+			}
+			@-webkit-keyframes drop
+			{
+			   
+			    0%   { -webkit-transform: translate(0px, -50px); }
+			    100% { -webkit-transform: translate(0px, 800px); }/*这里的数字可以自行修改*/
+			}
+			
+			@-webkit-keyframes leaveRotate
+			{
+			    
+			    0%   { -webkit-transform: rotate(-50deg); }
+			    100% { -webkit-transform: rotate(50deg); }
+			}
+			
+			@-webkit-keyframes   leaveRotateAndScale 
+			{
+			   
+			    0%   { -webkit-transform: scale(-1, 1) rotate(50deg); }
+			
+			    100% { -webkit-transform: scale(-1, 1) rotate(-50deg); }
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<div id="leaveContainer"></div>
+	</body>
+<script src="LeaveUtil.js"></script>
+<script>
+		(function(){
+			 var focus =new LeaveUtil("leaveContainer",{
+					flakeCount:10,
+//					options: "images/money.png",
+//					options: "../images/d6.png",
+					
+//					minSize:30,//图片最小宽度minSize,maxSize自定义
+//					maxSize:44,//图片最大宽度
+					autoPlay:true,//是否自动播放autoPlay:true自动播放,autoPlay:false不自动播放
+					iCount : "infinite", //动画循环次数，iCount: n|infinite;
+					autoTime: "4s"
+				});
+				
+			
+		})()
+	
+	</script>
+</html>

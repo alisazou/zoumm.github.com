@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+    <style class="cp-pen-styles">
+        html {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+*, *:before, *:after {
+  -moz-box-sizing: inherit;
+       box-sizing: inherit;
+}
+
+html,body {
+    height:100%;
+    margin: 0;
+    font: 12px/10px "Helvetica Neue";
+    font-weight: 900;
+    color: rgba(255, 255, 255, 1);
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background-color: #1E1E1E;
+}
+
+.box{
+height: 201px;
+background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+-moz-background-clip: text;
+-webkit-background-clip: text;
+-moz-text-fill-color: transparent;
+-webkit-text-fill-color: transparent;
+-webkit-animation: slidetounlock 2s infinite;
+font-size: 30px;
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-weight: 300;
+padding: 50px;
+width: 100%;
+-webkit-text-size-adjust: none;
+/*background-position: -720px 0;*/
+}
+@-webkit-keyframes slidetounlock{
+    0% {background-position: -770px 0;}
+    100% {background-position: -550px 0;}
+}
+
+.shine {
+background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+-webkit-background-size: 125px;
+color: rgba(255, 255, 255, 0.1);
+
+font-family: "微软雅黑";
+font-size: 20px;
+font-weight: bold;
+display: block;
+position: absolute;
+height: 50px;
+padding: 30px;
+top: 50%;
+-webkit-background-clip: text;
+-webkit-animation-name: shine;
+background-position: 100px  0;
+-webkit-animation-duration: 2s;
+-webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes shine{
+    0% {background-position: -107px 0;}
+    100% {background-position: 233px  0;}
+}
+.box1{width: 200px;height: 200px;background-color: #8800cc;	margin-top: 100px;}
+.btn {
+
+background: #fff -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+-webkit-background-size: 125px;
+color: rgba(255, 255, 255, 0.1);
+
+font-family: "微软雅黑";
+font-size: 20px;
+font-weight: bold;
+display: block;
+
+height: 100px;
+line-height: 100px;
+width: 200px;
+padding: 30px;
+top: 50%;
+-webkit-background-clip: text;
+-webkit-animation-name: shine;
+background-position: 100px  0;
+-webkit-animation-duration: 2s;
+-webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes shine{
+    0% {background-position: -107px 0;}
+    100% {background-position: 233px  0;}
+}
+</style>
+</head>
+<body>
+	
+<h2 class="box"><span>slid to unlock</span></h2>
+<p class="shine">Welcome to 5iweb</p>
+<div class="box1"><a href="" class="btn">开始抢</a></div>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #canvas{border: 1px solid red;margin: 50px;background-color:#E1E0FF }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+
+    var c=document.getElementById("canvas");
+    var ctx=c.getContext("2d");
+    //白色半圆
+    ctx.beginPath();
+    ctx.arc(250,250,50,1.5*Math.PI,Math.PI/2,false); //false 顺时针 true逆时针
+    ctx.fillStyle="#fff";
+    ctx.closePath();
+    ctx.fill();
+
+   //黑色半圆
+    ctx.beginPath();
+    ctx.arc(250,250,50,Math.PI/2,1.5*Math.PI,false); //false 顺时针 true逆时针
+    ctx.fillStyle="black";
+    ctx.closePath();
+    ctx.fill();
+
+    //白色1/4小圆
+    ctx.beginPath();
+    ctx.arc(250,225,25,0,2*Math.PI,false); //false 顺时针 true逆时针
+    ctx.fillStyle="#fff";
+    ctx.closePath();
+    ctx.fill();
+
+    //黑色1/4小圆
+    ctx.beginPath();
+    ctx.arc(250,275,25,0,2*Math.PI,false); //false 顺时针 true逆时针
+    ctx.fillStyle="#000";
+    ctx.closePath();
+    ctx.fill();
+    //白色小圆
+    ctx.beginPath();
+    ctx.arc(250,225,4,0,2*Math.PI,false); //false 顺时针 true逆时针
+    ctx.fillStyle="#000";
+    ctx.closePath();
+    ctx.fill();
+    //黑色小圆
+    ctx.beginPath();
+    ctx.arc(250,280,4,0,2*Math.PI,false); //false 顺时针 true逆时针
+    ctx.fillStyle="#fff";
+    ctx.closePath();
+    ctx.fill();
+    //绘制文字
+    //绘制文字代码如下：
+    ctx.save();
+    ctx.fillStyle="black";
+    ctx.globalAlpha="0.4";
+    ctx.textAlign="center";
+    ctx.font="32px Arial";
+
+    ctx.shadowBlur=2;
+    ctx.fillText('Hello Canavs',200,100);//IE不支持
+    ctx.restore();
+
+</script>
+</body>
+</html>

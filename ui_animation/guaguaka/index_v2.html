@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+			<style>
+		#container{
+			position: relative;
+			text-align: center;
+			height: 95px;
+			width: 251px;
+			border: 8px solid #ccc;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
+		canvas{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 100;
+
+		}
+		#cover{
+			position: absolute;
+			text-align: center;
+			top: 0;
+			left: 0;
+			height: 95px;
+			width: 251px;
+			background:#ccc;
+			z-index: 100;
+			display: none;
+		}
+		a.button{
+			display: inline-block;
+			text-align: center;
+			line-height: 35px;
+			text-decoration: none;
+			width: 100px;
+		    padding: 0;
+		    height: 35px;
+		    background: -webkit-gradient(linear,left top,left bottom,from(#fff369),to(#ebde42));
+		    background: -moz-linear-gradient(top, #fff369, #ebde42);
+		    color: #404356;
+		    border: 0;
+		    border-radius: 4px;
+		    font-size: 16px;
+		    box-shadow: 0 2px 0 0 #ae9f0e;
+		    color: #855c0e;
+		    font-weight: bold;
+		    -webkit-transition: display 1s;
+		}
+		a#start{
+			z-index: 300;
+			position: absolute;
+			top:0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+		}
+		a#again{
+			position: absolute;
+			top:0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+		}
+		div#info-1{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 95px;
+			width: 251px;
+			text-align: center;
+			line-height: 95px;
+			background-image: url('guabg.jpg');
+		}
+		p{
+			padding: 0;
+			margin: 0px;
+			width: 100%;
+			text-align: center;
+			position: absolute;
+		}
+		p#info-2{
+			top: 0;
+		}
+		p#info-3{
+			bottom: 0;
+		}
+		
+	</style>
+
+	</head>
+	<body>
+		<div id="container">
+		<a href="javascript:start()" class="button" id="start">开始抽奖</a>
+		<canvas width="251" height="95"></canvas>
+		<div id="cover">
+			<p id="info-2"></p>
+			<a class='button' id="again" href="javascript:show()"></a>
+			<p id="info-3"></p>
+		</div>
+		<div id="info-1">很遗憾，没中奖</div>
+	</div>
+	
+	<script type="text/javascript" src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+	<script type="text/javascript" src="scratch.new.js"></script>
+	<script type="text/javascript">
+		var time = 6;
+		var p1 = document.querySelector('#info-1');
+		var p2 = document.querySelector('#info-2');
+		var p3 = document.querySelector('#info-3');
+		var cover = document.querySelector('#cover');
+		var a2 = document.querySelectorAll('a')[1];
+		var a1 = document.querySelectorAll('a')[0];
+		function start(){
+			a1.style.display = 'none';
+			s.setEnabled(true);
+
+		}
+		function show(){
+			cover.style.display = 'none';
+		}
+		function callback(){
+			s.setEnabled(false);
+			p2.innerHTML = p1.innerHTML;
+			cover.style.display = 'block';
+			if(time>0){
+				s.setImg('gua.jpg');
+				$.ajax({
+					url: 'test.php',
+					type: 'GET',
+					dataType: 'json',
+					// data: {param1: 'value1'},
+					success:function(data){
+						
+						if((time = time-1) == 0){
+							a2.innerHTML = '机会已经用完';
+							p3.innerHTML = '';
+							a2.href = '';
+						}else{
+							p1.innerHTML = data.text;
+							s.reset();
+							s.setEnabled(true);
+							a2.innerHTML = '再来一次';
+							p3.innerHTML = '还有 '+time+' 次机会';
+						}
+					}
+				});
+			}
+		}
+		var s = new Scratch({
+			threshold:0.2,
+			radius:20,
+			canvas:document.querySelector('canvas'),
+			img:'gua.jpg',
+			callback:callback
+		});
+		// s.setEnabled(true);
+		
+	</script>
+
+	</body>
+</html>

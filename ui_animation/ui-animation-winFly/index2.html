@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+<style>
+
+     body {
+  position: relative;
+ 
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  width: 100%;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  -webkit-transform: translate(-20%, -50%);
+      -ms-transform: translate(-20%, -50%);
+          transform: translate(-20%, -50%);
+}
+.center:nth-of-type(2) {
+  z-index: -1;
+  top: 34%;
+  -webkit-transform: translate(-30%, -50%) scale(0.7);
+      -ms-transform: translate(-30%, -50%) scale(0.7);
+          transform: translate(-30%, -50%) scale(0.7);
+}
+.center:nth-of-type(2) .formation {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+.center:nth-of-type(2) .formation .flappypig:nth-of-type(1) {
+  left: 250px;
+}
+.center:nth-of-type(2) .formation .flappypig:nth-of-type(2) {
+  right: 250px;
+}
+
+.formation {
+  position: absolute;
+  height: 100%;
+  -webkit-animation: formation-move 10s linear infinite;
+          animation: formation-move 10s linear infinite;
+}
+.formation .flappypig {
+  position: absolute;
+}
+.formation .flappypig * {
+  box-sizing: border-box;
+}
+.formation .flappypig .head {
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #FFAAAA;
+  border: 2px solid black;
+  -webkit-animation: flappy-body 1s ease-in-out infinite;
+          animation: flappy-body 1s ease-in-out infinite;
+  box-shadow: inset 0px 0px 10px rgba(255, 68, 68, 0.4);
+}
+.formation .flappypig .head .eye {
+  position: absolute;
+  height: 28px;
+  width: 25px;
+  top: 20px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.formation .flappypig .head .eye:before {
+  position: absolute;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: black;
+  left: 9px;
+  top: 12px;
+  -webkit-animation: eye-roll 0.5s ease-in-out infinite;
+          animation: eye-roll 0.5s ease-in-out infinite;
+}
+.formation .flappypig .head .eye.left {
+  left: 16px;
+}
+.formation .flappypig .head .eye.right {
+  right: 16px;
+}
+.formation .flappypig .head .ear {
+  position: absolute;
+  height: 15px;
+  top: -2px;
+  width: 20px;
+  background: #FFAAAA;
+  border: 2px solid;
+  border-color: black black transparent black;
+}
+.formation .flappypig .head .ear.left {
+  border-radius: 5px 10px 0 0;
+  left: 5px;
+  -webkit-transform: rotate(-35deg);
+      -ms-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+}
+.formation .flappypig .head .ear.right {
+  border-radius: 10px 5px 0 0;
+  right: 5px;
+  -webkit-transform: rotate(35deg);
+      -ms-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+.formation .flappypig .head .nose {
+  position: absolute;
+  width: 28px;
+  height: 24px;
+  border-radius: 50%;
+  border-radius: 30% 30% 50% 50% / 40% 40% 50% 50%;
+  border: 2px solid black;
+  background: #ffcece;
+  left: 35px;
+  top: 50px;
+  box-shadow: 1px 2px 0px 1px rgba(119, 0, 0, 0.5);
+}
+.formation .flappypig .head .nose:before, .formation .flappypig .head .nose:after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  top: 6px;
+  background: #110000;
+  border-radius: 50%;
+}
+.formation .flappypig .head .nose:before {
+  left: 5px;
+}
+.formation .flappypig .head .nose:after {
+  right: 5px;
+}
+.formation .flappypig .body {
+  position: absolute;
+  z-index: 1;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #FFAAAA;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  left: -5px;
+  top: -5px;
+  box-shadow: inset 0px 0px 10px rgba(255, 68, 68, 0.5);
+  -webkit-animation: flappy-body .5s ease-in-out infinite;
+          animation: flappy-body .5s ease-in-out infinite;
+}
+.formation .flappypig .body:before {
+  position: absolute;
+  font: normal 25px Arial;
+  content: "\0255";
+  color: #770000;
+  top: -25px;
+  left: 53px;
+}
+.formation .flappypig .body .wing {
+  position: absolute;
+  z-index: -1;
+  width: 65px;
+  height: 100px;
+  top: -20px;
+  border-radius: 50%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.formation .flappypig .body .wing div {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: flappy-wing 0.5s ease-in-out infinite;
+          animation: flappy-wing 0.5s ease-in-out infinite;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABkCAMAAADqvX3PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFayu+fzDakkTnpUX7gz3XqV7ytHzwAAAAhaybWQAAAAh0Uk5T/////////wDeg71ZAAAEVUlEQVR42uxY25LdIAwzxs7+/x8X25BYht3TtE+daWbaHslC4RIUUvoa18UifH3dV2Akzxr/SfYXN2os7ZY4fkiT61ETmAKSCFHTu0z8kJc2kpNm4eHB9nP8Gb6X3cWwJFJV5KS5MX1pm5bUWh91x5xJFT5pbkw+sLZwnoybFDlpHkw6utW8r1F3jKQcNQ+mMbfN7+tDt5EazGTnkyZh9xAnm2HTCyPJB03GtO5r//SxBLbmgqQcNBmP2W1zCge2pymuRKrsGiiTeG+9V71fVp5tblJl10DZvVRALlLIXQPYPMLSsDWX8MjkpkE8xpK6ZUP1KcGhbBrEY10Uusn+VyIZ4V4W2zSx0sxR974mkhHqXk4ezbut6NF8SlFTy5YPbO3GFvdNzhw+kWOD89+gabmN9YMvvTNq/GBzgRxTt8yaBm3C48mkuOvPOTYk2EZodCtF1ijyhxyzcUAbpQszyQbyIceUsc3wgEzSOfCfcowbtuGSYyqfc4y5lEuOMX/OMbMATDWyPudYeDxY/yDH+Occ09/IMf2QY/obOab/c+xfyjHHYp6RYw3JArdyZNAaW+SYB9UiFWHfytND7ilmX5kGZIG1PKJEr+6efXr4eDJZIFc8nvkR2Tw2T585bTkmsnJ8ZrtpmHlqmEubMRablpzbo5fXpXhG7ZDt5pHaeFCzcM5tlsjt77P9gjYR1Aw5zXx9zHZNbSKoS27r5zMqpzZGdD3l9o/ZboF4Y2/0Pts1t4kJ+Ltsvz3eZTtg+ub8+eaMSufcfpXtdM7tV2dUOuf2q2ynY25/yHbFMh1z+1220zG332U7nXL7ZbbTIbffZjsdcvttttMht99mOx1y+2220ym3X2Y7acS457TXG9/ZfpObBjCpx7jvwD7vEfs+k5sGMNlaXmoZw1FnjRnJZNUg9vlwHOVpsJMAEY8zjCW9LswS+VHIAhHbi+hKnsPDtlwhqwYx2VvN3zhLHl9Bhdw0GbuHW87Z83Ut5K4BPDw4huaE57UDJCsETP5ldfdrPqOV3DSAZz/6vPw1KryRFQIee98+OJ96j90N5KZBTONN+mBdHkhuGsR+Tl7YvzubZzKQmwbx8ohVunzH3R6L3DWAp4dPscaJyB8xJDcNYN8v2vskVgAByZsGy/7tsR59f537dADJmwbLJNNzzdd8yWVSDpqMaXzBZE8XcCE3DWBZHg3HAiRvGiyP0xSv7eP/QTIPe0BuGsBM4ySksU0Mj6QmOx8BKbsGyssjTlmMHpOUXQNlG4vlib9sunWrmW8mpW0awOHRe4v5keTxkG3T1PL8+mh3naZoka3tmoyXR/RLrbncHotsm6aWfX7aqtsDQ4KkbBrAm8e6Clk15RZYv+cDb1Q133uy97N0lis8jUVyfV2FrBrBW5DEociepqcfD8kIZSv7Qug6FA0cT10mBSFTxd4PX2p76CSNBcmqyZgf3E8eHT168ci4nTzWqe+kgfIvAQYAFAZDOgVH17MAAAAASUVORK5CYII=");
+}
+.formation .flappypig .body .wing div div {
+  -webkit-animation-delay: -0.33333s;
+          animation-delay: -0.33333s;
+}
+.formation .flappypig .body .wing div div div {
+  -webkit-animation-delay: -0.25s;
+          animation-delay: -0.25s;
+}
+.formation .flappypig .body .wing.left {
+  left: 10px;
+  -webkit-transform: rotateX(70deg);
+          transform: rotateX(70deg);
+}
+.formation .flappypig .body .wing.left div {
+  left: -65px;
+  -webkit-transform-origin: right center;
+      -ms-transform-origin: right center;
+          transform-origin: right center;
+  -webkit-animation-name: flappy-wing-first-left;
+          animation-name: flappy-wing-first-left;
+}
+.formation .flappypig .body .wing.left div div {
+  -webkit-animation-name: flappy-wing;
+          animation-name: flappy-wing;
+}
+.formation .flappypig .body .wing.left div div div {
+  border-radius: 50% 3% 3% 50%;
+}
+.formation .flappypig .body .wing.right {
+  -webkit-transform: rotateX(-70deg);
+          transform: rotateX(-70deg);
+  right: 10px;
+}
+.formation .flappypig .body .wing.right div {
+  -webkit-animation-name: flappy-wing-first-right;
+          animation-name: flappy-wing-first-right;
+  right: -65px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+}
+.formation .flappypig .body .wing.right div div {
+  -webkit-animation-name: flappy-wing;
+          animation-name: flappy-wing;
+}
+.formation .flappypig .body .wing.right div div div {
+  border-radius: 3% 50% 50% 3%;
+}
+
+.ground {
+  position: absolute;
+  z-index: -4;
+  width: 100%;
+  height: 200px;
+  bottom: 0px;
+  background: -webkit-linear-gradient(top, #006e2e 0%, #5f9173 50%, #006e2e 100%);
+  background: linear-gradient(to bottom, #006e2e 0%, #5f9173 50%, #006e2e 100%);
+  background-size: 200px 200px;
+  -webkit-animation: move-ground 5s linear infinite;
+          animation: move-ground 5s linear infinite;
+}
+
+@-webkit-keyframes flappy-wing-first-left {
+  0%,100% {
+    -webkit-transform: rotateX(0deg) rotateY(-20deg);
+            transform: rotateX(0deg) rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotateX(10deg) rotateY(20deg);
+            transform: rotateX(10deg) rotateY(20deg);
+  }
+}
+
+@keyframes flappy-wing-first-left {
+  0%,100% {
+    -webkit-transform: rotateX(0deg) rotateY(-20deg);
+            transform: rotateX(0deg) rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotateX(10deg) rotateY(20deg);
+            transform: rotateX(10deg) rotateY(20deg);
+  }
+}
+@-webkit-keyframes flappy-wing-first-right {
+  0%,100% {
+    -webkit-transform: rotateX(0deg) rotateY(-20deg);
+            transform: rotateX(0deg) rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotateX(-10deg) rotateY(20deg);
+            transform: rotateX(-10deg) rotateY(20deg);
+  }
+}
+@keyframes flappy-wing-first-right {
+  0%,100% {
+    -webkit-transform: rotateX(0deg) rotateY(-20deg);
+            transform: rotateX(0deg) rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotateX(-10deg) rotateY(20deg);
+            transform: rotateX(-10deg) rotateY(20deg);
+  }
+}
+@-webkit-keyframes flappy-wing {
+  0%,100% {
+    -webkit-transform: rotateY(-20deg);
+            transform: rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotateY(20deg);
+            transform: rotateY(20deg);
+  }
+}
+@keyframes flappy-wing {
+  0%,100% {
+    -webkit-transform: rotateY(-20deg);
+            transform: rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotateY(20deg);
+            transform: rotateY(20deg);
+  }
+}
+@-webkit-keyframes flappy-body {
+  0%,100% {
+    -webkit-transform: translateY(-5px) rotate(2deg);
+            transform: translateY(-5px) rotate(2deg);
+  }
+  50% {
+    -webkit-transform: translateY(5px) rotate(-2deg);
+            transform: translateY(5px) rotate(-2deg);
+  }
+}
+@keyframes flappy-body {
+  0%,100% {
+    -webkit-transform: translateY(-5px) rotate(2deg);
+            transform: translateY(-5px) rotate(2deg);
+  }
+  50% {
+    -webkit-transform: translateY(5px) rotate(-2deg);
+            transform: translateY(5px) rotate(-2deg);
+  }
+}
+@-webkit-keyframes eye-roll {
+  0%,100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0px, -3px);
+            transform: translate(0px, -3px);
+  }
+}
+@keyframes eye-roll {
+  0%,100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0px, -3px);
+            transform: translate(0px, -3px);
+  }
+}
+@-webkit-keyframes move-ground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -200px;
+  }
+}
+@keyframes move-ground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -200px;
+  }
+}
+@-webkit-keyframes formation-move {
+  0%,50%,100% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+  30% {
+    -webkit-transform: translate(-50px, 0px) rotate(10deg);
+            transform: translate(-50px, 0px) rotate(10deg);
+  }
+  70% {
+    -webkit-transform: translate(50px, 0px) rotate(-10deg);
+            transform: translate(50px, 0px) rotate(-10deg);
+  }
+}
+@keyframes formation-move {
+  0%,50%,100% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+  30% {
+    -webkit-transform: translate(-50px, 0px) rotate(10deg);
+            transform: translate(-50px, 0px) rotate(10deg);
+  }
+  70% {
+    -webkit-transform: translate(50px, 0px) rotate(-10deg);
+            transform: translate(50px, 0px) rotate(-10deg);
+  }
+}
+
+
+</style>
+	</head>
+	<body>
+		
+          <div class="center">
+	<div class="formation">
+		<div class="flappypig">
+			<div class="head">
+				<div class="ear left"></div>
+				<div class="ear right"></div>
+				<div class="eye left"></div>
+				<div class="eye right"></div>
+				<div class="nose"></div>
+			</div>
+			<div class="body">
+				<div class="wing left">
+					<div><div><div></div></div></div>
+				</div>
+				<div class="wing right">
+					<div><div><div></div></div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	</body>
+</html>

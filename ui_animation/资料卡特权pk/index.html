@@ -1,0 +1,55 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>生日快乐！</title>
+	<style>
+	html,body { height: 100%; margin: 0; padding: 0;}
+	.box1{width: 100px;height: 100px;background: red;float: left;margin-left: 40px;
+-webkit-transition: all .6s ease;		-webkit-transform: translateX(-50px);
+		opacity: .5;
+	}
+	.box2{width: 100px;height: 100px;background: blue;float: left;margin-left: 40px;
+	-webkit-transition: all .6s ease;	-webkit-transform: translateX(50px);}
+     .box1.animate{
+     	opacity: 1;
+-webkit-transform: translateX(0);
+
+     }
+     .box2.animate{
+     	opacity: 1;
+-webkit-transform: translateX(0);
+     }
+	</style>
+</head>
+<body>
+	<!-- 特权对比 -->
+	  <div class="box1">q</div>
+	  <div class="box2">a</div>
+	<!-- /特权对比 -->
+
+</body>
+<script type="text/javascript" src='zepto.min.js'></script>
+<script type="text/javascript">
+	// 头部头像对决动画
+	$(function(){
+
+		 var animateAvatar = function () {
+			$('.box1,.box2').addClass('animate');
+		}
+
+   setTimeout(animateAvatar , 10);
+
+	})
+		
+
+
+
+</script>
+</html>

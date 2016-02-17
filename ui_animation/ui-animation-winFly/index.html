@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>测试</title>
+<style>
+.winfly-box{width: 300px;height: 300px;background-color: red;}
+.winFly{
+	top: 10px;
+ position: relative;
+		-webkit-animation:winFly 2s ease-in-out both infinite ;animation:winFly 2s ease-in-out both infinite ;
+		}
+.winFly img:nth-child(1){
+	position: absolute;
+	-webkit-animation:winFly-child .2s ease-in-out both infinite ;animation:winFly-child .2s ease-in-out both infinite ;
+}
+.winFly img:nth-child(2){
+	position: absolute;
+}		
+		
+@-webkit-keyframes winFly{
+	0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+	50%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}
+	100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+}
+@-webkit-keyframes winFly-child{
+	0%{-webkit-transform:scaleX(0.6);transform:scaleX(0.6)}
+	100%{-webkit-transform:scaleX(1);transform:scaleX(1)}
+}
+
+</style>
+	</head>
+	<body>
+		<div class="frozen-module-dom">
+			<div class="winfly-box">
+			<div class="winFly">
+				<img src="sli7_yesCoin_fly.png" alt="翅膀" width="74" />
+				<img src="sli7_yesCoin_coin.png" alt="金币" width="74"/>
+			</div>
+			</div>			
+		</div>	
+
+	</body>
+</html>

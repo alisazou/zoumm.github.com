@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+		<style type="text/css">
+			.demo{width:320px; margin:10px auto 20px auto; min-height:160px;}
+			.msg{text-align:center; height:32px; line-height:32px; font-weight:bold; margin-top:50px}
+/*		.card{margin-left: 400px;}*/
+			.card span{display: block;width: 40px;height: 100px;background-color: blue;font-size: 20px;
+    word-wrap: break-word;
+    letter-spacing: 20px;}
+			
+
+.anim-flip {
+    -webkit-animation: zoomInUp 2s ease-in-out 0s 1;
+            animation: zoomInUp 2s ease-in-out 0s 1;
+}
+
+ @-webkit-keyframes zoomInUp {
+ 0% {
+ opacity: 0;
+ filter: alpha(opacity=0);
+ -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+ -ms-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+ transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+ -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+ animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+ }
+
+ 60% {
+ opacity: 1;
+ filter: alpha(opacity=100);
+ -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+ -ms-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+ transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+ -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+ animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+ }
+ }
+
+ @keyframes zoomInUp {
+ 0% {
+ opacity: 0;
+ filter: alpha(opacity=0);
+ -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+ -ms-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+ transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+ -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+ animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+ }
+
+ 60% {
+ opacity: 1;
+ filter: alpha(opacity=100);
+ -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+ -ms-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+ transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+ -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+ animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+ }
+ }
+ 
+     
+ 
+     
+		</style>
+	</head>
+
+	<body>
+		
+		<div id="main">
+
+			<div class="msg">刮开灰色部分看看，<a href="javascript:void(0)" onClick="window.location.reload()">再来一次</a>
+			</div>
+			<div class="demo">
+				<canvas></canvas>
+			
+			</div>
+		<div class="card">
+				<!--<span class="">你没中奖</span>-->
+				<span class="anim-title">获得预售资格</span>
+			</div>
+		</div>
+<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+		<script type="text/javascript">
+			var bodyStyle = document.body.style;
+			
+			bodyStyle.mozUserSelect = 'none';
+			bodyStyle.webkitUserSelect = 'none';
+			
+			var img = new Image();
+			var canvas = document.querySelector('canvas');
+			//canvas.style.backgroundColor='red';
+			canvas.style.position = 'absolute';
+			
+			var imgs = ['p_0.jpg','p_1.jpg'];
+			var num = Math.floor(Math.random()*3);
+			img.src = imgs[num];
+			
+			img.addEventListener('load', function(e) {
+				var ctx;
+			    var w = img.width,
+			    	h = img.height;
+			    var offsetX = canvas.offsetLeft,
+			    	offsetY = canvas.offsetTop;
+			    var mousedown = false;
+			
+			    function layer(ctx) {
+			        ctx.fillStyle = 'gray';
+			        ctx.fillRect(0, 0, w, h);
+			    }
+			
+			    function eventDown(e){
+			        e.preventDefault();
+			        mousedown=true;
+			    }
+			//刮完一半，弹出中奖劵
+			    function eventUp(e){
+			        e.preventDefault();
+			        mousedown=false;
+			        var data = ctx.getImageData(0,0,w,h).data;
+			        for(var i=0,j=0;i<data.length;i+=4){
+			        	if(data[i] && data[i+1] && data[i+2] && data[i+3]){
+			        		 j++;
+			        		 //console.log(i);
+			        	}
+			        }
+			        if(j<=w*h*0.8){
+			        	
+			        	$('.anim-title').addClass("anim-flip");
+			        	//alert("ok");
+			        }
+			    }
+			 
+			    function eventMove(e){
+			        e.preventDefault();
+			        if(mousedown) {
+			             if(e.changedTouches){
+			                 e=e.changedTouches[e.changedTouches.length-1];
+			             }
+			             var x = (e.clientX + document.body.scrollLeft || e.pageX) - offsetX || 0,
+			                 y = (e.clientY + document.body.scrollTop || e.pageY) - offsetY || 0;
+			             with(ctx) {
+			                 beginPath()
+			                 arc(x, y, 10, 0, Math.PI * 2);
+			                 fill();
+			                 
+			             }
+			        }
+			    }
+			
+			    canvas.width=w;
+			    canvas.height=h;
+			    canvas.style.backgroundImage='url('+img.src+')';
+			    ctx=canvas.getContext('2d');
+			    ctx.fillStyle='transparent';
+			    ctx.fillRect(0, 0, w, h);
+			    layer(ctx);
+			
+			    ctx.globalCompositeOperation = 'destination-out';
+			
+			    canvas.addEventListener('touchstart', eventDown);
+			    canvas.addEventListener('touchend', eventUp);
+			    canvas.addEventListener('touchmove', eventMove);
+			    canvas.addEventListener('mousedown', eventDown);
+			    canvas.addEventListener('mouseup', eventUp);
+			    canvas.addEventListener('mousemove', eventMove);
+			});
+		</script>
+		
+	</body>
+
+</html>
