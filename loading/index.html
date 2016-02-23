@@ -1,0 +1,118 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>活动页面模板</title>
+<link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/widget/reset.css" />
+
+<!--<link type="text/css" rel="stylesheet" href="http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/style2.css?v=5.5kkhh" />-->
+
+<style>
+	/*loading star*/
+.loading-bg{ position:fixed; top:0; left:0; width:100%; height:100%; background:#eb543f; z-index:102;}
+.loading {z-index:103;left:50%;top:50%;width:180px;height:120px;margin:-140px 0 0 -90px;position:absolute;}
+.loading div.f {position:relative;z-index:2;width:66px;height:66px;text-align:center;-webkit-animation:startLoadingPlay 1s cubic-bezier(0.0, 0.0, 1.0, 1.0) infinite;margin:0 auto;}
+.loading div.f span {position:absolute;width:66px;height:66px; display:block;text-align:center;background:url(images/football.png) no-repeat 0 0; background-size:66px 66px;-webkit-animation:startLoadingPlay2 5s cubic-bezier(0.0, 0.0, 1.0, 1.0) infinite;margin:0 auto;}
+.loading div.fs {left:50%;bottom:-15px;width:60px;height:16px; margin-left:-33px;text-align:center;background: #c41417;-webkit-border-radius: 30px / 8px;border-radius: 30px / 8px;-webkit-animation:startLoadingShadowPlay 1s cubic-bezier(0.0, 0.0, 1.0, 1.0) infinite; position:absolute;}
+.loading div.ft {left:0;bottom:-44px; font-size:16px;width:100%;line-height:20px;text-align:center; position:absolute; color:#FFF;}
+.loading div.ft span{font-size:20px;color:#fff;font-weight:bold; padding-left:10px;}
+#loadPer{ position:absolute; bottom:-70px; width:80px; left:50%; margin-left:-40px; text-align:center; font-size:16px; color:#FFF;}
+
+@-webkit-keyframes startLoadingPlay{
+	0%{-webkit-transform:translate(0,0) scaleY(1);}
+	40%{-webkit-transform:translate(0,45px) scaleY(1);}
+	60%{-webkit-transform:translate(0,65px) scaleY(1);}
+	80%{-webkit-transform:translate(0,70px) scaleY(0.8);}
+	100%{-webkit-transform:translate(0,0) scaleY(1);}
+}
+@-webkit-keyframes startLoadingShadowPlay{
+	0%{-webkit-transform:scale(0.5);}
+	80%{-webkit-transform:scale(1);}
+	100%{-webkit-transform:scale(0.5);}
+}
+@-webkit-keyframes startLoadingPlay2{
+	0%{-webkit-transform:rotate(0);}
+	100%{-webkit-transform:rotate(360deg);}
+}
+.logo{ width:82px; height:23px; position:absolute; display:block; top:10px; left:15px; background:url(images/logo.png) no-repeat 0 0; background-size:contain;}
+.last-logo{ position:absolute; bottom:10px; left:50%; margin-left:-20px; color:rgba(255,255,255,.5); font-size:12px; text-decoration:none;}
+
+/*loading end*/
+</style>
+</head>
+<body>
+<!--游戏开始加载进度条 开始-->
+<script type="text/javascript" src="js/halo.14.05.js"></script>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script type="text/javascript">
+halo.use('loader',function(m){
+	var loadPer=document.getElementById('loadPer');
+	      m.loader(["http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/football.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/bg.jpg",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/0-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/0-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/0-3.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/0-4.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/1-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/1-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/2-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/2-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/3-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/3-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/4-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/4-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/5-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/5-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/6-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/6-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/7-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/7-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/8-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/8-2.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/9-1.png",
+					"http://cache.500boss.com/mobile/huodong/2015/20150227_lipi/images/9-2.png"])
+		.loadend(function(){
+			loadPer.innerHTML=this.percent;
+			$(".js-ui-slidernewsimg-scroll").removeClass("cur");
+		})
+		.complete(function(){
+//			setTimeout(function(){
+//				$('.js-loading-bg,.js-loading').fadeOut(500);
+//				setTimeout(function(){$('.js-loading-bg,.js-loading').addClass("hide")},400);
+//				setTimeout(function(){$('.js-ui-slidernewsimg-scroll').eq(0).addClass("cur")},500);
+//				$(".js-middle-box").each(function(index, element) {
+//      			$(this).css({"margin-top":"-"+(($(this).height()/2)+10)+"px"})
+//  			});
+//			},1000)
+		});
+})
+</script>
+<!--游戏开始加载进度条 结束-->
+<!--加载动画开始-->
+   <div class="loading-bg js-loading-bg" id="js-loading-bg"></div>
+    <div class="loading js-loading" id="loading">
+    	<div class="f"><span></span></div>
+        <div class="P_layer fs"></div>
+        <div class="P_layer ft">正在努力加载 ...</div>
+        <p><span id="loadPer">0%</span></p>
+    </div>
+	<script type="text/javascript">
+    //禁止滑动
+    document.getElementById("js-loading-bg").addEventListener("touchstart", touchStart1, false);
+    document.getElementById("loading").addEventListener("touchstart", touchStart1, false);
+    function touchStart1(){
+            event.preventDefault();
+    }
+    </script>
+<!--加载动画结束-->
+
+            
+
+
+
+
+</body>
+</html>

@@ -7,11 +7,223 @@
 	<link rel="stylesheet" type="text/css" href="../css/ui.css">
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<script src="public/index.js"></script>
+    <script src="../public/jquery-1.7.2.min.js"></script>
+    <script src="../public/index.js"></script>
 </head>
 <body>
-	<!--#include virtual="/public/head.html" -->
+	<div class="bg-head">
+
+        <div class="head-area">
+            <div class="head-content">
+                <div class="title-area">
+                    <h1>
+
+                    <a href="/">Zoumm UI</a>
+
+                </h1>
+                </div>
+                <div class="nav-area">
+
+                    <ul class="main-nav" id="head-area">
+                        <li>
+                            <a href="../index.html">基础组件</a>
+                        </li>
+                        <li>
+                            <a href="../ui_animation/index.html">动效库 </a>
+                        </li>
+                        <li>
+                            <a href="../chajian/index.html">js插件 </a>
+                        </li>
+                        <li>
+                            <a href="../svg/index.html">svg与canvas动画</a>
+                        </li>
+                            <li>
+                            <a href="../error/error-map.html">移动端的坑</a>
+                        </li>
+                        <li>
+                            <a href="../css小工具/index.html">css小工具</a>
+                        </li>
+                        <li>
+                            <a href="../css3动画手册/index.html">css3动画手册</a>
+                        </li>
+                        <li>
+                            <a href="../zmmpc/index.html">pc组件</a>
+                        </li>
+
+                    </ul>
+                
+            </div>
+        </div>
+        </div>
+</div>
 	<div class="wrap">
-		<!--#include virtual="left_menu.html" -->
+	<div class="menu" id="menu">
+            <div class="menu_scroll">
+                <h2>变形</h2>
+                <ul>
+                    <li>
+                        <a href="index.html" class="">
+                            transform
+                            <span>[变形基础]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rotate.html" class="hover">
+                            rotate()
+                            <span>[旋转]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="scale.html">
+                            scale()
+                            <span>[缩放]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="translate.html" class="">
+                            translate()
+                            <span>[位移]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="skew.html">
+                            skew()
+                            <span>[倾斜]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="matrix.html">
+                            matrix()
+                            <span>[矩阵变形]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perspective.html">
+                            perspective
+                            <span>[透视]</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--<h2>变形原点</h2>
+            <ul>
+                <li>
+                    <a href="html/animation/transform-origin.html">
+                        transform-origin
+                        <span>[变形原点]</span>
+                    </a>
+                </li>
+            </ul>
+            -->
+            <h2>过渡</h2>
+            <ul>
+                <li>
+                    <a href="transition-property.html">
+                        transition-property
+                        <span>[过渡的CSS属性]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="transition-duration.html">
+                        transition-duration
+                        <span>[过渡时间]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="transition-delay.html">
+                        transition-delay
+                        <span>[延迟时间]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="transition-timing-function.html">
+                        transition-timing-function
+                        <span>[过渡效果]</span>
+                    </a>
+                </li>
+            </ul>
+            <h2>动画</h2>
+            <ul>
+                <li>
+                    <a href="animation-name.html">
+                        animation-name
+                        <span>[动画名称]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-duration.html">
+                        animation-duration
+                        <span>[动画时间]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-timing-function.html">
+                        animation-timing-function
+                        <span>[播放方式]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-delay.html">
+                        animation-delay
+                        <span>[开始播放时间]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-iteration-count.html">
+                        animation-iteration-count
+                        <span>[播放次数]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-direction.html">
+                        animation-direction
+                        <span>[播放方向]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-fill-mode.html">
+                        animation-fill-mode
+                        <span>[播放后的状态]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="animation-play-state.html">
+                        animation-play-state
+                        <span>[对象动画的状态]</span>
+                    </a>
+                </li>
+
+            </ul>
+            <h2>关联属性</h2>
+            <ul>
+                <li>
+                    <a href="transform-origin.html">
+                        transform-origin
+                        <span>[变形原点]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perspective-origin.html">
+                        perspective-origin
+                        <span>[透视原点]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="backface-visibility.html">
+                        backface-visibility
+                        <span>[隐藏内容的背面]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="transform-style.html">
+                        transform-style
+                        <span>[3D呈现]</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
 	<div class="scroll_bar"></div>
 	<div class="content">
 		<div class="inner">
