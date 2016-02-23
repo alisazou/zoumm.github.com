@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+var ul1 = document.getElementById("mune");
+//兼容所有浏览器，不需要些nodetype的类型
+ //alert(ul1.children.length);
+//ie6-ie8成立
+ //alert(ul1.childNodes.length);
+ for(var i=0;i<ul1.childNodes.length;i++){
+	 //nodeType==1 元素节点
+    //nodeType==3 文本节点
+	 
+	 if(ul1.childNodes[i].nodeType==1){
+		 
+		 ul1.childNodes[i].style.background="red";
+		 }
+
+ };
+
+	
+	
+}
+</script>
+</head>
+
+<body>
+<ul id="mune">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</body>
+</html>

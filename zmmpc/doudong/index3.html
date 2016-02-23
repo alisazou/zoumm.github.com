@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box2{ margin-top: 15px; margin-left: 21px; width: 900px; margin-left: auto;margin-right: auto;height: 434px; background: url(../images/flash1.jpg) 0 0 no-repeat; position: relative; }
+        .box2-flash{position: absolute;left: 0;top: 0; width: 900px; height: 430px; background: url(../images/flash2.png) 0 0 no-repeat; z-index: 2}
+        .focus{ display: none;position: absolute; width: 297px; height: 143px; border: 1px solid #30356b; left: 0; top:0; background-color: #7c82c8; z-index:1}
+        .flash-btn-box {
+            width: 292px;
+            height: 138px;
+            background-color: #ffc400;
+            overflow: hidden;
+            left: 50%;
+            top: 146px;
+            margin-left: -150px;
+            position: relative;
+            padding: 3px;
+            z-index: 100;
+        }
+        .btn-draw {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffc800 url(../images/btn-draw.jpg);
+            cursor: pointer;
+            z-index: 40;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box2">
+    <div class="box2-flash"></div>
+    <div class="focus" ></div>
+    <div class="flash-btn-box" rel="unused">
+        <div class="btn-draw"></div>
+
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //抽奖转动
+        var i = 0;
+        var random = 0,
+                flag = true,
+                Time, EndIndex = 0,
+                quick = 0,
+                Speed = 100,
+                EndIndex = 0,
+                index = 0,
+                cycle = 0;
+        var direction = "right";
+        var x, y;
+
+        $(".flash-btn-box").bind("click", function() {
+            $(".focus").show();
+            if ($(this).attr("rel") == "unused") {
+                $(this).attr("rel","used");
+                clearInterval(Time);
+                EndIndex = Math.floor(Math.random() * 8);
+
+                Time = setInterval(Star, Speed);
+            }
+        });
+
+        function Star() {
+            if (flag) {
+                // 每三格加速
+                if (quick == 3) {
+                    clearInterval(Time);
+                    Speed = 50;
+                    Time = setInterval(Star, Speed);
+                }
+
+                //跑N圈后减速
+                if (cycle > 2 && index > parseInt(EndIndex)) {
+                    console.log("index=" + index)
+                    clearInterval(Time);
+                    Speed = parseInt(EndIndex) * 100;
+                    flag = false; //触发结束
+                    index = 0;
+                    Time = setInterval(Star, Speed);
+                }
+            }
+            if (flag == false && index == parseInt(EndIndex)) {
+                quick = 0;
+                index = 0;
+                flag = true;
+                cycle = 0;
+                clearInterval(Time);
+                $(".flash-btn-box").attr("rel","unused");
+            }
+
+            if (direction == "right") {
+                x = 0+ i * 300;
+                y = 0;
+                $(".focus").css({
+                    "left": x,
+                    "top": y
+                })
+                if (i == 2) {
+                    direction = "down";
+                    i = 0;
+                }
+            } else if (direction == "down") {
+                y = 2 + i * 144;
+                $(".focus").css({
+                    "left": x,
+                    "top": y
+                })
+                if (i == 2) {
+                    direction = "left";
+                    i = 0;
+                }
+            } else if (direction == "left") {
+                x = 600 - i * 300;
+                $(".focus").css({
+                    "left": x,
+                    "top": y
+                })
+                if (i == 2) {
+                    direction = "up";
+                    i = 0;
+                }
+            } else if (direction == "up") {
+                y = 288 - i * 144;
+                $(".focus").css({
+                    "left": x,
+                    "top": y
+                })
+                if (i == 2) {
+                    direction = "right";
+                    i = 0;
+                    cycle++;
+                }
+            }
+            i++;
+            quick++;
+            index++;
+        }
+
+        //轮播中奖
+        setInterval('AutoScroll(".list-box-item")',2000);
+    })
+    function AutoScroll(obj){
+        $(obj).find("ul:first").animate({
+            marginTop:"-28px"
+        },500,function(){
+            $(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+        });
+        //弹窗
+        var _newtipsbox =$(".new_tips_box");
+        $("button").bind("click",function(){
+            var othis = $(this);
+            index =othis.index();
+            $(".alert-mask").show();
+            _newtipsbox.eq(index).show().siblings().hide();
+
+
+        })
+        $(".tips_close").bind("click",function(){
+            $(".alert-mask").hide();
+            $(".new_tips_box").hide();
+        })
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invert Color</title>
+    <style>
+        #canvas{border: 1px solid red}
+
+    </style>
+
+</head>
+<body>
+
+<canvas id="canvas" width="400" height="400"></canvas>
+<canvas id="canvas1" width="400" height="400"></canvas>
+<canvas id="canvas2" width="400" height="400"></canvas>
+
+<script>
+    window.onload = function () {
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        var imgData=ctx.createImageData(200,100);
+        console.log(imgData.data.length);
+        for (var i=0,t=255;i<imgData.data.length;i+=4)  //遍历ImageData对象的每一个像素点，并给它们上色
+        {
+            if(t<=0) t=255;
+            imgData.data[i+0]=255-t;
+            imgData.data[i+1]=t;
+            imgData.data[i+2]=255-t;
+            imgData.data[i+3]=255;
+            --t;
+        }
+        ctx.putImageData(imgData,10,10,20,20,60,60);
+
+
+        var c1 = document.getElementById("canvas1");
+        var ctx1 = c1.getContext("2d");
+        var imgData=ctx1.createImageData(200,100);
+        for (var i=0;i<imgData.data.length;i+=4)
+        {
+            imgData.data[i+0]=255;
+            imgData.data[i+1]=100;
+            imgData.data[i+2]=255;
+            imgData.data[i+3]=255;
+        }
+        ctx1.putImageData(imgData,50,10);
+        var imgData2=ctx1.createImageData(imgData); //新建一个尺寸与已有的imgData一致的新ImageData对象imgData2，注意是不会复制其像素数据的
+        for (var i=0;i<imgData2.data.length;i+=4)  //给imgData2上色
+        {
+            imgData2.data[i+0]=155;
+            imgData2.data[i+1]=200;
+            imgData2.data[i+2]=155;
+            imgData2.data[i+3]=155;
+        }
+        ctx1.putImageData(imgData2,50,160);
+
+
+      //图片变色
+        var cimg = document.getElementById("canvas2");
+        var ctximg = cimg.getContext("2d");
+        var img = document.getElementById("img");
+        img.onload = function(){
+            ctximg.drawImage(img,10,10);
+            var imgDataimg=ctximg.getImageData(0,0,cimg.width,cimg.height);
+            for (i=0; i<imgData.width*imgData.height*4;i+=4)
+            {
+                imgDataimg.data[i]=255-imgDataimg.data[i];
+                imgDataimg.data[i+1]=255-imgDataimg.data[i+1];
+                imgDataimg.data[i+2]=255-imgDataimg.data[i+2];
+                imgDataimg.data[i+3]=255;
+            }
+            ctximg.putImageData(imgDataimg,0,300);
+        }
+
+
+
+
+
+    };
+</script>
+<script>
+
+</script>
+</body>
+</html>

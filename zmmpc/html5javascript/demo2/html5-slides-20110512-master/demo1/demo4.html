@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body,div,ul,li,h2,h1,pre,p{margin: 0;padding: 0;}
+			p{font-size: 14px;}
+			body {background-color: #D2D8DE;min-height: 100%;font: 12px/1.5 \5fae\8f6f\96c5\9ed1,tahoma,Hiragino Sans GB;color: #333;min-width: 1000px;}
+			h2{font-size: 16px;font-weight: bold;}
+			.post{width: 1000px;margin: 20px auto;background-color: #fff;}
+			.postTitle {font-size: 130%;font-weight: bold;border-bottom: 1px solid #999;line-height: 2em;width: 100%;padding-left: 5px;}
+			.postTitle a {color: #390;}
+			.pt-body {font-size: 16px;line-height: 30px;padding: 20px;}
+		
+		</style>
+	</head>
+	<body>
+		<div class="post">
+					<h1 class="postTitle">
+						<a  class="postTitle2" >计算两点间的距离</a>
+				  </h1>
+					<div class="pt-body">
+						<div class="d1">
+							<p>勾三股四弦五，是的，接下来三角形的勾股定理，它能很方便的计算边长，计算公式相信大家都知道：A的平方 + B的平方 = C的平方。</p>
+                            <p>但是这个勾股定理在计算机动画里面有什么用呢？其实计算两点之间的距离我们就可以运用勾股定理，观察下面的图形</p>
+
+							<p><img src="../src/d6.png" width="620"/></p>
+							<p>根据勾股定理，我们可以直接套公式</p>
+							<p>	<pre>var dx = x2 - x1; <br />var dy = y2 - y1;<br />var dist = Math.sqrt(dx*dx + dy*dy);</pre></p>
+							
+							<p><a href="7.html">计算两点的距离</a></p>
+							
+						</div>
+						
+					
+					
+						
+					
+							
+						
+					</div>
+		</div>
+	</body>
+</html>

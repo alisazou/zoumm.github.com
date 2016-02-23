@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>原生JS选项卡</title>
+    <style>
+        *{ margin:0; padding:0; font-family:Microsoft YaHei; font-size:16px;}
+        ul,li{ list-style:none;}
+        .box{width: 600px;margin-left: auto;margin-right: auto;margin-top: 100px}
+        #title {  height: 40px; line-height: 40px;overflow: hidden; }
+        #title li {float: left; width: 100px; text-align: center;display: block; background: #eee;cursor: pointer; }
+        #title .active { background: #3C0; color: #fff;}
+        #tabcont { width: 298px; border: 1px solid #ccc; height: 300px; }
+        #tabcont div{text-align: center;margin-top: 30px}
+
+    </style>
+    <script>
+        window.onload = function(){
+            var navList=document.getElementById("title").getElementsByTagName("li");
+            var divx = document.getElementById("tabcont").getElementsByTagName("div");
+            for(var i=0;i<navList.length;i++){
+                navList[i].index=i;
+
+                navList[i].onclick = function(){
+
+                    for(var i=0;i<navList.length;i++){
+                        navList[i].className='';
+                        divx[i].style.display='none';
+                    }
+
+                    this.className='active';
+                    divx[this.index].style.display='block';
+                };
+            }
+        };
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul id="title">
+        <li  class="active">综合</li>
+        <li>新闻</li>
+        <li>活动</li>
+    </ul>
+    <div id="tabcont">
+        <div>1</div>
+        <div style="display:none;">2</div>
+        <div style="display:none;">3</div>
+    </div>
+</div>
+</body>
+</html>

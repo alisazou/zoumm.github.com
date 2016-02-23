@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../common.css" />
+		<style>
+			pre{text-align: left;font-family: Courier New!important;font-size: 12px!important;word-wrap: break-word;white-space: pre-wrap;}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap clearfix">
+			<div class="sideBar fl">
+				<div class="sb-contain">
+					<h3 class="catListTitle">动画基础</h3>
+					<ul>
+						<li><a id="CatList_0" href="#CatList_0">角度与弧度互转</a> </li>
+						<li><a id="CatList_1" href="#CatList_1">朝鼠标（或任意一点）旋转</a> </li>
+						<li><a id="CatList_2" href="#CatList_2">创建平滑正旋图</a> </li>
+						<li><a id="CatList_3" href="#CatList_3">创建波</a> </li>
+						<li><a id="CatList_4" href="#CatList_4">创建圆形</a> </li>
+						<li><a id="CatList_5" href="#CatList_5">创建椭圆形</a> </li>
+						<li><a id="CatList_6" href="#CatList_6">获取两点间的距离</a> </li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="mainbar fl">
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_0" class="postTitle2" href="CatList_0">角度与弧度互转</a>
+				  </h1>
+					<div class="pt-body">
+						<p>在实际的应用当中，一弧度等于57.2958度，那么360度等于6.2832弧度，还记得PI么？它的值约等于3.14，也就是6.2832弧度，恰好等于2pi。
+							<br /> 我们知道30度的正旋值为0.5，那么0.5的反正旋值应该是30度，如下所示:
+							<pre>Math.asin(0.5)*180/Math.PI</pre> 记住将结果转换为角度才能看到近视30度的值。否则你看到的是0.523,也就是30度对应的弧度制.
+							<li>
+								<pre>radians = degrees*Math.PI/180;<br />degrees = radians*180/Math.PI;</pre>
+							</li>
+							</ul>
+
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">朝鼠标（或任意一点）旋转</a>
+				  </h1>
+					<div class="pt-body">
+						<p>在canvas中顺时针表示正数。
+							<h2>三角函数-正弦</h2>
+							<span>对一个角谈及正弦时，我们通常用Math.sin(angle)表示，Math.atan2()可以忽略正分角,反正切函数</span>
+							<li>
+								<pre>arrow.rotation = Math.atan2(dy,dx);//表示旋转的弧度</pre>
+							</li>
+							</ul>
+							<p><a href="examples.html">demo</a></p>
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">创建平滑正旋图</a>
+				  </h1>
+					<div class="pt-body">
+						<p>正旋波实际上是从左到右是弧度制pi，2pi，pi/2，对应的值分别是0，1,0,-1；
+							<h2>三角函数-平滑的上下移动</h2>
+							<span>Math.sin(angel)可以做什么了？是否考虑将物体平滑的上下或者前后移动了，考虑以下的场景，通过不断增大角度，可以得到波形图.</span>
+							<li>
+								<pre>ball.y = canvas.height/2+Math.sin(angel)*50;</pre>
+							</li>
+							</ul>
+							<p><a href="examples2.html">demo</a></p>
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">创建圆形运动</a>
+				  </h1>
+					<div class="pt-body">
+						<p> 我们来看看余弦波，它与正弦波产生相反的形状，物体x轴为Math.cos（angel）*radius;y轴为Math.sin（angel）*radius
+							<h2>三角函数-圆形运动</h2							<li>
+								<pre>ball.x = centerx/2+Math.cos(angle)*radius;<br />ball.y = centerx/2+Math.sin(angle)*radius;</pre>
+							</li>
+							</ul>
+							<p><a href="examples4.html">demo</a></p>
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">创建椭圆形运动</a>
+				  </h1>
+					<div class="pt-body">
+						<p> 与圆形不同的是，椭圆形只需将延x轴的半径与y轴半径取值不同即可
+							<h2>三角函数-椭圆形运动</h2>
+							<li>
+								<pre>ball.x = centerx/2+Math.cos(angle)*radiusx;<br />ball.y = centerx/2+Math.sin(angle)*radiusy;</pre>
+							</li>
+							</ul>
+							<p><a href="examples5.html">demo</a></p>
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">两点间的距离</a>
+				  </h1>
+					<div class="pt-body">
+						<p> 这章讲勾股定理，主要是计算两点间的距离
+							<h2>三角函数-勾股定理</h2>
+							<li>
+								<pre> var dit = Math.sqrt(dx*dx+dy*dy);</pre>
+							</li>
+							</ul>
+							<p><a href="examples6.html">demo</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</body>
+
+</html>

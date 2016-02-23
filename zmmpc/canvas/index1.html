@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid #e6e6e6;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="1024" height="768" >
+			当前浏览器不支持
+		</canvas>
+	</body>
+	<script>
+		 window.onload  = function(){
+		 	var canvas = document.getElementById("canvas"); 
+		 	var txt = canvas.getContext("2d");
+		 
+		 	txt.lineWidth = 5;
+		 	txt.strokeStyle="red";
+		 	
+		 	for(var i=0;i<10;i++){
+		 		txt.beginPath();
+		 		txt.arc(50+i*100,60,40,0,2*Math.PI*(i+1)/10);
+		 		//txt.closePath();
+		 		txt.stroke();
+		 		
+		 			}
+		 	
+		 	
+		 	for(var i=0;i<10;i++){
+		 		txt.beginPath();
+		 		txt.arc(50+i*100,200,40,0,2*Math.PI*(i+1)/10);
+		 		txt.closePath();
+		 		txt.stroke();
+		 		
+		 	}
+		 	for(var i=0;i<10;i++){
+		 		txt.beginPath();
+		 		txt.arc(50+i*100,300,40,0,2*Math.PI*(i+1)/10,true);
+		 		//txt.closePath();
+		 		
+		 		txt.fillStyle="blue";
+		 		txt.fill();
+		 		
+		 	}
+		 	
+		 	
+		 	
+		 }
+	</script>
+</html>

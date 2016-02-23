@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+window.onload = function(){
+var zmm = document.getElementById('btn');
+var text1 = document.getElementById('text1');
+
+var text2 = document.getElementById('text2');
+ zmm.onclick =function(){
+	 var n1 = parseInt(text1.value);
+	 var n2 = parseInt(text2.value);
+	 if(isNaN(n1))
+	 {
+		 
+		 alert("对不起，第一个输入的不是数字");
+		 }
+		 else if(isNaN(n2)){
+			 
+			 alert("对不起，第二个数不是数字");
+			 }
+			 else{
+	 
+	     alert(n1+n2);
+		 }
+	 }
+
+}
+
+</script>
+<body>
+<input type="button" value="点击" id="btn"/>
+<input type="text" / id="text1">
+<input type="text" / id="text2">
+</body>
+</html>

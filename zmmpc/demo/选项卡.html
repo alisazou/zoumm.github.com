@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style>
+ .active{
+	background:red;
+	}
+
+ div{
+		
+	width:200px;
+	height:300px;
+	border:2px solid red;
+	display:none;
+	
+		
+		
+		}
+
+</style>
+<script>
+
+window.onload = function(){
+	      
+
+		   var btn =document.getElementsByTagName("input");
+			 var divx = document.getElementsByTagName('div');
+			
+		   
+		   
+		    for(var i=0;i<btn.length;i++){
+				btn[i].index=i;
+				
+				btn[i].onclick = function(){
+					
+					for(var i=0;i<btn.length;i++){
+						btn[i].className='';
+						divx[i].style.display='none';	
+						}	
+					
+					this.className='active';
+					divx[this.index].style.display='block';
+					};
+		}
+	};
+</script>
+</head>
+
+<body>
+
+<input type="button" value="卡一" class="active"  >
+<input type="button" value="卡二" >
+<input type="button" value="卡三" ><br>
+<div style="display:block">ggg</div>
+<div>aaaa</div>
+<div>ffff</div>
+
+</body>
+</html>

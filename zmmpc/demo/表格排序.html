@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#ul1{
+	background:#0F3;}
+	#ul2{
+		background:#069;}
+
+</style>
+<script>
+window.onload = function(){
+	
+	var obtn  = document.getElementById("btn");
+	var oul1  = document.getElementById("ul1");
+	var oul2  = document.getElementById("ul2");
+	obtn.onclick = function(){
+		var child = oul1.childNodes[0];
+		//oul1.removeChild(child);
+		oul1.appendChild(child);
+		
+		};
+	
+	};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="排序"  id="btn"/>
+<ul id="ul1">
+
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+
+</ul>
+<ul id="ul2"></ul>
+</body>
+</html>

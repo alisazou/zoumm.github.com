@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<script>
+window.onload = function(){
+	var odiv = document.getElementById("text1");
+	odiv.onkeydown = function(ev){
+		var client = ev||event;
+		if(client.keyCode!=8 &&(client.keyCode<48||client.keyCode>57)){
+			return false;
+			
+			
+			
+		       }
+		
+		
+	     }
+
+
+
+	};
+
+</script>
+</head>
+<body>
+<input type="text" id="text1" />
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid red;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script>
+		
+	window.onload = function(){
+				var myCanvas = document.getElementById('canvas');
+				var ctx = myCanvas.getContext('2d');
+				var range = 50;	//脉冲范围
+				var angleSpeedX = 0; //x角度变化速度
+				var angleSpeedY = 0; //y角度变化速度
+				var raduis = 50; //半径	
+				var originX = myCanvas.width/2; 
+				var originY = myCanvas.height/2;
+				var x = 0;
+				var y = 0;
+				//不规则波形运动
+				(function randomWave(){
+					setTimeout(randomWave,1000/60);
+					ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
+			
+					x = originX + Math.sin(angleSpeedX) * range;
+					y = originY + Math.sin(angleSpeedY) * range;
+			
+					ctx.save();//所以经常需要配合save()和restore()方法一起使用，这一点很重要
+					ctx.translate(x,y);
+					ctx.beginPath();
+					ctx.fillStyle = "#FF9966";
+					ctx.arc(0,0,raduis,0,2*Math.PI,false);
+					ctx.fill();
+					ctx.restore();
+					angleSpeedX += 0.05;
+					angleSpeedY += 0.15;
+				}());
+}
+	</script>
+</html>

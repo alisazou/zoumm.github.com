@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{background-color: #000;}
+			#demo1, #demo2 {
+    width:500px;
+    height:300px;
+    border:1px solid #CCC;
+}
+#demo1 { background-color:#9FF; margin-bottom:10px; }
+#demo2 { background-color:#FFC; }
+.box{width: 1200px;margin: 100px auto;border: 1px solid red;height: 700px;overflow: hidden}
+            #img{position: absolute;width: 1047px;height: 464px}
+		</style>
+		<style>
+		
+		</style>
+	</head>
+	<body>
+	<div class="box" id="box">
+	
+	   <img src="../src/d8.png"/ id="img">
+	  </div>
+	  
+	</body>
+	<script>
+        //获取鼠标点
+		window.utils = {};
+		window.utils.captureMouse = function (element) {
+			  var mouse = {x: 0, y: 0, event: null},
+			      body_scrollLeft = document.body.scrollLeft,
+			      element_scrollLeft = document.documentElement.scrollLeft,
+			      body_scrollTop = document.body.scrollTop,
+			      element_scrollTop = document.documentElement.scrollTop,
+			      offsetLeft = element.offsetLeft,
+			      offsetTop = element.offsetTop;
+			  
+			  element.addEventListener('mousemove', function (event) {
+			    var x, y;
+			    
+			    if (event.pageX || event.pageY) {
+			      x = event.pageX;
+			      y = event.pageY;
+			    } else {
+			      x = event.clientX + body_scrollLeft + element_scrollLeft;
+			      y = event.clientY + body_scrollTop + element_scrollTop;
+			    }
+			    x -= offsetLeft;
+			    y -= offsetTop;
+			    
+			    mouse.x = x;
+			    mouse.y = y;
+			    mouse.event = event;
+			  }, false);
+			  
+			  return mouse;
+		};
+        //获取费行间样式
+        function getstring(obj,name){
+            if(obj.currentStyle){
+
+                return obj.currentStyle[name];
+            }
+
+            else{
+
+                return getComputedStyle(obj,null)[name];
+
+
+            }
+        };
+        function trimNumber(str){
+            return str.replace("px",'');
+        }
+		var box= document.getElementById("box");
+		var mouse = utils.captureMouse(box);
+		var img =  document.getElementById("img");
+
+
+	    box.addEventListener("mousemove",function(){
+
+
+
+
+             //计算距离左边距
+            img.style.marginLeft =limg ;
+            img.style.marginTop =timg ;
+            var ml =trimNumber(getstring(box,"marginLeft"));
+            var mw =trimNumber(getstring(box,"width"));
+            var objMarginleft = mouse.x-ml;
+            var objWidth = mouse.x-mw;
+            var triImgWidth =trimNumber(getstring(img,"width"))/2;
+            var limg = (mouse.x-triImgWidth)+"px";
+
+            var timg = (mouse.y-triImgWidth)+"px";
+
+            var mi = trimNumber(getstring(box,"width"))-trimNumber(getstring(img,"width"));
+            var mi2 = trimNumber(getstring(box,"height"))-trimNumber(getstring(img,"height"));
+           // console.log(objMarginleft+' '+ mouse.x);
+            var pz =mi+"px";
+            var pz2 =mi2+"px";
+            img.style.marginLeft =limg;
+
+
+            if(trimNumber(limg)>mi){
+                img.style.marginLeft = pz;
+
+
+            }else if(trimNumber(limg)<0){
+                img.style.marginLeft = 0+"px";
+
+            }else{
+                img.style.marginLeft =limg;
+            }
+            if(trimNumber(timg)>mi2){
+                img.style.marginTop = pz2;
+
+            }else if(trimNumber(timg)<0){
+                img.style.marginTop = 0+"px";
+
+            }else{
+                img.style.marginTop = timg
+            }
+
+
+
+
+
+	       },false)
+
+
+
+	</script>
+</html>
+

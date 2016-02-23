@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	background:#666;
+	width:300px;
+	height:25px;
+	position:relative;
+	margin:20px auto;
+	}
+#div2{
+	background:#666;
+	width:10px;
+	height:25px;
+	background:#00C;
+	
+	position:absolute;
+	left:0;
+	top:0;
+	
+}
+#div3{
+	width:200px; height:200px;
+	position:relative;
+	border:1px solid #036;
+	overflow:hidden;
+	padding:5px;
+	
+	}
+#div4{
+	position:absolute;}	
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	var oDiv4=document.getElementById('div4');
+	
+	var disX=0;
+	//var disY=0;
+	
+	oDiv.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		disX=oEvent.clientX-oDiv2.offsetLeft;
+		//disY=oEvent.clientY-oDiv.offsetTop;
+		
+	
+		
+		
+		
+		document.onmousemove=function (ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+			//var t=oEvent.clientY-disY;
+			 if(l<0){
+				l=0;}
+		    else if(l>oDiv.offsetWidth-oDiv2.offsetWidth)
+			{
+			l=oDiv.offsetWidth-oDiv2.offsetWidth;
+		}
+			
+			oDiv2.style.left=l+"px";
+			var scoll = l/(oDiv.offsetWidth-oDiv2.offsetWidth);
+			document.title=scoll;
+			oDiv4.style.top =- scoll*(oDiv4.offsetHeight-oDiv3.offsetHeight)+'px';
+			
+			
+			
+			
+			
+		};
+		
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		
+			
+			
+			
+			
+			
+			
+		};
+		
+		return false;	//chrome、ff、IE9
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+  <div id="div2"></div>
+</div>
+
+
+<div id="div3">
+  <div id="div4">介：Eclipse是优秀的开发工具，更是一个优秀的开发平台。在绝大多数时候，软件开发人员指挥选择使用Eclipse来进行程序开发，但是Eclipse本身的插件机制和插件开发方法却并不为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的相关知识。
+  为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的
+  为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，G
+  Eclipse是优秀的开发工具，更是一个优秀的开发平台。在绝大多数时候，软件开发人员指挥选择使用Eclipse来进行程序开发，但是Eclipse本身的插件机制和插件开发方法却并不为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的相关知识。
+  为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的
+  为人知。在一些大型的软件公司中，Eclipse插件
+  Eclipse是优秀的开发工具，更是一个优秀的开发平台。在绝大多数时候，软件开发人员指挥选择使用Eclipse来进行程序开发，但是Eclipse本身的插件机制和插件开发方法却并不为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的相关知识。
+  为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的
+  为人知。在一些大型的软件公司中，Eclipse插件
+  Eclipse是优秀的开发工具，更是一个优秀的开发平台。在绝大多数时候，软件开发人员指挥选择使用Eclipse来进行程序开发，但是Eclipse本身的插件机制和插件开发方法却并不为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的相关知识。
+  为人知。在一些大型的软件公司中，Eclipse插件开发工程师的需求还是很大的，而且薪水很高。并且，在本课程当中，还可以学习到SWT/JFace，GEF，RCP等很多桌面开发的
+  为人知。在一些大型的软件公司中，Eclipse插件面开发的
+  f</div>
+</div>
+</body>
+</html>
+ 

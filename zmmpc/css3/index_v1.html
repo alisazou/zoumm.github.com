@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>组件测试</title>
+
+		<style>
+		.stage {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin: 15px;
+    position: relative;
+    background: url(images/bg.jpg) repeat center center;
+
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    -o-perspective: 1200px;
+    perspective: 1200px;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.container img {
+    position: absolute;
+    margin-left: -35px;
+    margin-top: -50px; 
+}
+.container img:nth-child(1){
+    z-index: 1;
+    opacity: .6;
+}
+.s1 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform: translate3d(30px,30px,200px);
+    -moz-transform: translate3d(30px,30px,200px);
+    -ms-transform: translate3d(30px,30px,200px);
+    -o-transform: translate3d(30px,30px,200px);
+    transform: translate3d(30px,30px,200px);
+}
+.s2 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform: translate3d(30px,30px,-200px);
+    -moz-transform: translate3d(30px,30px,-200px);
+    -ms-transform: translate3d(30px,30px,-200px);
+    -o-transform: translate3d(30px,30px,-200px);
+    transform: translate3d(30px,30px,-200px);
+}
+.s3 img:nth-child(2){
+    z-index: 2; 
+    opacity: .6;
+    -webkit-transform: translateZ(200px);
+    -moz-transform: translateZ(200px);
+    -ms-transform: translateZ(200px);
+    -o-transform: translateZ(200px);
+    transform: translateZ(200px);
+}
+.s4 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform: translateZ(-200px);
+    -moz-transform: translateZ(-200px);
+    -ms-transform: translateZ(-200px);
+    -o-transform: translateZ(-200px);
+    transform: translateZ(-200px);
+}
+.s5 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform: scaleZ(5) rotateX(45deg);
+    -moz-transform: scaleZ(5) rotateX(45deg);
+    -ms-transform: scaleZ(5) rotateX(45deg);
+    -o-transform: scaleZ(5) rotateX(45deg);
+    transform: scaleZ(5) rotateX(45deg);
+}
+.s6 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform: scaleZ(.25) rotateX(45deg);
+    -moz-transform: scaleZ(.25) rotateX(45deg);
+    -ms-transform: scaleZ(.25) rotateX(45deg);
+    -o-transform: scaleZ(.25) rotateX(45deg);
+    transform: scaleZ(.25) rotateX(45deg);
+}
+.s7 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform:rotateX(45deg);
+    -moz-transform:rotateX(45deg);
+    -ms-transform:rotateX(45deg);
+    -o-transform:rotateX(45deg);
+    transform:rotateX(45deg);
+}
+.s8 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform:rotateY(45deg);
+    -moz-transform:rotateY(45deg);
+    -ms-transform:rotateY(45deg);
+    -o-transform:rotateY(45deg);
+    transform:rotateY(45deg);
+}
+.s9 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform:rotateZ(45deg);
+    -moz-transform:rotateZ(45deg);
+    -ms-transform:rotateZ(45deg);
+    -o-transform:rotateZ(45deg);
+    transform:rotateZ(45deg);
+}
+.s10 img:nth-child(2){
+    z-index: 2; 
+    -webkit-transform:rotate3d(.6,1,.6,45deg);
+    -moz-transform:rotate3d(.6,1,.6,45deg);
+    -ms-transform:rotate3d(.6,1,.6,45deg);
+    -o-transform:rotate3d(.6,1,.6,45deg);
+    transform:rotate3d(.6,1,.6,45deg);
+}
+.wrapper {
+    display: inline-block;
+    width: 310px;
+    height: 100px;
+    vertical-align: top;
+    margin: 1em 1.5em 2em 0;
+    cursor: pointer;
+    position: relative;
+    font-family: Tahoma, Arial;
+    -webkit-perspective: 4000px;
+       -moz-perspective: 4000px;
+        -ms-perspective: 4000px;
+         -o-perspective: 4000px;
+            perspective: 4000px;
+  }
+
+  .item {
+    height: 100px;
+      -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform .6s;
+         -moz-transition: -moz-transform .6s;
+          -ms-transition: -ms-transform .6s;
+           -o-transition: -o-transform .6s;
+              transition: transform .6s;
+  }
+  .item img {
+  display: block;
+  position: absolute;
+  top: 0;
+  border-radius: 3px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.3);
+  -webkit-transform: translateZ(50px);
+     -moz-transform: translateZ(50px);
+      -ms-transform: translateZ(50px);
+       -o-transform: translateZ(50px);
+          transform: translateZ(50px);
+  -webkit-transition: all .6s;
+     -moz-transition: all .6s;
+      -ms-transition: all .6s;
+       -o-transition: all .6s;
+          transition: all .6s;
+}
+
+.item .information {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 80px;
+  width: 290px;
+  text-align: left;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+  box-shadow: none;
+  background: rgb(236,241,244);
+  background: -webkit-linear-gradient(to bottom,  rgba(236,241,244,1) 0%,rgba(190,202,217,1) 100%);
+  background: -ms-linear-gradient(to bottom,  rgba(236,241,244,1) 0%,rgba(190,202,217,1) 100%);
+  background: linear-gradient(to bottom,  rgba(236,241,244,1) 0%,rgba(190,202,217,1) 100%);
+  -webkit-transform: rotateX(-90deg) translateZ(50px);
+     -moz-transform: rotateX(-90deg) translateZ(50px);
+      -ms-transform: rotateX(-90deg) translateZ(50px);
+       -o-transform: rotateX(-90deg) translateZ(50px);
+          transform: rotateX(-90deg) translateZ(50px);
+  -webkit-transition: all .6s;
+     -moz-transition: all .6s;
+      -ms-transition: all .6s;
+       -o-transition: all .6s;
+          transition: all .6s;
+}
+.item:hover {
+  -webkit-transform: translateZ(-50px) rotateX(95deg);
+     -moz-transform: translateZ(-50px) rotateX(95deg);
+      -ms-transform: translateZ(-50px) rotateX(95deg);
+       -o-transform: translateZ(-50px) rotateX(95deg);
+          transform: translateZ(-50px) rotateX(95deg);
+}
+
+  .item:hover img {
+    box-shadow: none;
+    border-radius: 15px;
+  }
+
+  .item:hover .information {
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.3);
+    border-radius: 3px;
+  }
+		</style>
+	</head>
+
+	<body>
+		<div class="stage s1">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s2">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s3">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s4">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s5">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s6">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div><div class="stage s7">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s8">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s9">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="stage s10">
+			<div class="container">
+				<img src="images/11.png" alt="" width="70" height="100" />
+				<img src="images/11.png" alt="" width="70" height="100" />
+			</div>
+		</div>
+		<div class="wrapper">
+      <div class="item">
+        <img src="images/2.jpeg" />
+        <span class="information">
+          <strong>Contact Form</strong> The easiest way to add a contact form to your shop.
+        </span>
+      </div>
+    </div>
+	</body>
+
+</html>

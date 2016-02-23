@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+			#canvas{border: 1px solid red;}
+		</style>
+		
+	</head>
+	<body>
+		<canvas width="300" height="900" id="canvas"></canvas>	
+		<script src="../inc/keycode.js"></script>
+	 <script>
+	   var canvas  = document.getElementById("canvas");
+	   
+	       window.onload = function(){
+	       	   function onkeyboardEvent(event){
+				 
+						switch (event.keyCode)
+						{
+							case keycode.UP:
+							 console.log("up")
+							  break;
+							case keycode.DOWN:
+							   console.log("down");
+							  break;
+							case keycode.LEFT:
+							   console.log("left");
+							  break;
+							case keycode.RIGHT:
+							  console.log("rigth");
+							  break;
+						
+						}
+							       	   	
+	       	   }
+	       	   window.addEventListener("keydown",onkeyboardEvent,false)
+	       }
+	       
+	 </script>
+	</body>
+</html>

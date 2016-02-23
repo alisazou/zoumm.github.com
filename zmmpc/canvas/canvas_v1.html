@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" style="margin: 0 auto;border: 1px solid red;margin-top: 10px;">
+			
+		</canvas>
+	</body>
+	<script>
+	var width = 1024;
+	var height = 768;
+		window.onload = function(){
+			 	var canvas = document.getElementById("canvas"); 
+		 		var content = canvas.getContext("2d");
+		 		canvas.width =width;
+		 		canvas.height =height;
+		 	 drowRect(content,100,100,200,300,10,"red","blue");
+		 	 drowRect(content,500,100,100,500,5,"#000","red")
+		 		
+		 		
+		 		
+		 		
+		 		
+		}
+		function drowRect(txt,x,y,width,height,borderwidth,borderColor,fillcolor){
+			   txt.beginPath();
+			   txt.moveTo(x,y);
+			   txt.lineTo(x+width,y);
+			   txt.lineTo(x+width,y+height);
+			   txt.lineTo(x,y+height);
+			   txt.closePath();
+			   txt.strokeStyle =borderColor;
+			   txt.lineWidth = borderwidth;
+			   txt.fillStyle =fillcolor;
+			   txt.fill();
+			   txt.stroke();
+		}
+	</script>
+</html>

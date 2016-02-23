@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>  
+<style>
+ 
+#div1{
+	width:200px;
+	height:300px;
+	background:#666;
+
+
+	
+	right:0;
+	bottom:0;
+	}
+
+</style>
+<script>
+function userBrowser(){  
+    var browserName=navigator.userAgent.toLowerCase();  
+    if(/msie/i.test(browserName) && !/opera/.test(browserName)){  
+        alert("IE");  
+        return ;  
+    }else if(/firefox/i.test(browserName)){  
+        alert("Firefox");  
+        return ;  
+    }else if(/chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName)){  
+        alert("Chrome");  
+        return ;  
+    }else if(/opera/i.test(browserName)){  
+        alert("Opera");  
+        return ;  
+    }else if(/webkit/i.test(browserName) &&!(/chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName))){  
+        alert("Safari");  
+        return ;  
+    }else{  
+        alert("unKnow");  
+    }  
+}  
+ 
+	
+userBrowser()
+	
+</script>
+</head>
+
+<body style="height:2000px">
+
+</body>
+</html>

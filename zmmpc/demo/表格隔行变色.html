@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload  = function(){
+var otab = document.getElementById("tab"); 
+var otr  = otab.tBodies[0];
+var oldcolr ='';
+ for(var i=0;i<otr.rows.length;i++){
+	 otr.rows[i].onmouseover = function(){
+		 oldcolr = this.style.background;
+		 this.style.background="blue";
+		 
+		 }
+		  otr.rows[i].onmouseout = function(){
+		 this.style.background=oldcolr;
+		 
+		 }
+	 if(i%2){
+		 otr.rows[i].style.background="red";
+		 
+		 }
+		 else{
+			  otr.rows[i].style.background="white";
+		 
+			 
+			 }
+	 
+	 }
+ alert(otab.tBodies[0].rows[0].cells[2].innerHTML);
+
+}
+</script>
+</head>
+
+<body>
+<table border="1" width="500" id="tab">
+        <thead>
+            <td>id</td>
+            <td>姓名</td>
+            <td>年龄</td>
+
+		</thead>
+		<tbody>
+            <tr>
+            <td>01</td>
+            <td>邹淼</td>
+            <td>12</td>
+            
+            </tr>
+             <tr>
+            <td>02</td>
+            <td>王五</td>
+            <td>13</td>
+            
+            </tr>
+             <tr>
+            <td>03</td>
+            <td>邹小</td>
+            <td>18</td>
+            
+            </tr>
+              <tr>
+            <td>04</td>
+            <td>刘子</td>
+            <td>90</td>
+            
+            </tr>
+              <tr>
+            <td>05</td>
+            <td>张大</td>
+            <td>34</td>
+            
+            </tr>
+
+		</tbody>
+</table>
+</body>
+</html>

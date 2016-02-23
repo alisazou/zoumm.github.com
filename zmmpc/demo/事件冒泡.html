@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:200px;
+	height:20px;
+	background:#063;
+	display:none;}
+
+</style>
+<script>
+
+window.onload = function(){
+	var btn =document.getElementById("btn");
+	var odiv =document.getElementById("div1");
+	btn.onclick = function(ev){
+		odiv.style.display="block";
+		var client = ev||event;
+		client.cancelBubble=true;//让事件不在冒泡，不像父及传事件
+		
+		
+		}
+		document.onclick = function(ev){
+		odiv.style.display="none";
+		
+		
+		
+		}
+	
+	
+	
+		//
+		//alert(client.clientX);
+	
+		
+		
+	
+	};
+</script>
+</head>
+
+<body>
+<input type="button" value="点击" id="btn"/>
+<div id="div1"></div>
+
+</body>
+</html>

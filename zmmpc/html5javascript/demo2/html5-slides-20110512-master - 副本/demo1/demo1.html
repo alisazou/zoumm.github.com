@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body,div,ul,li,h2,h1,pre,p{margin: 0;padding: 0;}
+			p{font-size: 14px;}
+			body {background-color: #D2D8DE;min-height: 100%;font: 12px/1.5 \5fae\8f6f\96c5\9ed1,tahoma,Hiragino Sans GB;color: #333;min-width: 1000px;}
+			h2{font-size: 16px;font-weight: bold;}
+			.post{width: 1000px;margin: 20px auto;background-color: #fff;}
+			.postTitle {font-size: 130%;font-weight: bold;border-bottom: 1px solid #999;line-height: 2em;width: 100%;padding-left: 5px;}
+			.postTitle a {color: #390;}
+			.pt-body {font-size: 16px;line-height: 30px;padding: 20px;}
+		
+		</style>
+	</head>
+	<body>
+		<div class="post">
+					<h1 class="postTitle">
+						<a  class="postTitle2" >角</a>
+				  </h1>
+					<div class="pt-body">
+						<div class="d1">
+							<h2>角与弧度关系</h2>
+							<p>	在衡量角的大小的时候，计算机更倾向于计算角的弧度，角度与弧度转换关系：</p>
+							<pre>radians = degrees*Math.PI/180;<br>degrees = radians*180/Math.PI;</pre>
+						</div>
+						<div class="d2" style="margin-top: 20px;">
+							<h2>canvas坐标系</h2>
+							<p>	<img src="../src/d1.jpg"/></p>
+						
+						</div>
+						<div class="d2" style="margin-top: 20px;">
+							<h2>正弦</h2>
+							<p>	<img src="../src/d2.jpg"/></p>
+							<pre>console.log(Math.sin(30))</pre>
+							<p>输出结果为-0.988，与0.5相差较大，正确应将角度转换为弧度</p>
+							<pre>console.log(Math.sin(30)*Math.Pi/180)</pre>
+						</div>
+						<div class="d3" style="margin-top: 20px;">
+							<h2>反正切</h2>
+							<p>	<img src="../src/d3.jpg"/></p>
+							
+							<pre>console.log(Math.atan(0.5)*180/Math.PI)</pre>
+							<p>打印结果为26.56505117707799°，此类正切值无法判断是B象限还是D象限,</p>
+							<pre>onsole.log(Math.atan2(1,2)*180/Math.PI)</pre>
+							<p>此类正切值可以判断是B象限还是D象限,</p>
+							
+						</div>
+						
+					
+							
+						<!--<p><a href="examples2.html">demo</a></p>-->
+					</div>
+		</div>
+	</body>
+</html>

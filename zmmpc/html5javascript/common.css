@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+html{ height:100%; background: #fff; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing:antialiased; }
+body{ background-color:#D2D8DE; min-height:100%; height:auto !important; height:100%; font:12px/1.5 \5fae\8f6f\96c5\9ed1,tahoma,Hiragino Sans GB,arial,\5b8b\4f53,sans-serif; color:#333; min-width: 1000px; }
+
+:focus{ outline:0; }
+body, h1, h2, h3, h4, h5, h6, hr, p,  dl, dt, dd, ul, ol, li, pre,
+form, fieldset, legend,input,label,figure{ margin:0; padding:0; }
+article, aside, dialog, figure, footer, header, hgroup, nav, section{ display: block; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight:500; }
+em,i,s{ font-style:normal; }
+li{ list-style: none; }
+a { color:#0F3F94; text-decoration:none; }
+a:hover { text-decoration:none; }
+img{ border:0; vertical-align:middle; }  
+fieldset{ border: 0; }
+button,input,select,textarea{ font:12px/1.5 Microsoft YaHei,tahoma,arial,\5b8b\4f53; }
+input,select,textarea{ font-size:100%; }
+table{ border-collapse:collapse; border-spacing:0; }
+.l { float:left; }
+.r { float:right; }
+.fl{ text-align:left; }
+.fr{ text-align:right; }
+.ft-center{ text-align:center; }
+.clearfix { zoom:1; }
+.clearfix:after { content:''; clear:both; display:block; height:0; visibility:hidden; }
+.inline-block{ display:inline-block; *display:inline; zoom:1; }
+.fn-pr{ position:relative; }
+.fn-pa{ position:absolute; }
+
+.wrap{padding-top: 40px;overflow: hidden;}
+.sideBar {margin-left: 20px;background-color: #fff;width: 230px;min-height: 200px;float: left;-o-text-overflow: ellipsis;text-overflow: ellipsis;overflow: hidden;word-break: break-all;}
+.mainbar {padding: 15px;min-height: 200px;width:90%;background-color: #fff;margin-left: 280px;}
+.catListTitle {background: #390;border-bottom: 1px solid #006600;color: #FFFFFF;font-size: 1.2em;height: 1.8em;line-height: 1.8em;padding: 5px;text-indent: 0.5em;}
+.sb-contain  ul li {text-indent: 1em;padding: 10px 5px;border-bottom: 1px solid #DADFE1;border-top: 1px solid #FFFFFF;overflow: hidden;}
+.sb-contain ul li a {text-indent: 1em;font-size: 12px;color: #666;}
+.postTitle {font-size: 130%;font-weight: bold;border-bottom: 1px solid #999;line-height: 2em;width: 100%;padding-left: 5px;}
+.postTitle2{color: #390;}
+.postTitle a:link{color: #390;}
+.pt-body{font-size: 16px;line-height: 30px;padding: 20px;}
+
+

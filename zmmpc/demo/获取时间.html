@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function zz(n){
+	
+	if(n<10){
+		
+		
+		return '0'+n;
+		
+		}
+	else{
+		
+		
+		return ""+n;
+		}
+	
+	
+	}
+ window.onload = function(){
+	 
+	
+		
+		
+		 var data = document.getElementsByTagName("img");
+	 //var str="124807";
+	 //alert(str[1]);
+	 //var srt=[1,4,6,8,9,4];
+	// alert(srt[0]);
+	function click(){  var time = new Date();
+	var  str =zz(time.getHours())+zz(time.getMinutes())+zz(time.getSeconds());
+		//var  str =[zz(time.getHours()),zz(time.getMinutes()),zz(time.getSeconds())];
+		//alert(str);
+	//alert(str); 
+	 for(var i =0;i<data.length;i++){
+		 data[i].src='dataimg/images/'+str.charAt(i)+'.jpg';
+		 
+		 }
+	 
+	}
+	
+	
+	setInterval(click,1000);
+	 click();
+		
+		
+	
+	 } ;
+
+
+</script>
+</head>
+
+<body>
+<img src="dataimg/images/0.jpg">
+<img src="dataimg/images/0.jpg">
+<img src="dataimg/images/0.jpg">
+<img src="dataimg/images/0.jpg">
+<img src="dataimg/images/0.jpg">
+<img src="dataimg/images/0.jpg">
+
+
+</body>
+</html>

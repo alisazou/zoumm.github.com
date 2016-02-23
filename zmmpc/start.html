@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件测试</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+   <style>
+
+
+   </style>
+<body>
+		<!-- header -->
+     <!--#include virtual="public/public.html" -->
+	<!-- end of header -->
+	<div class="main-area">
+		<div class="side-area">
+			<ul>
+
+
+				<li class="side-highlight">
+					<a href="#tanxing">flex<i class="iconfont" title="单箭头右">弹性运动</i>
+					</a>
+				</li>
+				<li>
+					<a href="#mocha">
+						attrition <i class="iconfont" title="单箭头右">摩擦运动</i>
+					</a>
+				</li>
+				<li>
+					<a href="#pengzhuang">
+						collide <i class="iconfont" title="单箭头右">碰撞运动</i>
+					</a>
+				</li>
+				<li>
+					<a href="#luoti">
+						luoti <i class="iconfont" title="单箭头右">自由落体</i>
+					</a>
+				</li>
+				<li>
+					<a href="#shuexue">
+						shuxue <i class="iconfont" title="单箭头右">数学计算公式</i>
+					</a>
+				</li>
+				<li>
+					<a href="#donghua">
+						donghua <i class="iconfont" title="单箭头右">动画的javascript基础</i>
+					</a>
+				</li>
+                <li>
+                    <a href="#ts">
+                        ts <i class="iconfont" title="单箭头右">页面制作之调试工具</i>
+                    </a>
+                </li>
+
+			</ul>
+		</div>
+		<div class="content-area">
+
+			<!--弹性运动-->
+			<div class="alice-modules">
+				<div class="alice-module">
+					<div class="alice-module-head">
+						<h2 class="alice-module-title">
+							<a href="" id="tanxing">弹性运动</a>
+						</h2>
+						<!--<span class="alice-module-version">1.1.0</span>-->
+						<p class="alice-module-description">弹性运动</p>
+					</div>
+					<div class="alice-module-demo">
+						<div class="alice-module-dom">
+							
+							<h1>弹性运动</h1>
+							<p>速度 += (目标点 - 当前值)/系数;  //6 , 7 , 8</p>
+							<p>速度 *= 摩擦系数;   // 0.7 0.75</p>
+							<p>终止条件:距离足够近 并且 速度足够小</p>
+							<a href="jsMove/index.html">弹性案列</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!-- 弹性运动 -->
+			<div class="alice-modules">
+				<div class="alice-module">
+					<div class="alice-module-head">
+						<h2 class="alice-module-title">
+							<a href="" id="mocha">摩擦运动</a>
+						</h2>
+						<!--<span class="alice-module-version">1.1.0</span>-->
+						<p class="alice-module-description">摩擦运动</p>
+					</div>
+					<div class="alice-module-demo">
+						<div class="alice-module-dom">
+							
+							<h1>摩擦运动：逐渐变慢，最后停止</h1>
+
+							<p>与摩擦力的区别:可以精确的停到指定目标点</p>
+							<p>距离越远速度越大<br />速度由距离决定<br />速度=(目标值-当前值)/缩放系数<br />Bug：速度取整</p>
+							<p>值取整：iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);</p>
+							<a href="jsMove/index1.html">摩擦运动案列</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!--end of 磨察运动-->
+			<!-- 碰撞运动 -->
+			<div class="alice-modules">
+				<div class="alice-module">
+					<div class="alice-module-head">
+						<h2 class="alice-module-title">
+							<a href="" id="pengzhuang">碰撞运动</a>
+						</h2>
+						<!--<span class="alice-module-version">1.1.0</span>-->
+						<p class="alice-module-description">碰撞运动</p>
+					</div>
+					<div class="alice-module-demo">
+						<div class="alice-module-dom">
+							
+							<h1>碰撞运动</h1>
+							<p>撞到目标点，速度反转,无重力的漂浮Div,速度反转,滚动条闪烁的问题,过界后直接拉回来止</p>
+							<a href="jsMove/index2.html">碰撞运动案列</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!--end of 碰撞运动-->
+			<!-- 自由落体 -->
+			<div class="alice-modules">
+				<div class="alice-module">
+					<div class="alice-module-head">
+						<h2 class="alice-module-title">
+							<a href="" id="luoti">自由落体运动</a>
+						</h2>
+						<!--<span class="alice-module-version">1.1.0</span>-->
+						<p class="alice-module-description">自由落体运动</p>
+					</div>
+					<div class="alice-module-demo">
+						<div class="alice-module-dom">
+							
+							<h1>自由落体运动</h1>
+							<p>反转速度的同时，减小速度，纵向碰撞，横向速度也减小,横向速度小数问题（负数）</p>
+							<a href="jsMove/index3.html">自由落体运动案列一</a><br />
+							<a href="jsMove/index5.html">自由落体运动案列二</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!--end of 自由落体-->
+			<!--数学计算公式-->
+			  <div class="alice-modules">
+				<div class="alice-module">
+					<div class="alice-module-head">
+						<h2 class="alice-module-title">
+							<a href="" id="shuxue">数学计算公式</a>
+						</h2>
+						<!--<span class="alice-module-version">1.1.0</span>-->
+						<p class="alice-module-description">数学计算公式</p>
+					</div>
+					<div class="alice-module-demo">
+						<div class="alice-module-dom">
+							
+							<h1>数学计算公式</h1>
+							<p>反转速度的同时，减小速度，纵向碰撞，横向速度也减小,横向速度小数问题（负数）</p>
+							<a href="jsMove/index4.html">数学计算公式</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!--end of 数学计算公式-->
+			<!--动画的javascript基础-->
+			  <div class="alice-modules">
+				<div class="alice-module">
+					<div class="alice-module-head">
+						<h2 class="alice-module-title">
+							<a href="" id="donghua">动画的javascript基础</a>
+						</h2>
+						<!--<span class="alice-module-version">1.1.0</span>-->
+						<p class="alice-module-description">动画的javascript基础</p>
+					</div>
+					<div class="alice-module-demo">
+						<div class="alice-module-dom">
+							
+							<a href="dh.html">动画基础demo</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!--end of 动画的javascript基础-->
+            <!--调试基础-->
+            <div class="alice-modules">
+                <div class="alice-module">
+                    <div class="alice-module-head">
+                        <h2 class="alice-module-title">
+                            <a href="" id="ts">调试基础</a>
+                        </h2>
+                        <!--<span class="alice-module-version">1.1.0</span>-->
+                        <p class="alice-module-description">调试基础</p>
+                    </div>
+                    <div class="alice-module-demo">
+                        <div class="alice-module-dom">
+
+                            <a href="http://www.cnblogs.com/jingwhale/p/4508774.html">调试基础</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--end of 调试基础-->
+			
+
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="http://cache.500boss.com/union/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</html>

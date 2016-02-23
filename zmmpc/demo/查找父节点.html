@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+var ali = document.getElementsByTagName("a");
+ for(var i=0;i<ali.length;i++){
+	 ali[i].onclick = function(){
+		 //offsetparent是根据样式来查找父节点，比如你给父节点meow有设置position：relative那么子节点会去找其他上一级的父节点
+		 this.parentNode.style.display="none";
+		 
+		 };
+	 
+	 }
+};
+
+</script>
+</head>
+
+<body>
+<ul>
+
+<li>ggh<a href="javascript:;">隐藏</a></li>
+<li>yyy<a href="javascript:;">隐藏</a></li>
+<liii><a href="javascript:;">隐藏</a></li>
+<liooo><a href="javascript:;">隐藏</a></li>
+
+
+</ul>
+</body>
+</html>

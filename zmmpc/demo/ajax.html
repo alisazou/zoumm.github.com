@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		
+		
+	
+		//1.创建Ajax对象
+		//非IE6
+		if(window.XMLHttpRequest){
+		var oAjax=new XMLHttpRequest();
+		}
+		
+		//IE6
+		else{var oAjax=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		//alert(oAjax);
+		
+	oAjax.open("GET",'qq.txt?t='+new Date().getTime(),true);
+	//发送请求
+	oAjax.send();
+	
+	//4.接收返回
+	oAjax.onreadystatechange=function ()
+	{
+		//oAjax.readyState	//浏览器和服务器，进行到哪一步了
+		if(oAjax.readyState==4)	//读取完成
+		{
+			if(oAjax.status==200)	//成功
+			{
+				alert("成功"+oAjax.responseText);
+			
+			}
+			else
+			{
+				
+				alert('失败:'+oAjax.status);
+		
+		};
+		//连接服务器
+		
+	
+			}
+		}
+	}
+	
+	}
+
+
+
+</script>
+</head>
+
+<body>
+<input type="button" value="点击" id="btn"/>
+</body>
+</html>

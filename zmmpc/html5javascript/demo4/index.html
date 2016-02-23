@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../common.css" />
+    <style>
+
+        pre{text-align: left;font-family: Courier New!important;font-size: 12px!important;word-wrap: break-word;white-space: pre-wrap;}
+        p{margin: 10px}
+    </style>
+</head>
+
+<body>
+<div class="wrap clearfix">
+    <div class="sideBar fl">
+        <div class="sb-contain">
+            <h3 class="catListTitle">动画基础</h3>
+            <ul>
+                <li><a id="#" href="#CatList_1">将角速度分解为x,y轴上的速度向量</a> </li>
+                <li><a id="#" href="#CatList_2">将角加速度分解到x，y轴上的加速度</a> </li>
+                <li><a id="#" href="#CatList_3">将加速度加入速度向量</a> </li>
+                <li><a id="#" href="#CatList_3">将速度向量加入位置坐标</a> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainbar fl">
+        <div class="post">
+            <h1 class="postTitle">
+                <a id="CatList_0" class="postTitle2" href="CatList_0">绘图api</a>
+            </h1>
+            <div class="pt-body">
+
+                <p>绘制一段穿越某点的曲线</p>
+                <pre>x1= mouse.x*2-(x0+x2)/2,y1 = mouse.y*2-(y0+x2)/2;</pre>
+                <p><a href="index1.html">demo</a></p>
+
+
+
+
+            </div>
+        </div>
+        <!--绘图api-->
+
+        <div class="post">
+            <h1 class="postTitle">
+                <a id="" class="postTitle2" href="CatList_0">图片加载</a>
+            </h1>
+            <div class="pt-body">
+                <P>为了实现运行时加载一张图片，可以创建一个images对象，并将其src属性设置为图片的url路径，当图片加载完成后，就会执行onload（）方法</P>
+
+                <p><pre> images = new Image();images.src="d1.jpg";images.onload = function(){context.drawImage(images,0,0);}</pre></p>
+                <p>使用dom访问html文件中的一个图片元素，该方法的优点在于在脚本执行时图片已经完全加载完成，采用该方法，记得先隐藏头元素，不然会加载两次，</p>
+                <p><a href="index2.html">demo</a></p>
+            </div>
+        </div>
+        <!--图片加载-->
+
+
+
+
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>

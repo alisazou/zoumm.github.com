@@ -1,0 +1,44 @@
+/**
+    @fileOverview
+    HTML5幻灯片样式，IE下的特殊处理
+    由于不支持body > div选择器，特将其转换为.slide
+    由于不支持:target伪类，特将其转换为.current-slide
+    由于不支持动画变换，故幻灯片切换采用简单的控制display属性的方法
+    @author Jinjiang<zhaojinjiang@yahoo.com.cn>
+ */
+
+
+
+
+/***** 基本属性 *****/
+html {
+    overflow: hidden;
+}
+.slide {
+    width: 520px;
+    height: 360px;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    background-color: #00eeff;
+    box-sizing: content-box;
+    padding: 20px 40px;
+
+    /* IE下幻灯片切换的效果 */
+    display: none;
+}
+
+.current-slide {
+
+    /* IE下幻灯片切换的效果 */
+    display: block;
+}
+
+.tmpl-block img {
+    height: 280px;
+    display: block;
+    margin: auto;
+}
+
+
+

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		div{
+	width:100px;
+	height:100px;
+	background:#006;
+	margin:10px;}
+
+	</style>
+</head>
+<body>
+	<div id="div1" ></div>
+<div id="div2"></div>
+<div id="div3"></div>
+
+</body>
+<script>
+window.onload = function(){
+	
+	 var odiv = document.getElementsByTagName("div");
+	 for(var i=0;i<odiv.length;i++){
+		 //odiv[i].timer=null;
+		 
+		 odiv[i].onmouseover=function(){
+			 startMove(this,400);
+			 
+			 };
+			  odiv[i].onmouseout=function(){
+			 startMove(this,100);
+			 
+			 };
+		 
+		 
+		 }
+	
+	};
+   
+   var timer = null;
+  function startMove(obj,iTart){
+	  var odiv = document.getElementsByTagName("div");
+	  clearInterval(obj.timer);
+	
+	 obj.timer = setInterval(function(){
+		  var speed = (iTart-obj.offsetWidth)/8;
+			  speed=speed>0?speed=Math.ceil(speed):speed=Math.floor(speed);
+		  if(iTart==obj.offsetWidth){
+			   clearInterval(obj.timer);
+			  }
+		  else{
+			 
+			  obj.style.width = obj.offsetWidth+speed+'px';
+			  }
+			  
+		  
+		  
+		  },30);
+	  
+	  
+	  
+	  
+	  }
+
+
+
+</script>
+
+</html>

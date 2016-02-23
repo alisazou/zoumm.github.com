@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+	  <button id="text">测试实验</button>
+</body>
+<script>
+//	 window.onload = function(){
+//	 	 var num =1;
+//	 	 num++;
+//	 	 console.log(num);
+//	 }
+	 (function(){
+//	 	  function box(){
+//	 	  	 console.log(arguments.length);
+//	 	  }
+//	 	  box("string",45);
+//	 	  box();
+//	 	  box("string",45,23);
+//	 	  box(false,45,23);
+		//理解参数
+//	 	  function text(){
+//	 	  	 if(arguments.length ==1){
+//	 	  	 	   console.log(arguments[0]+10)
+//	 	  	 }else if(arguments.length ==2){
+//	 	  	 	 console.log(arguments[0]+arguments[1])
+//	 	  	 }
+//	 	  }
+//	 	  text(1,2);
+//	 	  text(1);
+	 	  //理解对象,只能给引用类型添加属性
+//	 	  var per = new Object();
+//	 	  per.name ="zmm";
+//	 	  console.log(per);
+	 	  //理解变量赋值问题
+//	 	  var num1 = 10;
+//	 	    var num2 = num1;
+//	 	    ++num2;
+//	 	    console.log(num1);
+//	 	    console.log(num2);
+//			function text(obj){
+//				
+//				obj.name ="zmm";
+//			}
+//			var per = new Object();
+//			text(per);
+//			console.log(per.name)
+//创建对象实例两种方法，：创建实例new，和对象字面量
+//      var per = new Object();
+//       per.name = "zj";
+//       console.log(per.name);
+//       var per1 = {
+//       	"name":"zmm",
+//       	"age":23
+//       }
+//        console.log(per1.name);
+//创建数组-站方法
+
+var otext = document.getElementById("text")
+        var arrayList = new Array("red","blue","yellow");
+         //console.log(arrayList[0]);
+         var color = ["red","blue","yellow"];
+         var flag = true;
+         
+         otext.onclick = function(){
+         	if(flag == true){
+         	color.push("zmm","zj");//在数组末尾增加元素
+         	 console.log(color.join("|"));
+         	 console.log(color.pop())//显示数组最后一个字符串
+         	 flag= false;
+         	 
+         	}
+         	 
+         }
+         //color[color.length] ="white";
+
+//console.log(color.toString());
+//        console.log(color[2]);
+//       color[2] = "1";
+//         console.log(color[2]);
+console.log(color.join("|"));
+         
+	 })()
+</script>
+</html>

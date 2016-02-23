@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>>
+<style>
+#div1{
+	width:80px;
+	height:300px;
+	background:#666;
+	display:none;
+	position:absolute;
+	}
+*{
+		padding:0;
+		margin:0;
+		list-style:nne;}
+</style>
+<script>
+
+document.oncontextmenu =function(ev){
+	  var client = ev||event;
+		
+    
+	 var odiv = document.getElementById("div1");
+	 odiv.style.display = "block";
+	 odiv.style.left =client.clientX+"px"; 
+	  odiv.style.top =client.clientY+"px"; 
+	   return false;
+	
+	}
+</script>
+</head>
+
+<body>
+<div id="div1">
+  <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+  
+  </ul>
+
+</div>
+</body>
+</html>

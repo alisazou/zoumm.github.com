@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+#div1{
+	width:100px;
+	height:200px;
+	border:1px solid red;}
+</style>
+<script>
+
+
+window.onload = function(){
+	var text = document.getElementById('txt');
+		var btn = document.getElementById('btn');
+			var div1 = document.getElementById('div1');
+			btn.onclick = function(){
+			div1.innerHTML = text.value;
+			}
+	
+	
+	}
+</script>
+
+</head>
+
+<body>
+<input type="text" id="txt">
+<input type="button" id="btn" value="设置文字">
+<div id="div1">
+
+</div>
+</body>
+</html>

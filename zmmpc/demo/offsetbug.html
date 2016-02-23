@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:200px;
+	height:200px;
+	background:#009;
+	border:1px solid red;}
+
+</style>
+<script>
+window.onload = function(){
+	
+	
+
+function startmove(obj,name){
+	 if(obj.currentStyle){
+         
+      return  obj.currentStyle[name];    
+     }
+    
+     else{
+         
+          return getComputedStyle(obj,null)[name];}
+    
+    
+     }
+	var odiv = document.getElementById("div1");
+setInterval(function(){
+	 
+	odiv.style.width =parseInt(startmove(odiv,'width'))-1+'px';
+	
+	
+	
+	},30);	
+	
+	
+	};
+
+</script>
+</head>
+
+<body>
+<div id="div1">变宽</div>
+</body>
+</html>

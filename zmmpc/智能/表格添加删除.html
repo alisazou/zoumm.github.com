@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>无标题文档</title>
+<script>
+
+window.onload = function(){
+	
+	var otab = document.getElementById("tab");
+	var otex = document.getElementById("tex");
+	var oname = document.getElementById("name");
+	var obtn= document.getElementById("btn");
+	var obtn1= document.getElementById("btn1");
+	var id = otab.tBodies[0].rows.length+1;
+	//搜索代码
+	//var osuo = otab.tBodies[0];
+	obtn1.onclick = function(){
+	for(var i=0;i<otab.tBodies[0].rows.length;i++){
+		var st = otab.tBodies[0].rows[i].cells[1].innerHTM;
+		var sy =otex.value;
+		if(st.search(sy)!=-1){
+			
+			otab.tBodies[0].rows[i].style.background ='blue';
+			
+			}
+		else{
+				otab.tBodies[0].rows[i].style.background = '';
+			
+			}
+		
+		
+		}
+	};
+	
+	//隔行变色
+	 function color(){ var otr = otab.tBodies[0];
+	 for(var i=0;i<otr.rows.length;i++){
+		 otr.rows[i].onmouseover = function(){
+			 this.style.background="red";
+			 
+			 };
+			  otr.rows[i].onmouseout = function(){
+			 this.style.background="";
+			 
+			 };
+		 
+		 
+		 }
+	 };
+	color();
+	//添加和删除代码
+	obtn.onclick = function(){
+		
+		var otr = document.createElement("tr");
+		
+		var otd = document.createElement("td");
+		otd.innerHTML ="0"+id++;
+		otr.appendChild(otd);
+		//var otr = document.createElement("tr");
+		var otd = document.createElement("td");
+		otd.innerHTML = otex.value;
+		otr.appendChild(otd);
+		//创建tr/var otr = document.createElement("tr");
+		var otd = document.createElement("td");
+		otd.innerHTML = oname.value;
+		otr.appendChild(otd);
+		otab.tBodies[0].appendChild(otr);
+		color();
+		
+		var otd = document.createElement("td");
+	   	otd.innerHTML = '<a href="javascript:;">删除</a>';
+		otr.appendChild(otd);
+		var oa = otd.getElementsByTagName("a")[0];
+		oa.onclick = function(){
+			
+			otab.tBodies[0].removeChild(this.parentNode.parentNode);
+			
+			}
+		
+		
+		
+		};
+	
+	
+	
+	}
+
+</script>
+</head>
+
+<body>
+姓名:<input  type="text" id="tex" />
+年龄:<input type="text" id="name"/>
+
+<input type="button" value="添加"/ id="btn">
+<input type="button" value="搜索" id="btn1">
+
+<table border="1" width="500" id="tab">
+        <thead>
+            <td>id</td>
+            <td>姓名</td>
+            <td>年龄</td>
+             <td>操作</td>
+
+		</thead>
+		<tbody>
+            <tr>
+            <td>01</td>
+            <td>邹淼</td>
+            <td>12</td>
+             <td><a href="javascript:;">删除</a></td>
+            
+            
+            </tr>
+             <tr>
+            <td>02</td>
+            <td>王五</td>
+            <td>13</td>
+             <td>  <a href="javascript:;">删除</a></td>
+          
+            </tr>
+             <tr>
+            <td>03</td>
+            <td>邹小</td>
+            <td>18</td>
+             <td  <a href="javascript:;">删除</a>></td>
+           
+            
+            </tr>
+              <tr>
+            <td>04</td>
+            <td>刘子</td>
+            <td>90</td>
+             <td>   <a href="javascript:;">删除</a></td>
+          
+            
+            </tr>
+              <tr>
+            <td>05</td>
+            <td>张大</td>
+            <td>34</td>
+            <td>  <a href="javascript:;">删除</a></td>
+          
+            
+            </tr>
+
+		</tbody>
+</table>
+</body>
+</html>

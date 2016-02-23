@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid red;}
+			#canvas1{border: 1px solid red;margin-top: 10px;}
+		</style>
+		
+	</head>
+	<body>
+	<canvas id="canvas" width="400" height="400"></canvas>
+	<canvas id="canvas1" width="400" height="400"></canvas>
+		<script src="../inc/utils.js"></script>
+		<script src="../inc/ball.js"></script>
+	 <script>
+	
+	   		var canvas = document.getElementById('canvas');
+          	var context = canvas.getContext('2d');
+         	 var ispeed = 0;
+		  function drawFrame(){
+		  	 context.clearRect(0, 0, canvas.width, canvas.height);
+		  	var ball = new Ball();
+		  	  ball.x = canvas.width/2;
+		  	  ball.y=canvas.height/2;
+		    	ball.x+=ispeed;
+		    	ispeed++;
+		  	  ball.draw(context);
+		  	  
+		  }
+	  setInterval(drawFrame,1000/60);
+	
+	   var canvas1 = document.getElementById('canvas1');
+        var context1 = canvas1.getContext('2d');
+         var ispeed1 = 3;
+         
+         
+         
+         (function drawFram1(){
+         	  context1.clearRect(0, 0, canvas1.width, canvas1.height);
+		  	var ball1 = new Ball();
+		  	  ball1.x = canvas1.width/2;
+		  	  ball1.y=canvas1.height/2;
+		    	ball1.x+=ispeed1;
+		    	ispeed1++;
+		  	  ball1.draw(context1);
+    	   requestAnimationFrame(drawFram1,canvas1)
+         	
+         })();
+   
+	 </script>
+	</body>
+</html>

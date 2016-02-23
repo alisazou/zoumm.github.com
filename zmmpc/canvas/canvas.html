@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid #e6e6e6;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600" >
+			当前浏览器不支持
+		</canvas>
+	</body>
+	<script>
+		 window.onload  = function(){
+		 	var canvas = document.getElementById("canvas"); 
+		 	var txt = canvas.getContext("2d");
+		 	txt.beginPath();
+		 	txt.moveTo(100,100);
+		 	txt.lineTo(500,200);
+		 	txt.lineTo(100,500);
+		 	txt.lineTo(100,100);
+		 	txt.lineWidth =5;
+		 	txt.strokeStyle ="#000";
+		 	txt.fillStyle = "rgb(2,100,30)";
+		 	txt.fill();
+		 	txt.stroke();
+		 	txt.closePath();
+		 	txt.beginPath();
+		    txt.moveTo(200,100);
+		 	txt.lineTo(300,250);
+		 	txt.strokeStyle="red";
+		 	txt.stroke();
+		 	txt.closePath();
+		 	
+		 }
+	</script>
+</html>

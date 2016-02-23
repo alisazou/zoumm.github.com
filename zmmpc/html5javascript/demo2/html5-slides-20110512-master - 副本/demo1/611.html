@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		#stage{position: absolute;top: 200px;left: 50%;margin-left: -300px;width: 600px;height: 600px;border: 10px solid red;border-radius: 100%;}
+		#stage a{display: block;}
+			#stage .animationReady {display: block;position: absolute;top: 0;left: 0;width: 200px;height: 100px;background-color: #0000FF;}
+		</style>
+	</head>
+	<body>
+	 <!--<img src="../src/d7.png" alt="" />-->
+	 <!--正文开始-->
+	   <div id="stage">
+					<a href="javascript:;">
+						
+							<span class="animationReady"></span>
+						
+					</a>
+					<a href="javascript:;">
+						<span class="animationReady"></span>
+						
+					</a>
+					<a href="javascript:;">
+						<span class="animationReady"></span>
+						
+					</a>
+					<a href="javascript:;">
+						<span class="animationReady"></span>
+					</a>
+				</div>
+	 <!--end of 正文开始-->
+	</body>
+	<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+	<script>
+	$(function(){
+		
+		 //确认每个图片之间的角度
+	 
+		
+		 var stageWidth = $("#stage").width()/2;
+		 var stageHeight = $("#stage").height()/2;
+		 var aSpan = $("#stage").find("span");
+		 var dim= { width:aSpan.width(),height:aSpan.height()};
+		 var aCnt = $("#stage").find("span").length;
+		 var deg =0;
+		 function draw(step,total){
+		 		 
+		//宽高 
+		//top,left
+		//margin-left
+		//opacity
+		//计算图片的放大缩小
+		
+				 for(var i=0;i<aCnt;i++){
+				 	deg+=step;
+				 	var  q = ((360/aCnt)*i+deg)*Math.PI/180;
+				 	      esin = Math.sin(q),
+				 	      ecos = Math.cos(q),
+				 	      q =0.6+0.4*esin,
+				 	      newWidth	= q*dim.width,
+						  newHeight	= q*dim.height;
+				 	      aSpan.eq(i).css({
+				 	      	 top:stageHeight+300*esin,
+				 	      	 left:stageHeight+300*ecos,
+				 	      	 marginLeft: -newWidth/2,
+				 	      	 opacity:0.8+esin*0.2
+				 	      }).width(newWidth).height(newHeight)
+				 }
+				 total-=Math.abs(step);
+					if(total<=0) return false;
+			       setTimeout(function(){draw(step,total)},1000/60);
+		 	
+		 }
+		 
+		draw(10,360/aCnt);
+		
+		
+	})
+	
+		
+
+	</script>
+</html>

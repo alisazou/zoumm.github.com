@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>无标题文档</title>
+<script>
+
+window.onload = function(){
+	var otex = document.getElementById("tex");
+	var obtn = document.getElementById("btn");
+	var otab = document.getElementById("tab");
+	obtn.onclick = function(){
+	for(var i =0;i<otab.tBodies[0].rows.length;i++){
+		var ostr =otab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+			var osy  = otex.value.toLowerCase();
+			if(ostr.search(osy)!=-1){
+				
+				otab.tBodies[0].rows[i].style.background="red";
+				}
+				else{
+					otab.tBodies[0].rows[i].style.background="";
+					}
+		
+		}
+	
+	}
+	
+}
+</script>
+</head>
+
+<body>
+姓名:<input  type="text" id="tex" />
+<input type="button" value="添加"/ id="btn">
+<table border="1" width="500" id="tab">
+        <thead>
+            <td>id</td>
+            <td>姓名</td>
+            <td>年龄</td>
+             <td>操作</td>
+
+		</thead>
+		<tbody>
+            <tr>
+            <td>01</td>
+            <td>blue</td>
+            <td>12</td>
+             <td><a href="javascript:;">删除</a></td>
+            
+            
+            </tr>
+             <tr>
+            <td>02</td>
+            <td>王五</td>
+            <td>13</td>
+             <td>  <a href="javascript:;">删除</a></td>
+          
+            </tr>
+             <tr>
+            <td>03</td>
+            <td>邹小</td>
+            <td>18</td>
+             <td  <a href="javascript:;">删除</a>></td>
+           
+            
+            </tr>
+              <tr>
+            <td>04</td>
+            <td>刘子</td>
+            <td>90</td>
+             <td>   <a href="javascript:;">删除</a></td>
+          
+            
+            </tr>
+              <tr>
+            <td>05</td>
+            <td>张大</td>
+            <td>34</td>
+            <td>  <a href="javascript:;">删除</a></td>
+          
+            
+            </tr>
+
+		</tbody>
+</table>
+</body>
+</html>

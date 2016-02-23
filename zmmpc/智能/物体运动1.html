@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:200px;
+	height:200px;
+	background:#069;
+	position:absolute;
+	}
+
+</style>
+<script>
+
+var time=null;
+ function move(){
+	  var odiv1 = document.getElementById("div1");
+	  	clearInterval(time);
+	time=setInterval(function(){
+		var speed=1;
+           if(odiv1.offsetLeft>=300)
+		{
+			clearInterval(time);
+			
+			}
+			else{
+	odiv1.style.left = odiv1.offsetLeft+speed+"px";
+			}
+	
+	
+	
+	},30);
+	
+ }
+
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" onClick="move()" id="btn"/>
+<div id="div1"></div>
+</body>
+</html>

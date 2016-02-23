@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" style="margin: 0 auto;border: 1px solid red;margin-top: 10px;">
+			
+		</canvas>
+	</body>
+	<script>
+	var width = 1024;
+	var height = 768;
+		window.onload = function(){
+			 	var canvas = document.getElementById("canvas"); 
+		 		var content = canvas.getContext("2d");
+		 		canvas.width =width;
+		 		canvas.height =height;
+		 		
+		         content.lineWidth = 10;
+		         content.strokeStyle = "red";
+		         //canvas.fillStyle = "#000";
+		 		
+		 		 content.beginPath();
+		 		 content.moveTo(100,200);
+		 		 content.lineTo(700,200);
+		 		 content.lineCap = "butt";
+		 		  content.stroke();
+		 		 content.closePath();
+		 		 
+		 		 
+		 		  content.beginPath();
+		 		 content.moveTo(100,400);
+		 		 content.lineTo(700,400);
+		 		 content.lineCap = "round";
+		 		 
+		 		  content.stroke();
+		 		 content.closePath();
+		 		 
+		 		 
+		 		  content.beginPath();
+		 		 content.moveTo(100,600);
+		 		 content.lineTo(700,600);
+		 		 content.lineCap = "square";
+		 		
+		 		  content.stroke();
+		 		 content.closePath();
+		 		
+		 		
+		}
+		
+		
+	</script>
+</html>

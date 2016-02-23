@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:1px;
+	height:200px;
+	background:#000;
+	position:absolute;
+	left:100px;}
+	#div2{
+	width:1px;
+	height:200px;
+	background:#000;
+	position:absolute;
+	left:300px;}
+	#div3{
+	width:100px;
+	height:200px;
+	background:#000;
+	position:absolute;
+	left:600px;}
+
+</style>
+<script>
+var time=null;
+function startmove(itart){
+	
+	var odiv = document.getElementById("div3");
+	clearInterval(time);
+	var speed=0;
+	time = setInterval(function(){
+		if(itart<odiv.offsetLeft){
+			speed=-7;
+			}
+		else{
+			speed=7;
+			}
+		
+		if(Math.abs(itart-odiv.offsetLeft)<=7)
+		{
+			clearInterval(time);
+			odiv.style.left = itart+"px";
+			}
+		else{
+		    odiv.style.left = odiv.offsetLeft+speed+'px';
+			}
+		},30);
+	
+	}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="运动到100"  onClick="startmove(100)"/>
+<input type="button" value="运动到300"  onClick="startmove(300)"/>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+#div1{
+	width:150px;
+	height:200px;
+	position:absolute;
+	background:#003;
+	left:-150px;
+}
+#div1 span{
+	width:50px;
+	line-height:20px;
+	height:50px;
+	background:#C00;
+	position:absolute;
+	right:-50px;
+}
+#div2{
+	width: 200px;
+	height: 200px;
+	left: -200px;
+	background-color: blue;
+	position: absolute;
+	top: 300px;
+}
+#div2 span{
+	width:50px;
+	line-height:20px;
+	height:50px;
+	color:#fff;
+	background:black;
+	position:absolute;
+	right:-50px;
+}
+</style>
+<!--<script>
+window.onload = function(){
+	var odiv = document.getElementById("div1");
+	odiv.onmousemove = function(){
+		
+		//startmove(10,0);
+		startmove(0);
+		};
+		odiv.onmouseout = function(){
+		
+		//startmove(-10,-150);
+		startmove(-150);
+		}
+		
+	
+	
+	};
+	var timer = null;
+	
+	//function startmove(speed,ifarent){
+	function startmove(ifarent){
+		clearInterval(timer);
+		var speed = 0;
+		var odiv = document.getElementById("div1");
+		if(odiv.offsetLeft>ifarent){
+			speed=-10}
+			else{
+				speed=10;
+				
+				}
+	timer = setInterval(function(){
+		if(odiv.offsetLeft==ifarent){
+			clearInterval(timer);
+			}
+			else{
+		odiv.style.left = odiv.offsetLeft+speed+'px';}
+		
+		},30);
+	}
+	
+	
+	
+	
+</script>-->
+<script>
+	
+	 window.onload = function(){
+	 	
+	 	var odiv2 = document.getElementById("div2"); 
+	 	odiv2.onmouseover = function(){
+	 		 startMove(0);
+	 	}
+	 	odiv2.onmouseout = function(){
+	 		 startMove(-200);
+	 	}
+	 	var speed= 0;
+	 	var timer= null;
+	 	function startMove(sptag){
+	 		clearInterval(timer);
+	 		  if(odiv2.offsetLeft>sptag){
+	 		  	   speed = -10;
+	 		  }else{
+	 		  	 speed= 10;
+	 		  }
+	 		  timer = setInterval(function(){
+	 		  	  if(odiv2.offsetLeft == sptag){
+	 		  	  	  clearInterval(timer);
+	 		  	  }
+	 		  	  odiv2.style.left = odiv2.offsetLeft+speed+"px";
+	 		  },30)
+	 		  
+	 	}
+	 }
+</script>
+</head>
+
+<body>
+	<div id="div1">
+		<span>分享到</span>
+	</div>
+	<div id="div2">
+		<span>测试</span>
+	</div>
+</body>
+</html>

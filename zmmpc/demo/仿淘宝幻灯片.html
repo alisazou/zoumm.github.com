@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="move2.js"></script>
+<style>
+
+
+* { padding: 0; margin: 0; }
+li { list-style: none; }
+img { border: none; }
+
+body { background: #ecfaff; }
+
+#play { width: 470px; height: 150px; overflow: hidden; position: relative; margin: 150px auto 0; }
+
+
+ol { position: absolute; right: 5px; bottom: 5px; z-index:9999; }
+ol li { float: left; margin-right: 3px; display: inline; cursor: pointer; background: #fcf2cf; border: 1px solid #f47500;
+ padding: 2px 6px; color: #d94b01; font-family: arial; font-size: 12px; }
+.active { padding: 3px 8px; font-weight: bold; color: #ffffff; background: #ffb442; position: relative; bottom: 2px; }
+
+ul { position: absolute; top: 0; left: 0; z-index: 1; }
+ul li { width: 470px; height: 150px; float: left; }
+ul img { float: left; width: 470px; height: 150px; }
+
+
+
+</style>
+<script>
+
+window.onload = function(){
+	
+	
+	var odiv = document.getElementById("play");
+	var abtn = odiv.getElementsByTagName("ol")[0].getElementsByTagName("li");
+	var aul = odiv.getElementsByTagName("ul")[0];
+	var now= 0;
+	for(var i=0;i<abtn.length;i++){
+		abtn[i].index=i;
+		abtn[i].onclick = function(){
+			now = this.index;
+			tab();
+			
+			
+		};
+	}
+	function tab(){
+		
+		for(var i=0;i<abtn.length;i++){
+			abtn[i].className="";
+			}
+			abtn[now].className="active";
+			startMove(aul,{top:-150*now});
+		}
+	function next(){
+		
+		   now++;
+		   if(now==abtn.length)
+		      {
+				  now=0;
+				 }
+		
+		    tab();
+}
+ var timer = setInterval(next,1000);
+ 
+ odiv.onmouseover = function(){
+	 clearInterval(timer);
+	 }
+ odiv.onmouseout = function(){
+       timer = setInterval(next,1000);
+	 }
+	};
+</script>
+</head>
+
+<body>
+<div id="play">
+
+<ol>
+    <li class="active">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+
+</ol>
+
+<ul>
+   <li><img src="images/1.jpg" /></li>
+   <li><img src="images/2.jpg" /></li>
+   <li><img src="images/3.jpg" /></li>
+   <li><img src="images/4.jpg" /></li>
+   <li><img src="images/5.jpg" /></li>
+
+
+</ul>
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<title></title>
+		<style>
+		body{-moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;}
+		#stage{position: absolute;left: 50%;margin-left: -300px;width: 600px;height: 600px;border: 10px solid red;border-radius: 100%;}
+		#stage a{display: block;}
+		#stage .animationReady {display: block;position: absolute;top: 0;left: 0;width: 200px;height: 100px;background-color: #0000FF;text-align: center;color: #fff;}
+		#stage .animationReady1{background-color: red;}
+		#stage .animationReady2{background-color: blue;}
+		#stage .animationReady3{background-color: deepskyblue;}
+		#stage .animationReady4{background-color: brown;}
+		.btn{width: 100px;height: 100px;background-color: red;display: inline-block;margin-right: 30px;margin-top: 800px;font-size: 18px;color: #fff;text-align: center;line-height: 100px;}
+		.fl{float: left;}
+		.fr{float: right;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<img src="../src/d7.png" alt="" class="fl"/>
+			<div class="fr">
+				  <div id="stage" class="">
+						<a href="javascript:;">
+							
+							<span class="animationReady animationReady1">1</span>
+							
+						</a>
+						<a href="javascript:;">
+							<span class="animationReady animationReady2">2</span>
+							
+						</a>
+						<a href="javascript:;">
+							<span class="animationReady animationReady3">3</span>
+							
+						</a>
+						<a href="javascript:;">
+							<span class="animationReady animationReady4">4</span>
+						</a>
+					</div>			
+				<div class="btn btn1">按钮左</div>
+				<div class="btn btn2">按钮右</div>
+			</div>
+			  
+		</div>
+		
+		</div>
+	
+	 <!--正文开始-->
+	
+	 <!--end of 正文开始-->
+	</body>
+	<script src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+	<script>
+	$(function(){
+		
+		 //确认每个图片之间的角度
+	 
+		
+		 var stageWidth = $("#stage").width()/2;
+		 var stageHeight = $("#stage").height()/2;
+		 var aSpan = $("#stage").find("span");
+		 var dim= { width:aSpan.width(),height:aSpan.height()};
+		 var aCnt = $("#stage").find("span").length;
+		 var deg =0;
+		 function draw(step,total){
+		 		 
+		//宽高 
+		//top,left
+		//margin-left
+		//opacity
+		//计算图片的放大缩小
+		deg+=step;
+				 for(var i=0;i<aCnt;i++){
+				 	
+				 	var  q = ((360/aCnt)*i+deg)*Math.PI/180;
+				 	      esin = Math.sin(q),
+				 	      ecos = Math.cos(q),
+				 	      q =0.6+0.4*esin,
+				 	      newWidth	= q*dim.width,
+						  newHeight	= q*dim.height;
+						 // console.log(q);
+				 	      aSpan.eq(i).css({
+				 	      	 top:stageHeight+300*esin,
+				 	      	 left:stageHeight+300*ecos,
+				 	      	 marginLeft: -newWidth/2,
+				 	      	 opacity:0.8+esin*0.2
+				 	      }).width(newWidth).height(newHeight);
+				 	       aSpan.eq(i).on("click",function(){
+					 	       	var o = $(this);
+					 	       	console.log(o.text());
+				 	       })
+				 }
+				 total-=Math.abs(step);
+					if(total<=0) return false;
+			       setTimeout(function(){draw(step,total)},1000/60);
+		 	
+		 }
+		 
+		draw(5,360/aCnt);
+		$(".btn1").click(function(){
+			draw(5,360/aCnt);
+			
+			
+			
+		});
+		$(".btn2").click(function(){
+			draw(-5,360/aCnt);
+			
+		})
+		
+		
+	})
+	
+		
+
+	</script>
+</html>

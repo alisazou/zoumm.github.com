@@ -1,0 +1,205 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>今天吃什么</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <style type="text/css">
+
+   html, body, h1, div {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #01579B;
+  overflow: hidden;
+}
+
+.game-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 415px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  margin: 50px 0;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  color: #FFF;
+}
+
+.food-wrap {
+  margin: 0 auto;
+  width: 128px;
+  height: 128px;
+  background-image: url('food.png');
+}
+
+.btn {
+  display: block;
+  margin: 50px auto;
+  width: 80%;
+  font-size: 16px;
+  line-height: 2.5;
+  text-align: center;
+  color: #01579B;
+  background: #FFF;
+  border: 0;
+  border-radius: 5px;
+  outline: 0;
+  -webkit-appearance: none;
+}
+  </style>
+</head>
+<body>
+  <div class="game-wrap">
+    <h1>今天吃<span id="J_FoodText">米饭</span></h1>
+    <div class="food-wrap" id="J_FoodImg"></div>
+
+    <button class="btn j_paused" id="J_Anchor">点击开始</button>
+  </div>
+
+  <script>
+    var food = [
+      {
+        index: 0,
+        name: '米饭',
+        offset: 0
+      },
+      {
+        index: 1,
+        name: '吐司',
+        offset: 128
+      },
+      {
+        index: 2,
+        name: '寿司',
+        offset: 256
+      },
+      {
+        index: 3,
+        name: '包子',
+        offset: 384
+      },
+      {
+        index: 4,
+        name: '牛排',
+        offset: 512
+      },
+      {
+        index: 5,
+        name: '靓汤',
+        offset: 640
+      },
+      {
+        index: 6,
+        name: '沙拉',
+        offset: 768
+      },
+      {
+        index: 7,
+        name: '蛋糕',
+        offset: 896
+      },
+      {
+        index: 8,
+        name: '定食',
+        offset: 1024
+      },
+      {
+        index: 9,
+        name: '披萨',
+        offset: 1152
+      },
+      {
+        index: 10,
+        name: '意粉',
+        offset: 1280
+      },
+      {
+        index: 11,
+        name: '拉面',
+        offset: 1408
+      },
+      {
+        index: 12,
+        name: '雪糕',
+        offset: 1536
+      },
+      {
+        index: 13,
+        name: '汉堡',
+        offset: 1664
+      },
+      {
+        index: 14,
+        name: '鸡蛋',
+        offset: 1792
+      },
+      {
+        index: 15,
+        name: '饺子',
+        offset: 1920
+      },
+      {
+        index: 16,
+        name: '烤鸡',
+        offset: 2048
+      },
+      {
+        index: 17,
+        name: '龙虾',
+        offset: 2176
+      }
+    ];
+
+    var foodText = document.querySelector('#J_FoodText');
+    var foodImg = document.querySelector('#J_FoodImg');
+    var anchor = document.querySelector('#J_Anchor');
+
+    anchor.addEventListener('click',function(){
+      counting(anchor,8);
+    }, false);
+
+    function changeFood() {
+      var random = Math.floor(Math.random()*(food.length));
+      var obj = food[random];
+      foodText.innerHTML = obj.name;
+      foodImg.setAttribute('style','background-position-y:-' + obj.offset +'px');
+    }
+
+    function counting (anchor,time) {
+      var altogether = time * 1000;
+      anchor.disabled = true;
+
+      var timeout1 = setInterval(function(){
+        time = time - 1;
+        anchor.innerHTML = time + '秒后停止';
+      }, 1000);
+
+      var timeout2 = setInterval(function(){
+        changeFood();
+      }, 300);
+
+      setTimeout(function(){
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+        anchor.disabled = false;
+        anchor.innerHTML = '重新选择';
+      }, altogether);
+    }
+
+  </script>
+</body>
+</html>

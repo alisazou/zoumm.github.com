@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:200px;
+	height:300px;
+	float:left;
+	background:#000;}
+	#div2{
+		width:300px;
+		height:500px;
+		float:left;
+		display:none;
+		background:#0C0;
+		margin-left:10px;}
+
+
+</style>
+<script>
+window.onload = function(){
+var odiv1 = document.getElementById("div1");
+var odiv2 = document.getElementById("div2");
+var time= null;
+
+  odiv2.onmouseover= odiv1.onmouseover= function(){
+	  
+	  odiv2.style.display="block";
+	   clearTimeout(time);
+	  
+	  };
+	    odiv2.onmouseout = odiv1.onmouseout= function(){
+	
+	   time=setTimeout(function(){odiv2.style.display="none";},500);
+	  
+	  };
+
+
+
+
+};
+
+</script>
+
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

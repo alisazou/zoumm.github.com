@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .ms-screens{width: 1000px;margin: 300px auto;height: 800px;position: relative}
+        .ms-screens a{
+            top: 0;left:0;
+            display: block;
+            position: absolute;width: 200px;height: 400px;opacity: 1;
+            webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transition: -webkit-transform 0.7s, opacity 0.4s;
+            transition: transform 0.7s, opacity 0.4s;
+
+        }
+        .ms-screens.ms-effect-1{-webkit-perspective: 1200px;}
+        .ms-screens .ms-screen-1
+        {
+            background-color: #000066;
+            -webkit-transition-delay: 0.7s;
+            transition-delay: 0.7s;
+            opacity: 1;
+        }
+
+        .ms-screens .ms-screen-2{
+            background-color: rosybrown;
+            -webkit-transition-delay: 0.6s;
+            transition-delay: 0.6s;
+            opacity: 1;
+        }
+        .ms-screens .ms-screen-3{
+            background-color: yellowgreen;
+            -webkit-transition-delay: 0.5s;
+            transition-delay: 0.5s;
+            opacity: 1;
+        }
+
+        .ms-screens .ms-screen-4{
+            background-color: greenyellow;
+            -webkit-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+            opacity:1;
+        }
+        .ms-screens .ms-screen-5{
+            background-color: lightyellow;
+            -webkit-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+            opacity:1;
+
+        }
+
+
+        /*1*/
+@-webkit-keyframes  tlZ1 {
+    0% { -webkit-transform:   translateZ(0px); }
+    100% { -webkit-transform:   translateZ(85px);}
+
+}
+@-webkit-keyframes  rotate1 {
+    0%{  -webkit-transform: rotate(0deg); }
+    50%{ -webkit-transform: rotate(45deg) scale(0.6);}
+    100%{ -webkit-transform: rotate(90deg) scale(0.2); }
+
+}
+        /*2*/
+@-webkit-keyframes  tlZ2 {
+    0% { -webkit-transform:   translateZ(0px) ; }
+    100% { -webkit-transform:   translateZ(155px);}
+
+}
+@-webkit-keyframes  rotate2 {
+    0%{  -webkit-transform: rotate(0deg) translateY(-15px) ; }
+    50%{ -webkit-transform: rotate(90deg) translateY(15px) scale(0.6);}
+    100%{ -webkit-transform: rotate(210deg)translateY(-15px)  scale(0.2); }
+
+}
+/*3*/
+@-webkit-keyframes  tlZ3 {
+    0% { -webkit-transform:   translateZ(0px); }
+    100% { -webkit-transform:   translateZ(255px);}
+
+}
+@-webkit-keyframes  rotate3 {
+    0%{  -webkit-transform: rotate(0deg)  translateY(-30px); }
+    50%{ -webkit-transform: rotate(180deg)  translateY(30px) scale(0.6);}
+    100%{ -webkit-transform: rotate(270deg)  translateY(-30px) scale(0.2); }
+
+}
+/*4*/
+@-webkit-keyframes  tlZ4 {
+    0% { -webkit-transform:   translateZ(0px); }
+    100% { -webkit-transform:   translateZ(295px);}
+
+}
+@-webkit-keyframes  rotate4 {
+    0%{  -webkit-transform: rotate(0deg)translateY(-45px);  }
+    50%{ -webkit-transform: rotate(360deg) translateY(45px) scale(0.6);}
+    100%{ -webkit-transform: rotate(720deg)translateY(-45px)  scale(0.2); }
+
+}
+/*5*/
+@-webkit-keyframes  tlZ5 {
+    0% { -webkit-transform:   translateZ(0px); }
+    100% { -webkit-transform:   translateZ(355px);}
+
+}
+@-webkit-keyframes  rotate5 {
+    0%{  -webkit-transform: rotate(0deg) translateY(-60px); }
+    50%{ -webkit-transform: rotate(450deg) translateY(60px) scale(0.6);}
+    100%{ -webkit-transform: rotate(800deg)translateY(-60px)  scale(0.2); }
+
+}
+
+
+
+/*3*/
+/*@-webkit-keyframes  tlZ3 {*/
+    /*0% { -webkit-transform:   translateZ(0px); }*/
+    /*100% { -webkit-transform:   translateZ(255px);}*/
+
+/*}*/
+/*@-webkit-keyframes rotate3 {*/
+    /*0% { -webkit-transform: rotate(0deg);}*/
+    /*50% { -webkit-transform: rotate(45deg) scale(0.6);}*/
+    /*100% { -webkit-transform: rotate(90deg) scale(0.2)); }*/
+/*}*/
+
+ .ms-screens.ms-effect-1 .ms-screen-1 { -webkit-animation:tlZ1 1s,rotate1 .5s 1s  forwards ease-out}
+ .ms-screens.ms-effect-1 .ms-screen-2 { -webkit-animation:tlZ2 1s,rotate2 .5s 1.2s  forwards ease-out }
+ .ms-screens.ms-effect-1 .ms-screen-3 { -webkit-animation:tlZ3 1s,rotate3 .5s 1.4s  forwards ease-out }
+ .ms-screens.ms-effect-1 .ms-screen-4 { -webkit-animation:tlZ4 1s,rotate4 .5s 1.4s  forwards ease-out }
+ .ms-screens.ms-effect-1 .ms-screen-5 { -webkit-animation:tlZ5 1s,rotate5 .5s 1.4s  forwards ease-out }
+
+        /*.ms-screens.ms-effect-1 .ms-screen-4 {*/
+            /*-webkit-transform: translateZ(295px);*/
+            /*-moz-transform: translateZ(295px);*/
+            /*transform: translateZ(85295);*/
+        /*}*/
+        /*.ms-screens.ms-effect-1 .ms-screen-5 {*/
+            /*-webkit-transform: translateZ(365px);*/
+            /*-moz-transform: translateZ(365px);*/
+            /*transform: translateZ(365px);*/
+        /*}*/
+    </style>
+
+</head>
+<body>
+<button id="btn">点击我</button>
+<div class="ms-screens">
+    <a class="ms-screen-1"></a>
+    <a class="ms-screen-2"></a>
+    <a class="ms-screen-3"></a>
+    <a class="ms-screen-4"></a>
+    <a class="ms-screen-5"></a>
+</div>
+</body>
+<script type="text/javascript" src="http://cache.500boss.com/public/js/zepto-1.1.4.min.js"></script>
+<script>
+    $(function(){
+        $("#btn").on("click",function(){
+
+              if(!$(".ms-screens").hasClass("ms-effect-1")){
+                  $(".ms-screens").addClass("ms-effect-1");
+              }
+          })
+    })
+
+
+//
+
+
+</script>
+</html>

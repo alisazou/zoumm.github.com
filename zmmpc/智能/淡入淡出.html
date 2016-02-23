@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{
+	width:200px;
+	height:300px;
+	background:#0C3;
+	filter:alpha(opacity:30);
+	opacity:0.3;
+	}
+#div2{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	opacity: .4;
+	margin-top: 200px;
+}
+#text{
+	width: 400px;
+	height: 300px;
+	margin-top: 300px;
+}
+#text li{
+	color: #fff;
+	background-color: black;
+	line-height: 30px;
+	border-bottom: 1px solid red;
+	opacity: .5;
+}	
+</style>
+<!--<script>
+
+
+window.onload = function(){
+	
+	var odiv = document.getElementById("div1");
+	odiv.onmousemove = function(){
+		 startmove(100);
+		
+		}
+		odiv.onmouseout = function(){
+		 startmove(30);
+		
+		}
+	
+	
+	}
+	var time= null;
+	var alpha=30;
+function startmove(itart){
+
+	
+		
+	var odiv = document.getElementById("div1");
+	
+		clearInterval(time);
+		time = setInterval(function(){
+			 var speed = 0;
+			if(alpha<itart){
+				speed=3;
+				}
+			else{
+					speed=-3;
+					}
+			
+			if(alpha==itart){
+				
+				clearInterval(time);
+				
+				
+				}
+			else{
+					alpha+=speed;
+					odiv.style.filter="alpha(opacity:'+alpha+')";
+					odiv.style.opacity=alpha/100;
+				}
+			
+			
+			
+			},30);
+		
+		
+		
+		
+	
+};
+
+</script>-->
+
+
+</head>
+
+<body>
+<!--<div id="div1"></div>
+<div id="div2"></div>-->
+<ul id="text">
+	<li>测试一</li>
+	<li>测试一</li>
+	<li>测试一</li>
+	<li>测试一</li>
+	<li>测试一</li>
+</ul>
+</body>
+<script>
+	window.onload = function(){
+		
+		var odiv2 = document.getElementById("div2");
+		var oul = document.getElementById("test");
+		var oli  = document.getElementsByTagName("li");
+		 for(var i=0;i<oli.length;i++){
+		 	 oli[i].onmouseover = function(){
+		 	 	  for(var i=0;i<oli.length;i++){
+		 	 	  	   oli[i].style.opacity = .4;
+		 	 	  }
+		 	 	  stratMove(this,100);
+		 	 	
+		 	 	 //console.log(oli[i]);
+		 	 	 
+		 	 	 
+		 	 }
+//		 	 oli[i].onmouseout = function(){
+//		 	 	  for(var i=0;i<oli.length;i++){
+//		 	 	  	   oli[i].style.opacity = .4;
+//		 	 	  }
+//		 	 	  //stratMove(this,100);
+//		 	 	 stratMove(this,40);
+//		 	 	// oli[i].style.opacity = 0.4
+//		 	 }
+		 }
+		
+		
+//		odiv2.onmouseover = function(){
+//			stratMove(100);
+//			//alert(1)
+//		}
+//		odiv2.onmouseout = function(){
+//			stratMove(40);
+//		}
+		var speed  =0;
+		var speedWidth = 0;
+			 var timer = null;
+			 var alpha = 40;
+		function stratMove(obj,tag,flex){
+			 
+			 clearInterval(timer);
+				if(alpha>tag){
+					 	 speed =-3 ;
+				}
+				else{
+					 	speed = 3;
+					 }
+				
+				timer = setInterval(function(){
+	 		  	  if(alpha == tag){
+	 		  	  	  clearInterval(timer);
+	 		  	  }
+	 		  	  alpha+=speed;
+	 		  	  obj.style.opacity = alpha/100;
+	 		  	  obj.style.width = obj.offsetWidth+speedWidth+'px';
+	 		  },100)
+				
+				
+				
+				
+	 		  
+				
+		}
+	}
+</script>
+</html>

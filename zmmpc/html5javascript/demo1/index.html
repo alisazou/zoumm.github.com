@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../common.css" />
+		<style>
+			pre {
+				text-align: left;
+				font-family: Courier New!important;
+				font-size: 12px!important;
+				word-wrap: break-word;
+				white-space: pre-wrap;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap clearfix">
+			<div class="sideBar fl">
+				<div class="sb-contain">
+					<h3 class="catListTitle">动画基础</h3>
+					<ul>
+						<li><a id="CatList_0" href="#CatList_0">setinterval与requestAnimation</a> </li>
+						<li><a id="CatList_1" href="#CatList_1">鼠标事件</a> </li>
+						<li><a id="CatList_2" href="#CatList_2">触摸事件</a> </li>
+						<li><a id="CatList_3" href="#CatList_3">键盘码</a> </li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="mainbar fl">
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_0" class="postTitle2" href="CatList_0">setinterval－requestAnimation</a>
+				  </h1>
+					<div class="pt-body">
+						<p>应用规则：我们把球移动到新的位置，新的图像得以创建，但是没有机会将他显示出来，因为帧结束的时候并没有将对象绘制canvas上，为实现动画，我们需要执行以下操作</p>
+						<ul>
+							<li>1:执行帧所要调用的代码</li>
+							<li>2:将所有对象绘制到canvas上</li>
+							<li>3:重复这一过程渲染下一帧</li>
+						</ul>
+						<p>setinverval他无法达到毫秒级的精确度（每个浏览器的定时分辨率不同）无法使用它做高质量的动画，同一时刻在浏览器的任务队列中有其他的任务话，动画代码的执行任务将不得不等待在哪里</p>
+						<p>window.requestAnimationFrame函数接受一个回调函数作为参数，并确保重绘屏幕前执行该回调函数，在某些浏览器中接受第二参数，可以通过他制定的一个html元素提供的动画的可视区域，在回调函数中对程序的修改定发生在下一个浏览器重绘之前，可以通过对requestAnimationFrame函数的链式调用实现动画循环.
+							<pre>
+				  	  (function draw(){
+				  	  	  window.requestAnimationFrame(draw,canvas);
+				  	  	  //animation code..
+				  	  })();
+				  </pre>
+						</p>
+						<p>由于requestAnimationFrame各个浏览器对它的支持还有待兼容，如果希望跨平台，可以使用如下的代码可以用来规范改函数在不用浏览器中的表现
+							<pre>  
+				  	    if (!window.requestAnimationFrame) {
+  								 window.requestAnimationFrame = (window.webkitRequestAnimationFrame ||
+                                  window.mozRequestAnimationFrame ||
+                                  window.msRequestAnimationFrame ||
+                                  window.oRequestAnimationFrame ||
+                                  function (callback) {
+                                    return window.setTimeout(callback, 17 /*~ 1000/60*/);
+                                  });
+				  </pre>
+						</p>
+						<p><a href="examples1.html">demo</a></p>
+
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">鼠标事件</a>
+				    </h1>
+					<div class="pt-body">
+						<p><a href="examples2.html">demo</a></p>
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">触摸事件</a>
+				    </h1>
+					<div class="pt-body">
+						<p><a href="examples3.html">demo</a></p>
+					</div>
+				</div>
+				<div class="post">
+					<h1 class="postTitle">
+						<a id="CatList_1" class="postTitle2" href="CatList_1">键盘码</a>
+				    </h1>
+					<div class="pt-body">
+						<p><a href="examples4.html">demo</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</body>
+
+</html>

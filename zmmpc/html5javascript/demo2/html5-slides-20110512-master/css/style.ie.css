@@ -1,0 +1,36 @@
+
+
+
+
+/***** 基本属性 *****/
+html {
+    overflow: hidden;
+}
+.slide {
+    width: 520px;
+    height: 360px;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    background-color: #00eeff;
+    box-sizing: content-box;
+    padding: 20px 40px;
+
+    /* IE下幻灯片切换的效果 */
+    display: none;
+}
+
+.current-slide {
+
+    /* IE下幻灯片切换的效果 */
+    display: block;
+}
+
+.tmpl-block img {
+    height: 280px;
+    display: block;
+    margin: auto;
+}
+
+
+

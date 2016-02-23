@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+	}
+ul{
+	width:200px;
+	height:300px;
+	border:1px solid red;
+	margin:10px auto;}
+ul li{
+	border-bottom:1px dashed black;
+	list-style:none;
+	overflow:hidden;
+	filter:alpha(opacity:0);
+	opacity:0;
+	}	
+	
+
+</style>
+<script src="move2.js"></script>
+<script>
+window.onload = function(){
+var  btn = document.getElementById("btn");
+var text = document.getElementById("text");
+var oul =document.getElementsByTagName("ul")[0];
+btn.onclick = function(){
+	var  oli = document.createElement("li");
+	var abb = oul.getElementsByTagName("li");
+	oli.innerHTML = text.value;
+	text.value="";
+	  if(abb.length>0){  //解决ie的问题
+		oul.insertBefore(oli,abb[0]);//在ul前面插入，和留言一样，最新发表的在最前面
+		
+		// oul1.appendChild(creatli);在ul后面插入
+		 
+		     }
+			 else{
+				 
+				 oul1.appendChild(oli);
+				 
+				 }
+				 //运动
+				 var iHeight = oli.offsetHeight;
+				 oli.style.height="0";
+				 startMove(oli,{height: iHeight},function(){
+					  startMove(oli,{opacity: 100});
+					 
+					 });
+				 
+		
+		
+	
+	}
+}
+</script>
+</head>
+
+<body>
+<textarea id="text" rows="4" cols="40"></textarea>
+<input type="button" value="发布" id="btn" />
+<ul>
+<li>dddd</li>
+
+</ul>
+</body>
+</html>

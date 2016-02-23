@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400" style="border: 1px solid red;"></canvas>
+			<script src="../inc/utils.js"></script>
+		<script src="../inc/ball.js"></script>
+	<script>
+	window.onload = function(){
+		
+              var canvas = document.getElementById("canvas"),
+		        context = canvas.getContext('2d'),
+		        centery = 400,
+		        centerx = 400,
+		        angle = 0,
+		        rang = 50,
+		        xpos=  0,
+		        ypos = centery/2,
+		        xspeed= 1,
+		        yspeed = 0.05;
+		      
+        (function drawFrame(){
+        	requestAnimationFrame(drawFrame,canvas);
+        	
+        	context.beginPath();
+        	context.moveTo(xpos,ypos);
+        	xpos+=xspeed;
+        	angle+=yspeed;
+        	ypos = centery/2+Math.sin(angle)*rang;
+        	
+        	context.lineTo(xpos,ypos);
+        	context.strokeStyle="#E7A71F";
+        	context.closePath();
+        	context.stroke();
+        	
+        	 
+        })();
+	}
+	
+	
+	</script>
+	</body>
+</html>

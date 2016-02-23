@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function getclass(oparent,sclass){
+	 var result=[];
+	var oul = oparent.getElementsByTagName("*");
+	for(var i=0;i<oul.length;i++){
+		if(oul[i].className==sclass)
+		{
+			
+		result.push(oul[i]);
+		
+		}
+	}
+	
+	return result; 
+	
+	};
+
+window.onload = function(){
+var oul = document.getElementById("ul1");
+  var ae = getclass(oul,"box");
+  for(var i=0;i<ae.length;i++){
+	  
+	  ae[i].style.background="red";
+	  
+	  }
+ /*var ali = oul.getElementsByTagName("li");
+ for(var i=0;i<ali.length;i++){
+	 if(ali[i].className=="box"){
+		 ali[i].style.background="red";
+		 
+		 }
+ 
+ 
+ }*/
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+<li class="box"></li>
+<li></li>
+<li class="box"></li>
+<li></li>
+</ul>
+</body>
+</html>

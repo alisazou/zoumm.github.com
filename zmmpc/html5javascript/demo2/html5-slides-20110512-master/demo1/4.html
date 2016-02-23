@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid red;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script>
+		
+		window.onload = function(){
+				var myCanvas = document.getElementById('canvas');
+				var ctx = myCanvas.getContext('2d');
+				var range = 0.5;	//脉冲范围
+				var angleSpeed = 0; //角度变化速度
+				var raduis = 100; //半径
+				//默认缩放大小，这个参数其实是为了让scale(x,y)里面的参数不变为负数
+				var centerScale = 1; 
+				var x = myCanvas.width/2;
+				var y = myCanvas.height/2;
+				//脉冲运动
+				(function pulse(){
+					setTimeout(pulse,1000/60);
+					ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
+					ctx.save()
+					ctx.translate(x,y);
+					//注意sin和cos的区别，这里使用sin从小变大，如果你想从大变小,使用cos
+					//Math.sin(angleSpeed)*range 其实变动范围就在[-0.5,0.5]之间了
+					ctx.scale(centerScale + Math.sin(angleSpeed)*range,centerScale + Math.sin(angleSpeed)*range);
+					ctx.beginPath();
+					ctx.fillStyle = "#99CCFF";
+					ctx.arc(0,0,raduis,0,2*Math.PI,false);
+					ctx.fill();
+					ctx.restore();
+					angleSpeed += 0.02;
+				}());
+}
+	</script>
+</html>

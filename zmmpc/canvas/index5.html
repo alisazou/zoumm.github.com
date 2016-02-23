@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{border: 1px solid #e6e6e6;}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" >
+			当前浏览器不支持
+		</canvas>
+	</body>
+<script type="text/javascript">
+		var tangram=[
+		{p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"#caff67"},
+		{p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"#67becf"},
+		{p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"#ef3d61"},
+		{p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"#f9f51a"},
+		{p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"#a54c09"},
+		{p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"#fa8ccc"},
+		{p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"#f6ca29"}
+		];
+		console.log(tangram[0].p[2].y);
+		
+		window.onload=function(){
+			
+			var canvas=document.getElementById("canvas");
+			canvas.width=800;
+			canvas.height=800;
+			var context=canvas.getContext("2d");
+			for (var i =0; i < tangram.length; i++) {
+			draw(tangram[i],context);
+			
+			}
+			
+		}
+	function draw(piece,ctxt){
+			ctxt.beginPath();
+			ctxt.moveTo(piece.p[0].x,piece.p[0].y);
+			for(j=1;j<piece.p.length;j++){
+			ctxt.lineTo(piece.p[j].x,piece.p[j].y);
+			}
+			ctxt.closePath();
+			ctxt.strokeStyle="#333";
+			ctxt.stroke();
+			ctxt.fillStyle=piece.color;
+			ctxt.fill();
+	}
+</script>
+</html>
+

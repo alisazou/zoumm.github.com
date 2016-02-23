@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #canvas{width: 400px;height: 400px;border: 1px solid red}
+        #canvas1{width: 400px;height: 400px;border: 1px solid red}
+        #img{display: none}
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<canvas id="canvas1"></canvas>
+<img src="banner.jpg" alt="" id="img" />
+</body>
+
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                images = new Image();
+                images.src="d1.jpg";
+                images.onload = function(){
+                    context.drawImage(images,0,0);
+                };
+        var canvas1 = document.getElementById('canvas1'),
+                context1 = canvas1.getContext('2d'),
+                img = document.getElementById('img');
+        context1.drawImage(img,0,0);
+
+    };
+</script>
+
+</html>

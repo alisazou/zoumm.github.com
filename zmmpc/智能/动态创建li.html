@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload =function(){
+	    var obtn = document.getElementById("btn");
+	    var oul1 =document.getElementById("ul1");
+		var otex =document.getElementById("tex");
+		
+obtn.onclick = function(){
+		var creatli = document.createElement("li");
+		 var abb = oul1.getElementsByTagName("li");
+		 creatli.innerHTML =otex.value; 
+		 if(abb.length>0){  //解决ie的问题
+		oul1.insertBefore(creatli,abb[0]);//在ul前面插入，和留言一样，最新发表的在最前面
+		
+		// oul1.appendChild(creatli);在ul后面插入
+		 
+		     }
+			 else{
+				 
+				 oul1.appendChild(creatli);
+				 
+				 }
+		
+		}
+		//删除元素
+		
+	
+	
+	};
+
+
+
+</script>
+
+</head>
+
+<body>
+<input type="text"  id="tex" />
+<input type="button" value="创建li" id="btn"/>
+
+<ul id="ul1">
+</ul>
+
+</body>
+</html>

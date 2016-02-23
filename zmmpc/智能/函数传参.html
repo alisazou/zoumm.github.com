@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+#div1{
+	width:200px;
+	height:300px;
+	background:#0F0;}
+
+</style>
+<script>
+function tocolor(color){
+	var change = document.getElementById("div1");
+	change.style.background=color;
+	
+	}
+	
+	
+	tocolor();
+	
+
+</script>
+<body>
+
+<input type="button" value="变红" onClick="tocolor('red')"; />
+
+<input type="button" value="变蓝"  onClick="tocolor('blue')";/>
+<input type="button" value="变黑"  onClick="tocolor('black')";/>
+<div id="div1"></div> 
+</body>
+</html>

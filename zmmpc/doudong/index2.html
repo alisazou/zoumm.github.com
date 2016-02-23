@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <title>二级下拉菜单</title>
+    <style type="text/css">
+        *{margin:0; padding:0}
+        body{width:960px; margin:20px auto; font-size:14px;}
+        a{text-decoration: none}
+        /*导航条*/
+        #nav {width: 200px;background-color:blue; color:#fff;height:25px;line-height:25px;text-align:center;list-style:none;}
+        #nav a{color:#fff;}
+        #nav li{width:100px;float:left;position:relative;z-index:1;}
+        #nav li .title{display:block;}
+        #nav li .title:hover{background-color:green;}
+        #nav li .submenu{width:100px;margin:0 auto;background:green;position:absolute;left:0;top:25px;display:none;}
+        #nav li .submenu dd a:hover{color: red}
+    </style>
+</head>
+
+<body>
+
+<ul id="nav">
+    <!-- 有二级菜单的，给li加class="menu" 没有的不用加 -->
+    <li class="menu">
+        <a href=#" class="title">彩种</a>
+        <dl class="submenu">
+            <dd><a href="#">大乐透</a></dd>
+            <dd><a href="#">竞足</a></dd>
+            <dd><a href="#">竞篮</a></dd>
+
+        </dl>
+    </li>
+    <li class="menu">
+        <a href="#" class="title">测试二</a>
+        <dl class="submenu">
+            <dd><a href="#">菜单导航1</a></dd>
+            <dd><a href="#">菜单导航2</a></dd>
+
+        </dl>
+    </li>
+
+</ul><!--end nav-->
+<script type="text/javascript">
+    <!--
+    var nav = document.getElementById("nav").children;
+    for (var i=0;i<nav.length;i++)
+    {
+        if (nav[i].className=="menu")
+        {
+            nav[i].onmouseover = function(){fnNav(this,"block")};
+            nav[i].onmouseout = function(){fnNav(this,"none")};
+        }
+    }
+    function fnNav(obj,flag)
+    {
+        obj.getElementsByTagName("dl")[0].style.display = flag;
+    }
+    // console.log( nav.length);
+    //-->
+</script>
+</body>
+</html>

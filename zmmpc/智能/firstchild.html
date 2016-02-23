@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+var oul = document.getElementById("ul1");
+//ie6-ie8成立
+ //oul.firstChild.style.background="red";
+ //高版本成立
+  //oul.firstElementChild.style.background="red";
+  if(oul.firstElementChild){
+	  oul.firstElementChild.style.background="red";
+	  }
+	  else{oul.firstChild.style.background="red";}
+
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+
+
+</ul>
+</body>
+</html>

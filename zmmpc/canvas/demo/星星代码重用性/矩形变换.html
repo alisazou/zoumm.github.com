@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图形变化函数－实验</title>
+</head>
+
+<body>
+//
+		context.translate( 50, 200); //当translate 开启时 可以改变图形的位置<br />
+		context.rotate(-20*Math.PI/180);   //逆时针旋转20度<br/>
+		context.scale(1.1,1.1);
+<canvas id="canvas" style="border:1px solid #aaa; display:block; margin:10px auto;">
+	当前浏览器不支持canvas, 请更换浏览器后再试
+</canvas>
+
+<script>
+
+	window.onload = function(){
+	
+		var canvas = document.getElementById("canvas");
+		
+		canvas.width = 900;
+		canvas.height = 700;
+		
+		var context = canvas.getContext("2d");
+		
+		context.fillStyle = "red";
+		context.translate( 50, 200); //当translate 开启时 可以改变图形的位置
+		context.rotate(-20*Math.PI/180);   //逆时针旋转20度
+		context.scale(1.1,1.1);  //放大1.1倍
+		context.fillRect( 0, 0, 400, 400);
+	}
+		
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+
+#div1{width:400px;height:400px;border:1px solid #000;position: relative;left: 400px;}
+
+#div4{ width:100px; height:100px; background:blue; position:absolute;left: 0;}
+</style>
+<script>
+
+//碰撞运动 : 首先找到碰撞的临界点 , 再确定运动的方向 , 然后去改对应的速度（速度取反）
+
+window.onload = function(){
+    var 
+    	
+    	oDiv = document.getElementById('div4'),
+      
+        oDiv_box = document.getElementById('div1'),
+        oInput  =document.getElementById("input");
+        oInput.onclick = function(){
+       	     startMove(oDiv);  
+       }
+    var iSpeedX = 10;
+    var iSpeedY = 10;
+    var timer = null;
+    function startMove(obj){
+
+    	
+    	clearInterval(timer);
+        timer = setInterval(function(){
+            
+            var L = obj.offsetLeft + iSpeedX;
+            var T = obj.offsetTop + iSpeedY;
+            
+            if(T> oDiv_box.clientHeight - obj.offsetHeight){
+                T = oDiv_box.clientHeight - obj.offsetHeight;
+                iSpeedY *= -1;
+                console.log("obj.offsetHeight->"+obj.offsetHeight+"  "+"T->"+T);
+            }
+            else if(T<0){
+                T = 0;
+                iSpeedY *= -1;
+                console.log("obj.offsetHeight->"+obj.offsetHeight+"  "+"T->"+T);
+            }
+            
+            if(L>oDiv_box.clientWidth - obj.offsetWidth){
+                L = oDiv_box.clientWidth - obj.offsetWidth;
+                iSpeedX *= -1;
+            }
+            else if(L<0){
+                L = 0;
+                iSpeedX *= -1;
+            }
+            
+            obj.style.left = L + 'px';
+            obj.style.top = T + 'px';
+        },30);
+    }
+    
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" id="input">
+<input type="button" value="停止运动" id="stop">
+<div id="div1">
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+</div>
+
+</body>
+</html>
